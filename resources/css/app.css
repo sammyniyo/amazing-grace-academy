@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer components {
+    .section-pad {
+        @apply py-20 md:py-24;
+    }
+
+    .glass {
+        @apply border border-white/60 bg-white/70 shadow-sm backdrop-blur;
+    }
+
+    .elevate {
+        transition:
+            transform 500ms var(--ease-premium),
+            box-shadow 500ms var(--ease-premium);
+    }
+    .elevate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 30px 80px rgba(2, 6, 23, 0.18);
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+            opacity 700ms var(--ease-premium),
+            transform 700ms var(--ease-premium);
+    }
+    .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
