@@ -1,5 +1,5 @@
 @props([
-    'variant' => 'primary', // primary | glass | outline
+    'variant' => 'primary', // primary | glass | outline | ghost
 ])
 
 @php
@@ -9,6 +9,7 @@
         'primary' => 'bg-slate-900 text-white shadow-sm hover:bg-slate-800',
         'glass' => 'glass text-slate-700 hover:bg-white',
         'outline' => 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-50',
+        'ghost' => 'text-slate-700 hover:bg-slate-50',
     ];
 @endphp
 

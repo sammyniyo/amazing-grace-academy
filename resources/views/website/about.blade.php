@@ -14,18 +14,19 @@
                     </div>
 
                     <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 leading-tight">
-                        Choir-based music training for worship and excellence.
+                        A choir story that grew into a school for worship and excellence.
                     </h1>
 
                     <p class="text-lg text-slate-600 max-w-2xl">
-                        We teach Sol-Fa, staff notation, and instruments within the Seventh-day Adventist Church —
-                        preparing singers and leaders to read, teach, and serve with confidence.
+                        In October 2016 a handful of singers gathered after vespers to crack open Sol-Fa syllables.
+                        The joy of reading hymns together sparked a journey that now welcomes hundreds to learn, lead,
+                        and serve with confidence.
                     </p>
 
                     <ul class="space-y-2 text-sm text-slate-700">
-                        <li class="flex items-center gap-2"><span class="dot"></span> Free church-based program</li>
-                        <li class="flex items-center gap-2"><span class="dot"></span> Sight-reading, harmony, and rehearsal methods</li>
-                        <li class="flex items-center gap-2"><span class="dot"></span> Piano, Guitar, Violin guided by literacy</li>
+                        <li class="flex items-center gap-2"><span class="dot"></span> Began as a free, church-based experiment in hymn literacy</li>
+                        <li class="flex items-center gap-2"><span class="dot"></span> Grew into structured sight-reading, harmony, and rehearsal craft</li>
+                        <li class="flex items-center gap-2"><span class="dot"></span> Now guides Piano, Guitar, Violin through the same literacy-first path</li>
                     </ul>
 
                     <div class="flex flex-wrap gap-3">
@@ -38,9 +39,9 @@
                     </div>
 
                     <div class="flex flex-wrap gap-3 text-sm text-slate-600">
-                        <span class="pill bg-white border border-teal-100 text-teal-700">700+ learners</span>
-                        <span class="pill bg-white border border-amber-100 text-amber-700">168 Sol-Fa grads</span>
-                        <span class="pill bg-white border border-slate-200 text-slate-700">ABRSM certificates</span>
+                        <span class="pill bg-white border border-teal-100 text-teal-700">700+ learners invited into the story</span>
+                        <span class="pill bg-white border border-amber-100 text-amber-700">168 Sol-Fa grads turned mentors</span>
+                        <span class="pill bg-white border border-slate-200 text-slate-700">ABRSM certificates earned along the way</span>
                     </div>
                 </div>
 
@@ -80,23 +81,23 @@
                     Amazing Grace Academy is a music school within the <strong>Seventh-day Adventist Church</strong>, under <strong>ASSA Kigali</strong>, at <strong>ASA UR Nyarugenge</strong>, Kigali Bilingual Church.
                 </p>
                 <p class="mt-4 text-slate-600 leading-relaxed">
-                    Founded in <strong>October 2016</strong>, we welcome beginners and experienced singers alike, offering free training grounded in worship and ministry.
+                    In <strong>October 2016</strong> we were simply a choir asking, “How do we read these hymns well?” A borrowed classroom became our first rehearsal hall and the church bulletin became our invitation.
                 </p>
                 <p class="mt-4 text-slate-600 leading-relaxed">
-                    We value discipline, harmony, and service — preparing learners to read, lead, and inspire choirs across Rwanda.
+                    Each cohort since has added a stanza to the story — beginners beside seasoned choristers — all learning discipline, harmony, and service so they can return to their churches ready to lead.
                 </p>
             </div>
 
             <div class="soft-card p-10 reveal">
                 <h2 class="text-2xl font-semibold text-slate-900">What We Teach</h2>
                 <ul class="mt-6 space-y-3 text-slate-700 text-sm">
-                    <li>• Tonic Sol-Fa (church hymnal notation)</li>
-                    <li>• International Staff Notation (Muhundwanota)</li>
-                    <li>• Sight-reading, harmony, hymn analysis</li>
-                    <li>• Instrumental training (Piano, Guitar, Violin)</li>
+                    <li>• Chapter 1: Tonic Sol-Fa (church hymnal notation) — the language that started everything</li>
+                    <li>• Chapter 2: International Staff Notation (Muhundwanota) — translating faith into universal score</li>
+                    <li>• Chapter 3: Sight-reading, harmony, hymn analysis — habits that keep choirs together</li>
+                    <li>• Chapter 4: Piano, Guitar, Violin — instruments woven into the same literacy-first path</li>
                 </ul>
                 <p class="mt-6 text-slate-600 leading-relaxed">
-                    Learners advance from Sol-Fa to international notation and instruments, equipped for choir leadership and performance.
+                    Learners move through these chapters like a narrative arc — from decoding syllables to interpreting scores, then carrying instruments that let the story travel farther.
                 </p>
             </div>
         </div>
@@ -109,19 +110,19 @@
                 <div class="soft-card p-10 bg-white reveal">
                     <div class="pill bg-white border border-teal-100 text-teal-700 shadow-sm inline-flex">Mission</div>
                     <p class="mt-4 text-lg leading-relaxed text-slate-800">
-                        To teach music through proper sight-reading and notation, equipping learners with skills that transform music ministry wherever they serve.
+                        This is the “why” of our first gathering: teach music through proper sight-reading and notation so every hymn can be sung with meaning and unity wherever our learners serve.
                     </p>
                     <p class="mt-3 text-slate-600">
-                        We aim to strengthen music standards in churches across Rwanda, ensuring hymns are sung correctly and consistently.
+                        It remains our compass — strengthening music standards in churches across Rwanda, ensuring hymns are sung correctly and consistently.
                     </p>
                 </div>
                 <div class="soft-card p-10 bg-white reveal">
                     <div class="pill bg-white border border-teal-100 text-teal-700 shadow-sm inline-flex">Vision</div>
                     <p class="mt-4 text-lg leading-relaxed text-slate-800">
-                        To train learners until they can independently sing or play any piece written in Sol-Fa or staff notation, and lead choirs with excellence.
+                        The next chapters imagine every learner able to pick up any piece — Sol-Fa or staff — sing it, teach it, or play it, and then shape a choir with excellence.
                     </p>
                     <p class="mt-3 text-slate-600">
-                        To promote quality choral singing in Rwanda and internationally.
+                        We see choirs across Rwanda (and beyond) sounding aligned, confident, and joyful because someone from this story stood in front of them.
                     </p>
                 </div>
             </div>
@@ -133,24 +134,24 @@
         <div class="reveal">
             <h2 class="text-3xl font-semibold text-slate-900 text-center">Our Pillars</h2>
             <p class="mt-2 text-slate-600 text-center max-w-2xl mx-auto">
-                The foundations that guide every rehearsal, class, and ministry engagement.
+                Three pillars hold the narrative steady in every rehearsal, class, and ministry moment.
             </p>
         </div>
         <div class="mt-10 grid gap-6 md:grid-cols-3">
             <div class="soft-card p-7 reveal">
                 <div class="pill bg-white border border-emerald-100 text-emerald-700 shadow-sm inline-flex">Literacy</div>
                 <h3 class="mt-3 text-lg font-semibold text-slate-900">Music Literacy</h3>
-                <p class="mt-2 text-sm text-slate-600">Sight-reading, hymn rules, harmony, and disciplined rehearsal methods.</p>
+                <p class="mt-2 text-sm text-slate-600">Sight-reading, hymn rules, harmony, and disciplined rehearsal methods — the grammar of our story.</p>
             </div>
             <div class="soft-card p-7 reveal">
                 <div class="pill bg-white border border-amber-100 text-amber-700 shadow-sm inline-flex">Ministry</div>
                 <h3 class="mt-3 text-lg font-semibold text-slate-900">Ministry Focus</h3>
-                <p class="mt-2 text-sm text-slate-600">Training for worship leadership, evangelism programs, and church service.</p>
+                <p class="mt-2 text-sm text-slate-600">Training for worship leadership, evangelism programs, and church service — why the story matters.</p>
             </div>
             <div class="soft-card p-7 reveal">
                 <div class="pill bg-white border border-slate-200 text-slate-700 shadow-sm inline-flex">Excellence</div>
                 <h3 class="mt-3 text-lg font-semibold text-slate-900">Excellence & Care</h3>
-                <p class="mt-2 text-sm text-slate-600">Mentorship, ensemble discipline, and performance readiness.</p>
+                <p class="mt-2 text-sm text-slate-600">Mentorship, ensemble discipline, and performance readiness — turning chapters into lasting testimony.</p>
             </div>
         </div>
     </section>
@@ -179,7 +180,7 @@
         </div>
 
         <p class="mt-8 max-w-3xl mx-auto text-center text-slate-600 reveal">
-            Graduates contribute to hymn recordings, radio music education programs, and establish music schools in their home churches.
+            Graduates now lead hymn recordings, radio music education, and new music schools — proof that the story is being retold in many voices.
         </p>
     </section>
 

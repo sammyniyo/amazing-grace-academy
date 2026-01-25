@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ContactMessage extends Model
+class Event extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'email',
-        'phone',
-        'topic',
-        'message',
+        'title',
+        'event_date',
+        'location',
         'status',
-        'admin_notes',
+        'description',
+    ];
+
+    protected $casts = [
+        'event_date' => 'date',
     ];
 }

@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('type')->default('album'); // album, single, hymn, resource
+            $table->string('format')->nullable(); // mp3, pdf, bundle
+            $table->unsignedInteger('price')->default(0); // stored in RWF
+            $table->boolean('is_active')->default(true);
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

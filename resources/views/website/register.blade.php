@@ -81,37 +81,43 @@
                 </div>
             </div>
 
-            <form class="mt-6 grid gap-4 md:grid-cols-2">
+            <form class="mt-6 grid gap-4 md:grid-cols-2" method="POST" action="{{ route('register.submit') }}">
+                @csrf
+                @if (session('success'))
+                    <div class="md:col-span-2 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div>
                     <label class="text-sm font-medium text-slate-900">Full Name</label>
-                    <input type="text"
+                    <input name="name" type="text" required
                         class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-300 focus:ring focus:ring-teal-100">
                 </div>
                 <div>
                     <label class="text-sm font-medium text-slate-900">Phone Number</label>
-                    <input type="text"
+                    <input name="phone" type="text"
                         class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-300 focus:ring focus:ring-teal-100">
                 </div>
 
                 <div>
                     <label class="text-sm font-medium text-slate-900">Email (optional)</label>
-                    <input type="email"
+                    <input name="email" type="email"
                         class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-300 focus:ring focus:ring-teal-100">
                 </div>
                 <div>
                     <label class="text-sm font-medium text-slate-900">Preferred Instrument</label>
-                    <select class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-teal-300 focus:ring focus:ring-teal-100">
-                        <option>Sol-Fa & Choir</option>
-                        <option>Staff Notation</option>
-                        <option>Piano</option>
-                        <option>Guitar</option>
-                        <option>Violin</option>
+                    <select name="instrument_interest" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-teal-300 focus:ring focus:ring-teal-100">
+                        <option value="Sol-Fa & Choir">Sol-Fa & Choir</option>
+                        <option value="Staff Notation">Staff Notation</option>
+                        <option value="Piano">Piano</option>
+                        <option value="Guitar">Guitar</option>
+                        <option value="Violin">Violin</option>
                     </select>
                 </div>
 
                 <div class="md:col-span-2">
                     <label class="text-sm font-medium text-slate-900">Message</label>
-                    <textarea rows="4"
+                    <textarea name="message" rows="4"
                         class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-300 focus:ring focus:ring-teal-100"
                         placeholder="e.g. I want to join Class of 2026, Sol-Fa level"></textarea>
                 </div>

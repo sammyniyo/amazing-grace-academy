@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('cohorts', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('code')->unique();
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
+            $table->string('location')->nullable();
+            $table->string('status')->default('upcoming'); // upcoming, active, completed
+            $table->unsignedInteger('capacity')->default(30);
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

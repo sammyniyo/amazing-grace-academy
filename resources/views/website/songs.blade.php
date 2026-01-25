@@ -70,109 +70,42 @@
 
     {{-- SHOP GRID --}}
     <section class="mx-auto max-w-7xl px-6 pb-20">
-        <div class="reveal flex flex-wrap items-center justify-between gap-4 mb-6">
-            <div class="flex flex-wrap gap-2 text-sm text-slate-600">
-                <span class="pill bg-white border border-slate-200 text-slate-700">All</span>
-                <span class="pill bg-white border border-slate-200 text-slate-700">Albums</span>
-                <span class="pill bg-white border border-slate-200 text-slate-700">Hymnals</span>
-                <span class="pill bg-white border border-slate-200 text-slate-700">Workbooks</span>
-                <span class="pill bg-white border border-slate-200 text-slate-700">Bundles</span>
+        @if (session('success'))
+            <div class="mb-4 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 reveal">
+                {{ session('success') }}
             </div>
-            <div class="text-sm text-slate-500">Instant downloads • Local pickup in Kigali</div>
-        </div>
+        @endif
 
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-            {{-- PRODUCT --}}
-            <div class="shop-card reveal">
-                <img src="https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?auto=format&fit=crop&w=900&q=80" class="w-full h-52 rounded-2xl object-cover mb-4" alt="Album cover">
-                <div class="text-xs font-semibold text-emerald-700">Album</div>
-                <h2 class="mt-2 text-xl font-semibold text-slate-900">“Hymns Renewed”</h2>
-                <p class="mt-2 text-sm text-slate-600">
-                    Recorded arrangements by Amazing Grace Academy choir with warm harmonies.
-                </p>
-                <div class="mt-4 flex items-center justify-between text-sm text-slate-600">
-                    <span class="font-bold text-slate-900 text-lg">10,000 RWF</span>
-                    <span>MP3 + PDF booklet</span>
+            @forelse ($products as $product)
+                <div class="shop-card reveal">
+                    <div class="h-52 w-full rounded-2xl bg-gradient-to-br from-emerald-100 via-white to-amber-100 grid place-items-center text-emerald-700 text-lg font-semibold">
+                        {{ ucfirst($product->type) }}
+                    </div>
+                    <div class="text-xs font-semibold text-emerald-700">{{ ucfirst($product->type) }}</div>
+                    <h2 class="mt-2 text-xl font-semibold text-slate-900">{{ $product->title }}</h2>
+                    <p class="mt-2 text-sm text-slate-600">
+                        {{ $product->description ?? 'Music resource from Amazing Grace Academy.' }}
+                    </p>
+                    <div class="mt-4 flex items-center justify-between text-sm text-slate-600">
+                        <span class="font-bold text-slate-900 text-lg">{{ number_format($product->price) }} RWF</span>
+                        <span>{{ $product->format ?? 'Digital/Physical' }}</span>
+                    </div>
+                    <form class="mt-4 space-y-2" method="POST" action="{{ route('order.submit') }}">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="text" name="name" placeholder="Your name" class="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-emerald-300 focus:ring focus:ring-emerald-100" required>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" name="phone" placeholder="Phone" class="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-emerald-300 focus:ring focus:ring-emerald-100">
+                            <input type="email" name="email" placeholder="Email" class="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-emerald-300 focus:ring focus:ring-emerald-100">
+                        </div>
+                        <button class="w-full rounded-lg bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-600">Place Order</button>
+                    </form>
                 </div>
-                <div class="mt-4 flex gap-2">
-                    <x-ui.button variant="primary" class="w-full bg-emerald-700 hover:bg-emerald-600">Buy Album</x-ui.button>
-                    <x-ui.button variant="glass" class="w-full">Preview</x-ui.button>
-                </div>
-            </div>
-
-            {{-- PRODUCT --}}
-            <div class="shop-card reveal">
-                <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?auto=format&fit=crop&w=900&q=80" class="w-full h-52 rounded-2xl object-cover mb-4" alt="Hymnal cover">
-                <div class="text-xs font-semibold text-emerald-700">Hymnal</div>
-                <h2 class="mt-2 text-xl font-semibold text-slate-900">Sol-Fa Hymnal (SATB)</h2>
-                <p class="mt-2 text-sm text-slate-600">
-                    Printed hymns with clear parts for choir practice plus digital download.
-                </p>
-                <div class="mt-4 flex items-center justify-between text-sm text-slate-600">
-                    <span class="font-bold text-slate-900 text-lg">8,000 RWF</span>
-                    <span>Print + PDF</span>
-                </div>
-                <div class="mt-4 flex gap-2">
-                    <x-ui.button variant="primary" class="w-full bg-emerald-700 hover:bg-emerald-600">Order Copy</x-ui.button>
-                    <x-ui.button variant="outline" class="w-full">Details</x-ui.button>
-                </div>
-            </div>
-
-            {{-- PRODUCT --}}
-            <div class="shop-card reveal">
-                <img src="https://images.unsplash.com/photo-1513863323964-24ae1b9b0909?auto=format&fit=crop&w=900&q=80" class="w-full h-52 rounded-2xl object-cover mb-4" alt="Workbook cover">
-                <div class="text-xs font-semibold text-emerald-700">Workbook</div>
-                <h2 class="mt-2 text-xl font-semibold text-slate-900">Sight-Reading Drills</h2>
-                <p class="mt-2 text-sm text-slate-600">
-                    Exercises for Sol-Fa and staff notation learners with matching audio.
-                </p>
-                <div class="mt-4 flex items-center justify-between text-sm text-slate-600">
-                    <span class="font-bold text-slate-900 text-lg">6,000 RWF</span>
-                    <span>PDF + Audio</span>
-                </div>
-                <div class="mt-4 flex gap-2">
-                    <x-ui.button variant="primary" class="w-full bg-emerald-700 hover:bg-emerald-600">Buy Workbook</x-ui.button>
-                    <x-ui.button variant="glass" class="w-full">Preview</x-ui.button>
-                </div>
-            </div>
-
-            {{-- PRODUCT --}}
-            <div class="shop-card reveal">
-                <img src="https://images.unsplash.com/photo-1483412033650-1015ddeb83d1?auto=format&fit=crop&w=900&q=80" class="w-full h-52 rounded-2xl object-cover mb-4" alt="Album cover">
-                <div class="text-xs font-semibold text-emerald-700">Album</div>
-                <h2 class="mt-2 text-xl font-semibold text-slate-900">“Voices of Grace”</h2>
-                <p class="mt-2 text-sm text-slate-600">
-                    Live choir recordings from concerts and ministry trips.
-                </p>
-                <div class="mt-4 flex items-center justify-between text-sm text-slate-600">
-                    <span class="font-bold text-slate-900 text-lg">12,000 RWF</span>
-                    <span>MP3 + Lyric PDF</span>
-                </div>
-                <div class="mt-4 flex gap-2">
-                    <x-ui.button variant="primary" class="w-full bg-emerald-700 hover:bg-emerald-600">Buy Album</x-ui.button>
-                    <x-ui.button variant="glass" class="w-full">Preview</x-ui.button>
-                </div>
-            </div>
-
-            {{-- PRODUCT --}}
-            <div class="shop-card reveal">
-                <img src="https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?auto=format&fit=crop&w=900&q=80" class="w-full h-52 rounded-2xl object-cover mb-4" alt="Bundle cover">
-                <div class="text-xs font-semibold text-emerald-700">Bundle</div>
-                <h2 class="mt-2 text-xl font-semibold text-slate-900">Choir Starter Pack</h2>
-                <p class="mt-2 text-sm text-slate-600">
-                    1 album + 3 hymnals + workbook to launch a new choir section.
-                </p>
-                <div class="mt-4 flex items-center justify-between text-sm text-slate-600">
-                    <span class="font-bold text-slate-900 text-lg">20,000 RWF</span>
-                    <span>Best value</span>
-                </div>
-                <div class="mt-4 flex gap-2">
-                    <x-ui.button variant="primary" class="w-full bg-emerald-700 hover:bg-emerald-600">Add Bundle</x-ui.button>
-                    <x-ui.button variant="outline" class="w-full">Details</x-ui.button>
-                </div>
-            </div>
-
+            @empty
+                <p class="text-slate-600">No products available yet. Check back soon.</p>
+            @endforelse
         </div>
     </section>
 

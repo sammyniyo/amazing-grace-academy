@@ -6,22 +6,26 @@
     {{-- HERO --}}
     <section class="mx-auto max-w-7xl px-6 pt-16 pb-14">
         <div
-            class="rounded-[36px] border border-emerald-100 bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-100/70 shadow-[0_20px_60px_rgba(16,185,129,0.12)] overflow-hidden">
-            <div class="grid items-center gap-10 lg:grid-cols-2 px-6 py-10 sm:px-10 lg:px-12">
-                <div class="reveal space-y-6">
-                    <div class="flex items-center gap-2 text-sm text-emerald-700">
-                        <div
-                            class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 border border-emerald-100 shadow-sm">
-                            <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-                            <span class="font-semibold">Choir-based training</span>
-                        </div>
-                        <div
-                            class="hidden sm:inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 border border-emerald-100 shadow-sm text-slate-600">
-                            Since 2016
-                        </div>
+            class="relative overflow-hidden rounded-[32px] border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-emerald-50/60 shadow-[0_18px_50px_rgba(15,118,110,0.10)]">
+            <div class="absolute inset-0 pointer-events-none">
+                <div class="absolute inset-4 rounded-[28px] bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.06),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(59,130,246,0.05),transparent_30%),radial-gradient(circle_at_60%_70%,rgba(236,72,153,0.05),transparent_32%)]"></div>
+                <div class="absolute left-6 right-6 top-10 h-[2px] bg-[repeating-linear-gradient(90deg,rgba(15,118,110,0.14),rgba(15,118,110,0.14)_22px,transparent_22px,transparent_44px)]"></div>
+                <div class="absolute left-6 right-6 top-16 h-[2px] bg-[repeating-linear-gradient(90deg,rgba(15,23,42,0.08),rgba(15,23,42,0.08)_22px,transparent_22px,transparent_44px)]"></div>
+                <div class="absolute left-6 right-6 top-22 h-[2px] bg-[repeating-linear-gradient(90deg,rgba(52,211,153,0.14),rgba(52,211,153,0.14)_22px,transparent_22px,transparent_44px)]"></div>
+                <div class="absolute left-6 right-6 top-28 h-[2px] bg-[repeating-linear-gradient(90deg,rgba(8,47,73,0.08),rgba(8,47,73,0.08)_22px,transparent_22px,transparent_44px)]"></div>
+            </div>
+
+            <div class="grid items-center gap-10 lg:grid-cols-2 px-6 py-10 sm:px-10 lg:px-12 relative">
+                <div class="reveal space-y-7">
+                    <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
+                        <span class="pill bg-white border border-emerald-100 shadow-sm text-emerald-700">Sacred Music Academy</span>
+                        <span class="pill bg-white border border-slate-200 shadow-sm text-slate-600">Since 2016</span>
+                        <span class="pill bg-white border border-emerald-100 shadow-sm text-emerald-700 flex items-center gap-2">
+                            <i class="fa-solid fa-music text-emerald-600"></i> Staff • Sol-Fa • Choir
+                        </span>
                     </div>
-                    <div
-                        class="inline-flex items-center gap-3 rounded-full bg-white px-4 py-2 border border-emerald-100 shadow-sm text-sm text-slate-700">
+
+                    <div class="inline-flex items-center gap-3 rounded-full bg-white px-4 py-2 border border-emerald-100 shadow-sm text-sm text-slate-700">
                         <div class="flex -space-x-2">
                             <span class="h-8 w-8 rounded-full bg-emerald-200 border-2 border-white"></span>
                             <span class="h-8 w-8 rounded-full bg-emerald-300 border-2 border-white"></span>
@@ -31,32 +35,49 @@
                             <div class="font-semibold text-slate-900">4.8 rating</div>
                             <div class="text-[11px] text-slate-500">453 learner reviews</div>
                         </div>
+                        <div class="hidden sm:flex items-center gap-2 text-emerald-600">
+                            <i class="fa-solid fa-headphones text-xs"></i>
+                            <span class="text-[11px] uppercase tracking-wide font-semibold">Live choir</span>
+                        </div>
                     </div>
 
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-tight">
-                        Discover harmony, confidence, and ministry excellence.
-                    </h1>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3 text-sm text-emerald-700 font-semibold">
+                            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                                𝄞
+                            </span>
+                            <span class="uppercase tracking-[0.18em] text-[11px]">Sounding the gospel in harmony</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-tight">
+                            Discover harmony, confidence, and ministry excellence.
+                        </h1>
+                        <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
+                            Free music academy in the Seventh-day Adventist Church. Learn Sol-Fa, staff notation, and
+                            instruments — then serve your choir and community.
+                        </p>
+                    </div>
 
-                    <p class="text-lg text-slate-600 max-w-2xl">
-                        Free music academy within the Seventh-day Adventist Church. Learn Sol-Fa, staff notation, and
-                        instruments — then serve your choir and community.
-                    </p>
-
-                    <ul class="space-y-2 text-sm text-slate-700">
-                        <li class="flex items-center gap-2"><span class="dot"></span> Tonic Sol-Fa and staff notation for
-                            hymns</li>
-                        <li class="flex items-center gap-2"><span class="dot"></span> Piano, Guitar, Violin — grounded in
-                            literacy</li>
-                        <li class="flex items-center gap-2"><span class="dot"></span> Choir leadership, rehearsal
-                            methods, ministry focus</li>
-                    </ul>
+                    <div class="grid sm:grid-cols-3 gap-3 text-sm text-slate-800">
+                        <div class="soft-card border-emerald-100 bg-white/85 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-music text-emerald-600"></i>
+                            <span>Tonic Sol-Fa & hymnal parts</span>
+                        </div>
+                        <div class="soft-card border-sky-100 bg-white/85 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-staff-snake text-sky-600"></i>
+                            <span>Staff notation literacy</span>
+                        </div>
+                        <div class="soft-card border-amber-100 bg-white/85 shadow-sm flex items-center gap-2">
+                            <i class="fa-solid fa-guitar text-amber-600"></i>
+                            <span>Piano • Guitar • Violin</span>
+                        </div>
+                    </div>
 
                     <div class="flex flex-wrap gap-3">
                         <x-ui.button href="{{ route('contact') }}#join" variant="primary">
-                            Class Register
+                            Join the next cohort
                         </x-ui.button>
                         <x-ui.button href="{{ route('programs') }}" variant="outline">
-                            Explore Service
+                            See the full syllabus
                         </x-ui.button>
                     </div>
 
@@ -75,9 +96,9 @@
 
                 <div class="reveal relative">
                     <div
-                        class="absolute -inset-4 rounded-[30px] bg-gradient-to-r from-emerald-200/30 via-green-200/20 to-lime-200/30 blur-2xl">
+                        class="absolute -inset-4 rounded-[30px] bg-gradient-to-r from-emerald-100/30 via-slate-100/20 to-white blur-2xl">
                     </div>
-                    <div class="relative rounded-[30px] overflow-hidden bg-white shadow-2xl border border-emerald-100"
+                    <div class="relative rounded-[30px] overflow-hidden bg-white shadow-xl border border-slate-200"
                         x-data="{
                             slides: [
                                 { src: '{{ asset('images/aga-girls.jpg') }}', label: 'Daily practice • Choir' },
@@ -91,8 +112,15 @@
                         }">
                         <div class="aspect-[4/5] relative">
                             <template x-for="(slide, i) in slides" :key="i">
-                                <img x-show="index === i" x-transition.opacity :src="slide.src" alt=""
-                                    class="absolute inset-0 h-full w-full object-cover">
+                                <img x-show="index === i"
+                                    x-transition:enter="transition duration-700 ease-out"
+                                    x-transition:enter-start="opacity-0 scale-105 translate-x-4"
+                                    x-transition:enter-end="opacity-100 scale-100 translate-x-0"
+                                    x-transition:leave="transition duration-600 ease-in"
+                                    x-transition:leave-start="opacity-100 scale-100 translate-x-0"
+                                    x-transition:leave-end="opacity-0 scale-95 -translate-x-4"
+                                    :src="slide.src" alt=""
+                                    class="absolute inset-0 h-full w-full object-cover will-change-transform">
                             </template>
                             <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
 
@@ -101,12 +129,15 @@
                                 <span x-text="slides[index].label"></span>
                             </div>
 
-                            <div
-                                class="absolute bottom-4 left-4 rounded-2xl bg-white/90 px-4 py-3 shadow-lg border border-emerald-100">
+                            <div class="absolute bottom-4 left-4 rounded-2xl bg-white/90 px-4 py-3 shadow-lg border border-emerald-100">
                                 <div class="text-[11px] text-slate-500">Skill Score</div>
                                 <div class="flex items-center gap-3 mt-1">
                                     <div class="text-2xl font-bold text-emerald-700">82</div>
                                     <span class="text-sm text-slate-500">/100</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-[11px] text-emerald-700 mt-1">
+                                    <i class="fa-solid fa-music"></i>
+                                    <span>Ear training • Sight singing</span>
                                 </div>
                             </div>
 
@@ -114,6 +145,12 @@
                                 <div class="text-xs">Next Cohort</div>
                                 <div class="text-base font-semibold">Class of 2026</div>
                                 <div class="text-[11px] text-emerald-100">Limited spots</div>
+                            </div>
+
+                            <div class="absolute right-4 bottom-20 flex flex-col gap-2 text-white/90 text-lg">
+                                <i class="fa-solid fa-music"></i>
+                                <i class="fa-solid fa-music text-sm"></i>
+                                <i class="fa-solid fa-music text-xs"></i>
                             </div>
                         </div>
                     </div>
@@ -126,7 +163,7 @@
     <section class="mx-auto max-w-7xl px-6 pb-20">
         <div class="reveal grid gap-4 md:grid-cols-3">
             <div class="soft-card p-8">
-                <div class="text-xs font-semibold uppercase tracking-wide text-emerald-700">Programs</div>
+                <div class="text-xs font-semibold uppercase tracking-wide text-slate-700">Programs</div>
                 <div class="mt-2 text-sm text-slate-600">
                     Sol-Fa, Staff Notation, and instruments designed for worship ministry.
                 </div>
@@ -136,21 +173,21 @@
             </div>
 
             <div class="soft-card p-8">
-                <div class="text-xs font-semibold uppercase tracking-wide text-emerald-700">Our Music</div>
+                <div class="text-xs font-semibold uppercase tracking-wide text-slate-700">Our Music</div>
                 <div class="mt-2 text-sm text-slate-600">
                     Hymns, arrangements, and teaching resources from the academy choir.
                 </div>
-                <x-ui.button href="{{ route('songs') }}" variant="glass" class="mt-6 w-full">
+                <x-ui.button href="{{ route('songs') }}" variant="outline" class="mt-6 w-full">
                     Explore Songs
                 </x-ui.button>
             </div>
 
             <div class="soft-card p-8">
-                <div class="text-xs font-semibold uppercase tracking-wide text-emerald-700">Support</div>
+                <div class="text-xs font-semibold uppercase tracking-wide text-slate-700">Support</div>
                 <div class="mt-2 text-sm text-slate-600">
                     Help us grow instruments, recordings, and opportunities for learners.
                 </div>
-                <x-ui.button href="{{ route('contact') }}#support" variant="outline" class="mt-6 w-full">
+                <x-ui.button href="{{ route('contact') }}#support" variant="ghost" class="mt-6 w-full">
                     Support the Academy
                 </x-ui.button>
             </div>
@@ -180,8 +217,8 @@
                     <h3 class="text-xl font-semibold text-slate-900">Hymnal Notation & Choir Parts</h3>
                     <p class="text-sm text-slate-600">Learn to read and sing SATB parts correctly using church hymnals.</p>
                     <div class="flex gap-2">
-                        <span class="pill bg-emerald-50 text-emerald-700 border border-emerald-100">Sight-reading</span>
-                        <span class="pill bg-emerald-50 text-emerald-700 border border-emerald-100">Rhythm</span>
+                        <span class="pill bg-slate-50 text-slate-800 border border-slate-200">Sight-reading</span>
+                        <span class="pill bg-slate-50 text-slate-800 border border-slate-200">Rhythm</span>
                     </div>
                 </div>
             </div>
@@ -195,8 +232,8 @@
                     <p class="text-sm text-slate-600">Advance to international notation for choir, solo, and instrumental
                         work.</p>
                     <div class="flex gap-2">
-                        <span class="pill bg-sky-50 text-sky-700 border border-sky-100">Interpretation</span>
-                        <span class="pill bg-sky-50 text-sky-700 border border-sky-100">Analysis</span>
+                        <span class="pill bg-slate-50 text-slate-800 border border-slate-200">Interpretation</span>
+                        <span class="pill bg-slate-50 text-slate-800 border border-slate-200">Analysis</span>
                     </div>
                 </div>
             </div>
@@ -209,8 +246,8 @@
                     <h3 class="text-xl font-semibold text-slate-900">Piano, Guitar & Violin</h3>
                     <p class="text-sm text-slate-600">Apply music reading to instruments and worship performance.</p>
                     <div class="flex gap-2">
-                        <span class="pill bg-purple-50 text-purple-700 border border-purple-100">Technique</span>
-                        <span class="pill bg-purple-50 text-purple-700 border border-purple-100">Ensemble</span>
+                        <span class="pill bg-slate-50 text-slate-800 border border-slate-200">Technique</span>
+                        <span class="pill bg-slate-50 text-slate-800 border border-slate-200">Ensemble</span>
                     </div>
                 </div>
             </div>
@@ -273,21 +310,21 @@
             <div class="timeline-item">
                 <div class="flex items-center justify-between">
                     <div class="text-sm font-semibold text-slate-900">Class of 2026 Intake</div>
-                    <span class="pill bg-emerald-100 text-emerald-700 border border-emerald-200">Open</span>
+                    <span class="pill bg-slate-100 text-slate-800 border border-slate-200">Open</span>
                 </div>
                 <p class="mt-1 text-sm text-slate-600">Saturdays • Kigali Bilingual Church • Sol-Fa level starts.</p>
             </div>
             <div class="timeline-item">
                 <div class="flex items-center justify-between">
                     <div class="text-sm font-semibold text-slate-900">Hymns Unveiled Live</div>
-                    <span class="pill bg-sky-100 text-sky-700 border border-sky-200">February</span>
+                    <span class="pill bg-slate-100 text-slate-800 border border-slate-200">February</span>
                 </div>
                 <p class="mt-1 text-sm text-slate-600">Teaching program recording • open choir participation.</p>
             </div>
             <div class="timeline-item">
                 <div class="flex items-center justify-between">
                     <div class="text-sm font-semibold text-slate-900">Annual Choir Concert</div>
-                    <span class="pill bg-purple-100 text-purple-700 border border-purple-200">June</span>
+                    <span class="pill bg-slate-100 text-slate-800 border border-slate-200">June</span>
                 </div>
                 <p class="mt-1 text-sm text-slate-600">Showcasing graduates, choirs, and instrumental ensembles.</p>
             </div>
@@ -340,14 +377,14 @@
         </div>
         <div class="mt-8 grid gap-6 md:grid-cols-3">
             <div class="shop-card">
-                <div class="pill bg-emerald-50 text-emerald-700 border border-emerald-100">Album</div>
+                <div class="pill bg-slate-50 text-slate-800 border border-slate-200">Album</div>
                 <h3 class="mt-3 text-xl font-semibold text-slate-900">“Hymns Renewed”</h3>
                 <p class="mt-2 text-sm text-slate-600">Recorded arrangements by Amazing Grace Academy choir.</p>
                 <div class="mt-4 text-lg font-bold text-slate-900">10,000 RWF</div>
                 <x-ui.button href="{{ route('songs') }}" variant="primary" class="mt-4 w-full">Buy Album</x-ui.button>
             </div>
             <div class="shop-card">
-                <div class="pill bg-sky-50 text-sky-700 border border-sky-100">Hymnal</div>
+                <div class="pill bg-slate-50 text-slate-800 border border-slate-200">Hymnal</div>
                 <h3 class="mt-3 text-xl font-semibold text-slate-900">Sol-Fa Hymnal (SATB)</h3>
                 <p class="mt-2 text-sm text-slate-600">Printed hymns with clear parts for choir practice.</p>
                 <div class="mt-4 text-lg font-bold text-slate-900">8,000 RWF</div>
@@ -355,7 +392,7 @@
                     Copy</x-ui.button>
             </div>
             <div class="shop-card">
-                <div class="pill bg-purple-50 text-purple-700 border border-purple-100">Workbook</div>
+                <div class="pill bg-slate-50 text-slate-800 border border-slate-200">Workbook</div>
                 <h3 class="mt-3 text-xl font-semibold text-slate-900">Sight-Reading Drills</h3>
                 <p class="mt-2 text-sm text-slate-600">Exercises for Sol-Fa and staff notation learners.</p>
                 <div class="mt-4 text-lg font-bold text-slate-900">6,000 RWF</div>
@@ -449,7 +486,7 @@
     </section>
 
     {{-- CHOIR FEEL / MINISTRY STRIP --}}
-    <section class="border-y border-emerald-100 bg-emerald-50/70 py-10">
+    <section class="border-y border-slate-200 bg-slate-50 py-10">
         <div
             class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 text-center md:flex-row md:text-left">
             <div class="reveal space-y-1">
@@ -462,13 +499,13 @@
                 </p>
             </div>
             <div class="reveal flex flex-wrap justify-center gap-3 text-xs text-slate-700">
-                <div class="pill bg-white border border-emerald-100 text-emerald-700">
+                <div class="pill bg-white border border-slate-200 text-slate-800">
                     300+ choristers impacted
                 </div>
-                <div class="pill bg-white border border-emerald-100 text-emerald-700">
+                <div class="pill bg-white border border-slate-200 text-slate-800">
                     4+ albums & programs
                 </div>
-                <div class="pill bg-white border border-emerald-100 text-emerald-700">
+                <div class="pill bg-white border border-slate-200 text-slate-800">
                     Ministry across Rwanda
                 </div>
             </div>

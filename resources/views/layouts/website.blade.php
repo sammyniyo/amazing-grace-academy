@@ -33,7 +33,7 @@
                 <div
                     class="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-emerald-400 via-green-400 to-lime-400 text-slate-950 shadow-lg ring-1 ring-white/30 transition duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_18px_45px_rgba(15,23,42,0.4)]">
                     <span class="text-base font-semibold tracking-tight">
-                        A<span class="mx-[1px]">♪</span>A
+                        A<span class="mx-[2px] text-lg leading-none">𝄞</span>A
                     </span>
                 </div>
 
@@ -89,7 +89,7 @@
                 <div class="lg:col-span-1">
                     <div class="flex items-center gap-3 mb-3">
                         <div class="h-12 w-12 grid place-items-center rounded-2xl bg-white shadow border border-emerald-100">
-                            <span class="text-lg font-bold text-emerald-700">AGA</span>
+                            <span class="text-lg font-bold text-emerald-700">A<span class="mx-[2px] text-xl leading-none">𝄞</span>A</span>
                         </div>
                         <h3 class="text-xl font-bold bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent">
                             Amazing Grace Academy

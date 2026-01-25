@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('cohort_id')->nullable()->constrained()->nullOnDelete();
+            $table->string('name');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('instrument_interest')->nullable();
+            $table->string('voice_part')->nullable();
+            $table->string('status')->default('applied'); // applied, active, alumni
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

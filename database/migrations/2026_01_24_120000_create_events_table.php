@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('slug')->unique();
-            $table->string('type')->default('album'); // album, hymnal, workbook, bundle
-            $table->string('format')->nullable();
-            $table->unsignedInteger('price')->default(0); // RWF
-            $table->boolean('is_active')->default(true);
+            $table->date('event_date')->nullable();
+            $table->string('location')->nullable();
+            $table->string('status')->default('upcoming'); // upcoming, open, past, cancelled
             $table->text('description')->nullable();
             $table->timestamps();
         });
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('events');
     }
 };

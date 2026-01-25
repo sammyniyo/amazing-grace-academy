@@ -128,16 +128,22 @@
                     Send us a message for questions, invitations, or support inquiries.
                 </p>
 
-                <form class="mt-6 space-y-4">
+                <form class="mt-6 space-y-4" method="POST" action="{{ route('contact.submit') }}">
+                    @csrf
+                    @if (session('success'))
+                        <div class="rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <div class="grid gap-4 sm:grid-cols-2">
                         <div>
                             <label class="text-sm font-medium text-slate-900">Full Name</label>
-                            <input type="text"
+                            <input name="name" type="text" required
                                 class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-300 focus:ring focus:ring-teal-100">
                         </div>
                         <div>
                             <label class="text-sm font-medium text-slate-900">Phone Number</label>
-                            <input type="text"
+                            <input name="phone" type="text"
                                 class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-300 focus:ring focus:ring-teal-100">
                         </div>
                     </div>
@@ -145,23 +151,23 @@
                     <div class="grid gap-4 sm:grid-cols-2">
                         <div>
                             <label class="text-sm font-medium text-slate-900">Email (optional)</label>
-                            <input type="email"
+                            <input name="email" type="email"
                                 class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-300 focus:ring focus:ring-teal-100">
                         </div>
                         <div>
                             <label class="text-sm font-medium text-slate-900">Topic</label>
-                            <select class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-teal-300 focus:ring focus:ring-teal-100">
-                                <option>Invitation to sing/teach</option>
-                                <option>Class question</option>
-                                <option>Support / Donation</option>
-                                <option>Other</option>
+                            <select name="topic" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-teal-300 focus:ring focus:ring-teal-100">
+                                <option value="Invitation">Invitation to sing/teach</option>
+                                <option value="Class question">Class question</option>
+                                <option value="Support">Support / Donation</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
                     </div>
 
                     <div>
                         <label class="text-sm font-medium text-slate-900">Message</label>
-                        <textarea rows="4"
+                        <textarea name="message" rows="4" required
                             class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-300 focus:ring focus:ring-teal-100"
                             placeholder="How can we help?"></textarea>
                     </div>
