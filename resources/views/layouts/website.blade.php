@@ -25,63 +25,49 @@
         </div>
     </div>
 
-    {{-- Navbar --}}
-    <header class="sticky top-3 left-0 right-0 z-50">
-        <div
-            class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 rounded-full border border-emerald-100 bg-white shadow-lg shadow-emerald-100/40">
-            <a href="{{ route('home') }}" class="group flex items-center gap-3">
-                <div
-                    class="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-emerald-400 via-green-400 to-lime-400 text-slate-950 shadow-lg ring-1 ring-white/30 transition duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_18px_45px_rgba(15,23,42,0.4)]">
-                    <span class="text-base font-semibold tracking-tight">
-                        A<span class="mx-[2px] text-lg leading-none">𝄞</span>A
-                    </span>
-                </div>
+    {{-- Scroll progress --}}
+    <div class="fixed top-0 left-0 right-0 h-[3px] bg-transparent z-50">
+        <div id="scroll-progress" class="h-full w-0 bg-emerald-500 transition-all duration-150"></div>
+    </div>
 
-                <div class="leading-tight">
-                    <div class="text-sm font-semibold text-slate-900">Amazing Grace Academy</div>
-                    <div class="text-[11px] text-slate-500">ASA UR Nyarugenge SDA • ASSA Kigali</div>
-                </div>
+    {{-- Navbar (minimal) --}}
+    <header class="sticky top-0 left-0 right-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
+        <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+            <a href="{{ route('home') }}" class="flex items-center gap-2 text-slate-900 font-semibold">
+                <span class="text-lg">A<span class="mx-[2px] text-lg leading-none">𝄞</span>A</span>
+                <span class="text-sm text-slate-500">Amazing Grace Academy</span>
             </a>
 
-            <nav class="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
-                <a class="relative transition hover:text-emerald-600" href="{{ route('home') }}">
-                    <span>Home</span>
-                </a>
-                <a class="relative transition hover:text-emerald-600" href="{{ route('about') }}">
-                    <span>About</span>
-                </a>
-                <a class="relative transition hover:text-emerald-600" href="{{ route('programs') }}">
-                    <span>Programs</span>
-                </a>
-                <a class="relative transition hover:text-emerald-600" href="{{ route('education') }}">
-                    <span>Class Education</span>
-                </a>
-                <a class="relative transition hover:text-emerald-600" href="{{ route('songs') }}">
-                    <span>Music Shop</span>
-                </a>
-                <a class="relative transition hover:text-emerald-600" href="{{ route('leaders') }}">
-                    <span>Leadership</span>
-                </a>
-                <a class="relative transition hover:text-emerald-600" href="{{ route('contact') }}">
-                    <span>Contact</span>
-                </a>
-                <a class="relative transition hover:text-emerald-600" href="{{ route('support') }}">
-                    <span>Support</span>
-                </a>
+            <nav class="hidden md:flex items-center gap-6 text-sm text-slate-700">
+                <a href="{{ route('home') }}" class="hover:text-emerald-600">Home</a>
+                <a href="{{ route('about') }}" class="hover:text-emerald-600">About</a>
+                <a href="{{ route('contact') }}" class="hover:text-emerald-600">Events</a>
+                <a href="{{ route('songs') }}" class="hover:text-emerald-600">Shop</a>
+                <a href="{{ route('contact') }}" class="hover:text-emerald-600">Contact</a>
             </nav>
 
-            <div class="flex items-center gap-2">
-                <a href="{{ url('/register') }}"
-                    class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-5 py-2 text-xs font-semibold text-white shadow-sm transition hover:brightness-110">
-                    <span>Class Register</span>
-                </a>
-            </div>
+            <a href="{{ url('/register') }}"
+                class="inline-flex items-center justify-center rounded-full bg-emerald-600 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-emerald-700">
+                Class
+            </a>
         </div>
     </header>
 
     <main class="floating-notes pt-6">
         @yield('content')
     </main>
+
+    {{-- Quick actions --}}
+    <div class="fixed bottom-5 right-4 flex flex-col gap-2 z-40">
+        <a href="#top" id="back-to-top"
+            class="hidden rounded-full bg-slate-900 text-white px-4 py-2 text-xs font-semibold shadow-lg hover:bg-slate-800">
+            ↑ Back to top
+        </a>
+        <a href="{{ route('contact') }}"
+            class="rounded-full bg-emerald-600 text-white px-4 py-2 text-xs font-semibold shadow-lg hover:bg-emerald-700">
+            Contact us
+        </a>
+    </div>
 
     <footer class="relative bg-gradient-to-b from-slate-50 to-white text-slate-700">
         <div class="max-w-7xl mx-auto px-6 py-12">

@@ -5,100 +5,49 @@
 @section('content')
     {{-- HERO --}}
     <section class="mx-auto max-w-7xl px-6 pt-16 pb-14">
-        <div
-            class="relative overflow-hidden rounded-[32px] border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-emerald-50/60 shadow-[0_18px_50px_rgba(15,118,110,0.10)]">
-            <div class="absolute inset-0 pointer-events-none">
-                <div class="absolute inset-4 rounded-[28px] bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.06),transparent_35%),radial-gradient(circle_at_80%_10%,rgba(59,130,246,0.05),transparent_30%),radial-gradient(circle_at_60%_70%,rgba(236,72,153,0.05),transparent_32%)]"></div>
-                <div class="absolute left-6 right-6 top-10 h-[2px] bg-[repeating-linear-gradient(90deg,rgba(15,118,110,0.14),rgba(15,118,110,0.14)_22px,transparent_22px,transparent_44px)]"></div>
-                <div class="absolute left-6 right-6 top-16 h-[2px] bg-[repeating-linear-gradient(90deg,rgba(15,23,42,0.08),rgba(15,23,42,0.08)_22px,transparent_22px,transparent_44px)]"></div>
-                <div class="absolute left-6 right-6 top-22 h-[2px] bg-[repeating-linear-gradient(90deg,rgba(52,211,153,0.14),rgba(52,211,153,0.14)_22px,transparent_22px,transparent_44px)]"></div>
-                <div class="absolute left-6 right-6 top-28 h-[2px] bg-[repeating-linear-gradient(90deg,rgba(8,47,73,0.08),rgba(8,47,73,0.08)_22px,transparent_22px,transparent_44px)]"></div>
-            </div>
-
-            <div class="grid items-center gap-10 lg:grid-cols-2 px-6 py-10 sm:px-10 lg:px-12 relative">
-                <div class="reveal space-y-7">
-                    <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
-                        <span class="pill bg-white border border-emerald-100 shadow-sm text-emerald-700">Sacred Music Academy</span>
-                        <span class="pill bg-white border border-slate-200 shadow-sm text-slate-600">Since 2016</span>
-                        <span class="pill bg-white border border-emerald-100 shadow-sm text-emerald-700 flex items-center gap-2">
-                            <i class="fa-solid fa-music text-emerald-600"></i> Staff • Sol-Fa • Choir
-                        </span>
+        <div class="relative overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_14px_40px_rgba(15,23,42,0.08)]">
+            <div class="grid items-center gap-8 lg:grid-cols-2 px-6 py-10 sm:px-10 lg:px-12">
+                <div class="reveal space-y-6">
+                    <div class="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                        Sacred music academy • Since 2016
                     </div>
 
-                    <div class="inline-flex items-center gap-3 rounded-full bg-white px-4 py-2 border border-emerald-100 shadow-sm text-sm text-slate-700">
-                        <div class="flex -space-x-2">
-                            <span class="h-8 w-8 rounded-full bg-emerald-200 border-2 border-white"></span>
-                            <span class="h-8 w-8 rounded-full bg-emerald-300 border-2 border-white"></span>
-                            <span class="h-8 w-8 rounded-full bg-emerald-400 border-2 border-white"></span>
-                        </div>
-                        <div>
-                            <div class="font-semibold text-slate-900">4.8 rating</div>
-                            <div class="text-[11px] text-slate-500">453 learner reviews</div>
-                        </div>
-                        <div class="hidden sm:flex items-center gap-2 text-emerald-600">
-                            <i class="fa-solid fa-headphones text-xs"></i>
-                            <span class="text-[11px] uppercase tracking-wide font-semibold">Live choir</span>
-                        </div>
-                    </div>
+                    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+                        Read, sing, and serve with confidence.
+                    </h1>
+                    <p class="text-lg text-slate-600 max-w-2xl">
+                        Sol-Fa, staff notation, and instruments for worshippers in the Seventh-day Adventist Church.
+                    </p>
 
-                    <div class="space-y-3">
-                        <div class="flex items-center gap-3 text-sm text-emerald-700 font-semibold">
-                            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-                                𝄞
-                            </span>
-                            <span class="uppercase tracking-[0.18em] text-[11px]">Sounding the gospel in harmony</span>
-                        </div>
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-tight">
-                            Discover harmony, confidence, and ministry excellence.
-                        </h1>
-                        <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
-                            Free music academy in the Seventh-day Adventist Church. Learn Sol-Fa, staff notation, and
-                            instruments — then serve your choir and community.
-                        </p>
-                    </div>
-
-                    <div class="grid sm:grid-cols-3 gap-3 text-sm text-slate-800">
-                        <div class="soft-card border-emerald-100 bg-white/85 shadow-sm flex items-center gap-2">
-                            <i class="fa-solid fa-music text-emerald-600"></i>
-                            <span>Tonic Sol-Fa & hymnal parts</span>
-                        </div>
-                        <div class="soft-card border-sky-100 bg-white/85 shadow-sm flex items-center gap-2">
-                            <i class="fa-solid fa-staff-snake text-sky-600"></i>
-                            <span>Staff notation literacy</span>
-                        </div>
-                        <div class="soft-card border-amber-100 bg-white/85 shadow-sm flex items-center gap-2">
-                            <i class="fa-solid fa-guitar text-amber-600"></i>
-                            <span>Piano • Guitar • Violin</span>
-                        </div>
+                    <div class="flex flex-wrap gap-2 text-sm text-slate-700">
+                        <span class="rounded-full border border-slate-200 px-3 py-1">Sol-Fa & staff literacy</span>
+                        <span class="rounded-full border border-slate-200 px-3 py-1">Choir leadership</span>
+                        <span class="rounded-full border border-slate-200 px-3 py-1">Piano • Guitar • Violin</span>
                     </div>
 
                     <div class="flex flex-wrap gap-3">
-                        <x-ui.button href="{{ route('contact') }}#join" variant="primary">
-                            Join the next cohort
-                        </x-ui.button>
-                        <x-ui.button href="{{ route('programs') }}" variant="outline">
-                            See the full syllabus
-                        </x-ui.button>
+                        <x-ui.button href="{{ url('/register') }}" variant="primary">Join class</x-ui.button>
+                        <x-ui.button href="{{ route('songs') }}" variant="outline">Shop music</x-ui.button>
                     </div>
 
-                    <div class="flex flex-wrap gap-3 text-sm text-slate-600">
-                        <div class="pill bg-white text-slate-800 border border-emerald-100 shadow-sm">
-                            700+ students trained
+                    <div class="flex gap-4 text-sm text-slate-600">
+                        <div>
+                            <div class="text-xl font-semibold text-slate-900">700+</div>
+                            <div>Learners trained</div>
                         </div>
-                        <div class="pill bg-white text-slate-800 border border-emerald-100 shadow-sm">
-                            168 Sol-Fa graduates
+                        <div>
+                            <div class="text-xl font-semibold text-slate-900">168</div>
+                            <div>Sol-Fa graduates</div>
                         </div>
-                        <div class="pill bg-white text-slate-800 border border-emerald-100 shadow-sm">
-                            Ministry across Rwanda
+                        <div>
+                            <div class="text-xl font-semibold text-slate-900">Rwanda</div>
+                            <div>Ministry reach</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="reveal relative">
-                    <div
-                        class="absolute -inset-4 rounded-[30px] bg-gradient-to-r from-emerald-100/30 via-slate-100/20 to-white blur-2xl">
-                    </div>
-                    <div class="relative rounded-[30px] overflow-hidden bg-white shadow-xl border border-slate-200"
+                    <div class="relative rounded-[24px] overflow-hidden bg-slate-900 text-white shadow-xl border border-slate-800"
                         x-data="{
                             slides: [
                                 { src: '{{ asset('images/aga-girls.jpg') }}', label: 'Daily practice • Choir' },
@@ -108,7 +57,7 @@
                             ],
                             index: 0,
                             next() { this.index = (this.index + 1) % this.slides.length; },
-                            init() { setInterval(() => this.next(), 3800); }
+                            init() { setInterval(() => this.next(), 4200); }
                         }">
                         <div class="aspect-[4/5] relative">
                             <template x-for="(slide, i) in slides" :key="i">
@@ -122,35 +71,18 @@
                                     :src="slide.src" alt=""
                                     class="absolute inset-0 h-full w-full object-cover will-change-transform">
                             </template>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
 
-                            <div
-                                class="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-emerald-700 shadow">
+                            <div class="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-emerald-700 shadow">
                                 <span x-text="slides[index].label"></span>
                             </div>
 
-                            <div class="absolute bottom-4 left-4 rounded-2xl bg-white/90 px-4 py-3 shadow-lg border border-emerald-100">
-                                <div class="text-[11px] text-slate-500">Skill Score</div>
+                            <div class="absolute bottom-4 left-4 rounded-xl bg-white/90 px-4 py-3 shadow-lg border border-emerald-100 text-slate-900">
+                                <div class="text-[11px] text-slate-500">Next cohort</div>
                                 <div class="flex items-center gap-3 mt-1">
-                                    <div class="text-2xl font-bold text-emerald-700">82</div>
-                                    <span class="text-sm text-slate-500">/100</span>
+                                    <div class="text-base font-bold text-emerald-700">Class of 2026</div>
+                                    <span class="text-xs text-slate-500">Register now</span>
                                 </div>
-                                <div class="flex items-center gap-2 text-[11px] text-emerald-700 mt-1">
-                                    <i class="fa-solid fa-music"></i>
-                                    <span>Ear training • Sight singing</span>
-                                </div>
-                            </div>
-
-                            <div class="absolute -right-4 top-10 rounded-2xl bg-emerald-600 text-white px-4 py-3 shadow-lg">
-                                <div class="text-xs">Next Cohort</div>
-                                <div class="text-base font-semibold">Class of 2026</div>
-                                <div class="text-[11px] text-emerald-100">Limited spots</div>
-                            </div>
-
-                            <div class="absolute right-4 bottom-20 flex flex-col gap-2 text-white/90 text-lg">
-                                <i class="fa-solid fa-music"></i>
-                                <i class="fa-solid fa-music text-sm"></i>
-                                <i class="fa-solid fa-music text-xs"></i>
                             </div>
                         </div>
                     </div>
