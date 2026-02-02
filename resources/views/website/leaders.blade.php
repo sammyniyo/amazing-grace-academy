@@ -21,11 +21,12 @@
                             The leaders guiding Amazing Grace Academy
                         </h1>
                         <p class="text-lg leading-relaxed text-slate-600 max-w-2xl">
-                            Our directors, trainers, and coordinators steward the mission, coach learners, and keep every cohort on track.
+                            Our directors, trainers, and coordinators steward the mission, coach learners, and keep every
+                            cohort on track.
                         </p>
                     </div>
                     <div class="flex flex-wrap gap-3">
-                        <x-ui.button href="{{ route('contact') }}" variant="primary" class="bg-emerald-700 hover:bg-emerald-600">
+                        <x-ui.button href="{{ route('contact') }}" variant="primary">
                             Contact leadership
                         </x-ui.button>
                         <x-ui.button href="{{ url('/register') }}" variant="outline">
@@ -34,9 +35,11 @@
                     </div>
                 </div>
 
-                <div class="reveal soft-card p-8 bg-white/90 backdrop-blur shadow-[0_18px_50px_rgba(15,23,42,0.12)] border border-emerald-100">
+                <div
+                    class="reveal soft-card p-8 bg-white/90 backdrop-blur shadow-[0_18px_50px_rgba(15,23,42,0.12)] border border-emerald-100">
                     <div class="flex items-center gap-3">
-                        <div class="h-12 w-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
+                        <div
+                            class="h-12 w-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
                             AG
                         </div>
                         <div>
@@ -106,7 +109,8 @@
                 </div>
 
                 <p class="mt-4 text-sm text-slate-600 leading-relaxed">
-                    Leads Sol-Fa and staff notation, coaches piano/guitar/violin, and prepares learners for international certifications.
+                    Leads Sol-Fa and staff notation, coaches piano/guitar/violin, and prepares learners for international
+                    certifications.
                 </p>
                 <div class="mt-5 flex gap-2 text-xs text-emerald-700 font-semibold">
                     <span class="pill bg-white border border-emerald-100">Sight-reading</span>
@@ -139,7 +143,8 @@
                 </div>
 
                 <p class="mt-4 text-sm text-slate-600 leading-relaxed">
-                    Oversees vision, partnerships with church bodies, enrollment, and strategic growth for sustainable ministry impact.
+                    Oversees vision, partnerships with church bodies, enrollment, and strategic growth for sustainable
+                    ministry impact.
                 </p>
                 <div class="mt-5 flex gap-2 text-xs text-teal-700 font-semibold">
                     <span class="pill bg-white border border-teal-100">Church liaison</span>
@@ -172,7 +177,8 @@
                 </div>
 
                 <p class="mt-4 text-sm text-slate-600 leading-relaxed">
-                    Track attendance, communicate schedules, and ensure every learner has what they need for weekly progress.
+                    Track attendance, communicate schedules, and ensure every learner has what they need for weekly
+                    progress.
                 </p>
                 <div class="mt-5 flex gap-2 text-xs text-amber-700 font-semibold">
                     <span class="pill bg-white border border-amber-100">Follow-up</span>
@@ -258,7 +264,8 @@
                     Anchored in the Adventist structure
                 </h2>
                 <p class="mt-4 max-w-3xl mx-auto text-slate-600 leading-relaxed">
-                    Amazing Grace Academy operates within the Seventh-day Adventist Church family and benefits from guidance and collaboration with recognized bodies.
+                    Amazing Grace Academy operates within the Seventh-day Adventist Church family and benefits from guidance
+                    and collaboration with recognized bodies.
                 </p>
             </div>
 
@@ -286,7 +293,7 @@
             </p>
 
             <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                <x-ui.button href="{{ route('contact') }}" variant="primary" class="bg-emerald-700 hover:bg-emerald-600 w-full sm:w-auto">
+                <x-ui.button href="{{ route('contact') }}" variant="primary" class="w-full sm:w-auto">
                     Contact the academy
                 </x-ui.button>
                 <x-ui.button href="{{ url('/register') }}" variant="outline" class="w-full sm:w-auto">

@@ -15,6 +15,16 @@ class ProductController extends Controller
         return view('admin.products.index', compact('products'));
     }
 
+    public function create()
+    {
+        return view('admin.products.create');
+    }
+
+    public function edit(Product $product)
+    {
+        return view('admin.products.edit', compact('product'));
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -51,7 +61,7 @@ class ProductController extends Controller
 
         $product->update($data);
 
-        return redirect()->route('admin.products.index')->with('success', 'Product updated.');
+        return redirect()->route('admin.products.edit', $product)->with('success', 'Product updated.');
     }
 
     public function destroy(Product $product)

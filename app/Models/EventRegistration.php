@@ -5,25 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class EventRegistration extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'product_id',
+        'event_id',
         'name',
         'email',
         'phone',
-        'quantity',
-        'total_price',
-        'status',
-        'payment_provider',
-        'payment_reference',
+        'support_amount',
         'notes',
     ];
 
-    public function product()
+    protected $casts = [
+        'support_amount' => 'integer',
+    ];
+
+    public function event()
     {
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Event::class);
     }
 }

@@ -14,6 +14,11 @@ class ContactMessageController extends Controller
         return view('admin.contacts.index', compact('messages'));
     }
 
+    public function show(ContactMessage $contact)
+    {
+        return view('admin.contacts.show', compact('contact'));
+    }
+
     public function update(Request $request, ContactMessage $contact)
     {
         $data = $request->validate([

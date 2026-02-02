@@ -14,6 +14,16 @@ class EventController extends Controller
         return view('admin.events.index', compact('events'));
     }
 
+    public function create()
+    {
+        return view('admin.events.create');
+    }
+
+    public function edit(Event $event)
+    {
+        return view('admin.events.edit', compact('event'));
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -22,7 +32,12 @@ class EventController extends Controller
             'location' => 'nullable|string|max:255',
             'status' => 'required|string|max:50',
             'description' => 'nullable|string',
+            'requires_registration' => 'nullable|boolean',
+            'accepts_support' => 'nullable|boolean',
         ]);
+
+        $data['requires_registration'] = $request->boolean('requires_registration');
+        $data['accepts_support'] = $request->boolean('accepts_support');
 
         Event::create($data);
 
@@ -37,7 +52,12 @@ class EventController extends Controller
             'location' => 'nullable|string|max:255',
             'status' => 'required|string|max:50',
             'description' => 'nullable|string',
+            'requires_registration' => 'nullable|boolean',
+            'accepts_support' => 'nullable|boolean',
         ]);
+
+        $data['requires_registration'] = $request->boolean('requires_registration');
+        $data['accepts_support'] = $request->boolean('accepts_support');
 
         $event->update($data);
 

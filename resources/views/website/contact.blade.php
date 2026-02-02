@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="flex flex-wrap gap-3">
-                        <x-ui.button href="tel:+250788261729" variant="primary" class="bg-emerald-700 hover:bg-emerald-600">
+                        <x-ui.button href="tel:+250788261729" variant="primary">
                             Call Us
                         </x-ui.button>
                         <x-ui.button href="mailto:amazinggraceacademyrwanda@gmail.com" variant="glass">
@@ -39,9 +39,11 @@
                     </div>
                 </div>
 
-                <div class="reveal soft-card p-7 bg-white/90 backdrop-blur shadow-[0_18px_50px_rgba(15,23,42,0.12)] border border-emerald-100">
+                <div
+                    class="reveal soft-card p-7 bg-white/90 backdrop-blur shadow-[0_18px_50px_rgba(15,23,42,0.12)] border border-emerald-100">
                     <div class="flex items-center gap-3">
-                        <div class="h-12 w-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
+                        <div
+                            class="h-12 w-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
                             AG
                         </div>
                         <div>
@@ -156,7 +158,8 @@
                         </div>
                         <div>
                             <label class="text-sm font-medium text-slate-900">Topic</label>
-                            <select name="topic" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-teal-300 focus:ring focus:ring-teal-100">
+                            <select name="topic"
+                                class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 focus:border-teal-300 focus:ring focus:ring-teal-100">
                                 <option value="Invitation">Invitation to sing/teach</option>
                                 <option value="Class question">Class question</option>
                                 <option value="Support">Support / Donation</option>
@@ -172,7 +175,7 @@
                             placeholder="How can we help?"></textarea>
                     </div>
 
-                    <x-ui.button variant="primary" class="w-full bg-emerald-700 hover:bg-emerald-600">Send Message</x-ui.button>
+                    <x-ui.button type="submit" variant="primary" class="w-full">Send Message</x-ui.button>
 
                     <p class="text-xs text-slate-500 text-center">
                         We’ll reply within 24h. For class registration, use the Class Register link.

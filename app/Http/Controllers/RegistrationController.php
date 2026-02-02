@@ -13,14 +13,16 @@ class RegistrationController extends Controller
             'name' => 'required|string|max:255',
             'phone' => 'nullable|string|max:50',
             'email' => 'nullable|email',
+            'cohort_id' => 'nullable|exists:cohorts,id',
             'instrument_interest' => 'nullable|string|max:100',
             'message' => 'nullable|string',
         ]);
 
-        $member = Member::create([
+        Member::create([
             'name' => $data['name'],
             'phone' => $data['phone'] ?? null,
             'email' => $data['email'] ?? null,
+            'cohort_id' => $data['cohort_id'] ?? null,
             'instrument_interest' => $data['instrument_interest'] ?? null,
             'notes' => $data['message'] ?? null,
             'status' => 'applied',

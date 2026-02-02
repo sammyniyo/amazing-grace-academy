@@ -25,7 +25,7 @@
                         </p>
                     </div>
                     <div class="flex flex-wrap gap-3">
-                        <x-ui.button href="{{ url('/register') }}" variant="primary" class="bg-emerald-700 hover:bg-emerald-600">
+                        <x-ui.button href="{{ url('/register') }}" variant="primary">
                             Register for cohort
                         </x-ui.button>
                         <x-ui.button href="{{ route('contact') }}" variant="outline">
@@ -34,9 +34,11 @@
                     </div>
                 </div>
 
-                <div class="reveal soft-card p-8 bg-white/90 backdrop-blur shadow-[0_18px_50px_rgba(15,23,42,0.14)] border border-emerald-100">
+                <div
+                    class="reveal soft-card p-8 bg-white/90 backdrop-blur shadow-[0_18px_50px_rgba(15,23,42,0.14)] border border-emerald-100">
                     <div class="flex items-center gap-3">
-                        <div class="h-12 w-12 rounded-2xl bg-emerald-100 text-emerald-800 grid place-items-center font-bold">
+                        <div
+                            class="h-12 w-12 rounded-2xl bg-emerald-100 text-emerald-800 grid place-items-center font-bold">
                             AG
                         </div>
                         <div>
@@ -105,7 +107,8 @@
                     <span class="pill bg-teal-50 text-teal-700 border border-teal-100 text-[11px]">Starting soon</span>
                 </div>
                 <h3 class="mt-3 text-xl font-semibold text-slate-900">Staff Notation</h3>
-                <p class="mt-2 text-sm text-slate-600">Move to international notation and develop confident sight‑reading.</p>
+                <p class="mt-2 text-sm text-slate-600">Move to international notation and develop confident sight‑reading.
+                </p>
                 <ul class="mt-4 space-y-2 text-sm text-slate-700">
                     <li>• Note values & signatures</li>
                     <li>• Interval training</li>
@@ -184,7 +187,7 @@
                 We’ll confirm by phone or email and guide you to the right level.
             </p>
             <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                <x-ui.button href="{{ url('/register') }}" variant="primary" class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-600">
+                <x-ui.button href="{{ url('/register') }}" variant="primary" class="w-full sm:w-auto">
                     Register now
                 </x-ui.button>
                 <x-ui.button href="{{ route('contact') }}" variant="outline" class="w-full sm:w-auto">

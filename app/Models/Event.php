@@ -15,9 +15,18 @@ class Event extends Model
         'location',
         'status',
         'description',
+        'requires_registration',
+        'accepts_support',
     ];
 
     protected $casts = [
         'event_date' => 'date',
+        'requires_registration' => 'boolean',
+        'accepts_support' => 'boolean',
     ];
+
+    public function registrations()
+    {
+        return $this->hasMany(EventRegistration::class);
+    }
 }

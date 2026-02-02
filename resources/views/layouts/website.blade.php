@@ -5,51 +5,112 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@yield('title', 'Amazing Grace Academy')</title>
-    <meta name="description"
-        content="@yield('meta_description', 'Amazing Grace Academy — Choir and music academy for Sol-Fa, Staff notation, instruments, worship excellence, and ministry.')">
+    <meta name="description" content="@yield('meta_description', 'Amazing Grace Academy — Choir and music academy for Sol-Fa, Staff notation, instruments, worship excellence, and ministry.')">
 
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SzlrxWriC3XhY1Aw4p3p8Z3QYxkS2Q5u3zGqZ1rsSLjJ9tN5B+I5p4v6jF9CUG65p7qD1R6q5rI1w3y5x6Z5CQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-slate-50 text-slate-900 antialiased">
-    {{-- Background choir aura --}}
-    <div class="pointer-events-none fixed inset-0 -z-20">
+<body class="bg-cream-100 text-ink-900 antialiased font-sans">
+    <div id="top"></div>
+    {{-- Ambient background orbs --}}
+    <div class="pointer-events-none fixed inset-0 -z-20 overflow-hidden">
         <div
-            class="absolute -top-40 left-1/2 h-[520px] w-[920px] -translate-x-1/2 rounded-full bg-gradient-to-r from-emerald-200/70 via-green-200/60 to-lime-200/70 blur-3xl">
+            class="absolute -top-48 left-1/2 h-[560px] w-[960px] -translate-x-1/2 rounded-full bg-gradient-to-r from-sage-200/50 via-sage-100/40 to-gold-200/40 blur-3xl hero-orb">
         </div>
-        <div
-            class="absolute bottom-[-260px] left-1/2 h-[420px] w-[820px] -translate-x-1/2 rounded-full bg-gradient-to-r from-emerald-100/70 via-lime-200/55 to-green-200/60 blur-3xl">
-        </div>
+        <div class="absolute top-1/2 -left-32 h-[400px] w-[400px] rounded-full bg-gold-200/25 blur-3xl"></div>
+        <div class="absolute bottom-[-280px] right-1/4 h-[480px] w-[720px] rounded-full bg-gradient-to-r from-sage-100/50 via-gold-100/30 to-sage-200/40 blur-3xl hero-orb"
+            style="animation-delay: 2s;"></div>
     </div>
 
-    {{-- Scroll progress --}}
-    <div class="fixed top-0 left-0 right-0 h-[3px] bg-transparent z-50">
-        <div id="scroll-progress" class="h-full w-0 bg-emerald-500 transition-all duration-150"></div>
+    {{-- Scroll progress bar --}}
+    <div class="fixed top-0 left-0 right-0 h-[2px] bg-transparent z-50">
+        <div id="scroll-progress"
+            class="h-full w-0 bg-gradient-to-r from-sage-500 to-gold-500 transition-all duration-300 ease-out"></div>
     </div>
 
-    {{-- Navbar (minimal) --}}
-    <header class="sticky top-0 left-0 right-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
-        <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-            <a href="{{ route('home') }}" class="flex items-center gap-2 text-slate-900 font-semibold">
-                <span class="text-lg">A<span class="mx-[2px] text-lg leading-none">𝄞</span>A</span>
-                <span class="text-sm text-slate-500">Amazing Grace Academy</span>
-            </a>
+    {{-- Navbar (pill style like reference) --}}
+    @php
+        $pillLink = fn(bool $active) => 'ui-pill-link ' . ($active ? 'ui-pill-link-active' : '');
+    @endphp
 
-            <nav class="hidden md:flex items-center gap-6 text-sm text-slate-700">
-                <a href="{{ route('home') }}" class="hover:text-emerald-600">Home</a>
-                <a href="{{ route('about') }}" class="hover:text-emerald-600">About</a>
-                <a href="{{ route('contact') }}" class="hover:text-emerald-600">Events</a>
-                <a href="{{ route('songs') }}" class="hover:text-emerald-600">Shop</a>
-                <a href="{{ route('contact') }}" class="hover:text-emerald-600">Contact</a>
-            </nav>
+    <header x-data="{ open: false }" class="sticky top-0 z-40">
+        <div class="mx-auto max-w-7xl px-6 pt-5">
+            <div class="ui-pill-surface px-3 py-2">
+                <div class="flex items-center justify-between gap-3">
+                    <nav class="hidden md:flex items-center gap-1 ui-pill-nav">
+                        <a href="{{ route('home') }}" class="{{ $pillLink(request()->routeIs('home')) }}">Home</a>
+                        <a href="{{ route('about') }}" class="{{ $pillLink(request()->routeIs('about')) }}">About</a>
+                        <a href="{{ route('programs') }}"
+                            class="{{ $pillLink(request()->routeIs('programs')) }}">Programs</a>
+                        <a href="{{ route('events') }}" class="{{ $pillLink(request()->routeIs('events')) }}">Events</a>
+                        <a href="{{ route('songs') }}" class="{{ $pillLink(request()->routeIs('songs')) }}">Shop</a>
+                        <a href="{{ route('contact') }}"
+                            class="{{ $pillLink(request()->routeIs('contact')) }}">Contact</a>
+                    </nav>
 
-            <a href="{{ url('/register') }}"
-                class="inline-flex items-center justify-center rounded-full bg-emerald-600 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-emerald-700">
-                Class
-            </a>
+                    <a href="{{ route('home') }}"
+                        class="flex items-center gap-2 px-2 font-display text-ink-900 font-semibold">
+                        <span class="text-xl tracking-tight">A<span class="mx-0.5 text-sage-600">𝄞</span>A</span>
+                        <span class="hidden sm:inline text-sm text-ink-500 font-sans">Amazing Grace Academy</span>
+                    </a>
+
+                    <div class="flex items-center gap-2">
+                        <div class="hidden sm:flex items-center gap-2">
+                            <x-ui.button href="{{ route('support') }}" variant="outline"
+                                class="rounded-full px-4 py-2 text-xs">
+                                Support us
+                            </x-ui.button>
+                            <x-ui.button href="{{ route('register') }}" variant="primary"
+                                class="rounded-full px-4 py-2 text-xs">
+                                Join class
+                            </x-ui.button>
+                        </div>
+
+                        <button type="button"
+                            class="inline-flex md:hidden items-center justify-center rounded-full border border-ink-100 bg-white/90 px-3 py-2 text-ink-600 hover:bg-sage-50 hover:text-sage-800 transition-colors"
+                            aria-label="Open menu" :aria-expanded="open.toString()" aria-controls="mobile-nav"
+                            @click="open = !open">
+                            <x-ui.icon name="menu" class="h-5 w-5" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Mobile menu --}}
+            <div id="mobile-nav" x-cloak x-show="open" x-transition.opacity class="mt-3 md:hidden ui-pill-surface p-3">
+                <nav class="flex flex-col gap-1">
+                    <a href="{{ route('home') }}" @click="open = false"
+                        class="{{ $pillLink(request()->routeIs('home')) }}">Home</a>
+                    <a href="{{ route('about') }}" @click="open = false"
+                        class="{{ $pillLink(request()->routeIs('about')) }}">About</a>
+                    <a href="{{ route('programs') }}" @click="open = false"
+                        class="{{ $pillLink(request()->routeIs('programs')) }}">Programs</a>
+                    <a href="{{ route('events') }}" @click="open = false"
+                        class="{{ $pillLink(request()->routeIs('events')) }}">Events</a>
+                    <a href="{{ route('songs') }}" @click="open = false"
+                        class="{{ $pillLink(request()->routeIs('songs')) }}">Shop</a>
+                    <a href="{{ route('contact') }}" @click="open = false"
+                        class="{{ $pillLink(request()->routeIs('contact')) }}">Contact</a>
+                </nav>
+
+                <div class="mt-3 grid grid-cols-2 gap-2">
+                    <x-ui.button href="{{ route('support') }}" variant="outline"
+                        class="rounded-full px-4 py-2 text-xs">Support us</x-ui.button>
+                    <x-ui.button href="{{ route('register') }}" variant="primary"
+                        class="rounded-full px-4 py-2 text-xs">Join class</x-ui.button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -57,142 +118,79 @@
         @yield('content')
     </main>
 
-    {{-- Quick actions --}}
-    <div class="fixed bottom-5 right-4 flex flex-col gap-2 z-40">
+    {{-- Quick actions FAB --}}
+    <div class="fixed bottom-6 right-6 flex flex-col gap-2 z-40">
         <a href="#top" id="back-to-top"
-            class="hidden rounded-full bg-slate-900 text-white px-4 py-2 text-xs font-semibold shadow-lg hover:bg-slate-800">
-            ↑ Back to top
+            class="hidden items-center gap-2 rounded-full bg-ink-900 text-white px-4 py-2.5 text-xs font-semibold shadow-elevated hover:bg-ink-800 transition-colors">
+            <i class="fa-solid fa-arrow-up text-[10px]"></i> Back to top
         </a>
         <a href="{{ route('contact') }}"
-            class="rounded-full bg-emerald-600 text-white px-4 py-2 text-xs font-semibold shadow-lg hover:bg-emerald-700">
-            Contact us
+            class="inline-flex items-center gap-2 rounded-full bg-sage-600 text-white px-4 py-2.5 text-xs font-semibold shadow-glow hover:bg-sage-500 transition-colors">
+            <i class="fa-regular fa-envelope"></i> Contact us
         </a>
     </div>
 
-    <footer class="relative bg-gradient-to-b from-slate-50 to-white text-slate-700">
-        <div class="max-w-7xl mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="lg:col-span-1">
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="h-12 w-12 grid place-items-center rounded-2xl bg-white shadow border border-emerald-100">
-                            <span class="text-lg font-bold text-emerald-700">A<span class="mx-[2px] text-xl leading-none">𝄞</span>A</span>
+    <footer class="relative bg-gradient-to-b from-cream-50 to-white text-ink-600 border-t border-ink-100/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
+                {{-- Brand + tagline --}}
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="h-10 w-10 sm:h-12 sm:w-12 grid place-items-center rounded-xl sm:rounded-2xl bg-white shadow-sm border border-sage-100">
+                            <span class="font-display text-lg sm:text-xl font-semibold text-sage-700">A<span
+                                    class="mx-0.5">𝄞</span>A</span>
                         </div>
-                        <h3 class="text-xl font-bold bg-gradient-to-r from-emerald-600 to-amber-600 bg-clip-text text-transparent">
-                            Amazing Grace Academy
-                        </h3>
-                    </div>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                        Sharing the love of Christ through sacred music since 2016.
-                    </p>
-                    <div class="flex gap-4">
-                        <div class="text-center">
-                            <p class="text-lg font-bold text-emerald-600">25+</p>
-                            <p class="text-xs text-slate-500">Years</p>
-                        </div>
-                        <div class="text-center">
-                            <p class="text-lg font-bold text-amber-600">700+</p>
-                            <p class="text-xs text-slate-500">Students</p>
-                        </div>
-                        <div class="text-center">
-                            <p class="text-lg font-bold text-blue-600">4</p>
-                            <p class="text-xs text-slate-500">Albums</p>
+                        <div>
+                            <h3 class="font-display text-lg sm:text-xl font-semibold text-ink-900">Amazing Grace
+                                Academy</h3>
+                            <p class="text-ink-500 text-xs sm:text-sm mt-0.5">Sacred music since 2016</p>
                         </div>
                     </div>
                 </div>
 
-                <div>
-                    <h4 class="text-sm font-semibold text-slate-900 mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="{{ route('home') }}" class="text-slate-600 hover:text-emerald-600 transition-colors">Home</a></li>
-                        <li><a href="{{ route('about') }}" class="text-slate-600 hover:text-emerald-600 transition-colors">About Us</a></li>
-                        <li><a href="{{ route('programs') }}" class="text-slate-600 hover:text-emerald-600 transition-colors">Programs</a></li>
-                        <li><a href="{{ route('education') }}" class="text-slate-600 hover:text-emerald-600 transition-colors">Class Education</a></li>
-                        <li><a href="{{ route('songs') }}" class="text-slate-600 hover:text-emerald-600 transition-colors">Music Shop</a></li>
-                        <li><a href="{{ route('leaders') }}" class="text-slate-600 hover:text-emerald-600 transition-colors">Leadership</a></li>
-                        <li><a href="{{ route('contact') }}" class="text-slate-600 hover:text-emerald-600 transition-colors">Contact</a></li>
-                        <li><a href="{{ route('support') }}" class="text-slate-600 hover:text-emerald-600 transition-colors">Support</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-sm font-semibold text-slate-900 mb-4">Get in Touch</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-start gap-2">
-                            <span class="text-emerald-600 mt-0.5">✉</span>
-                            <a href="mailto:amazinggraceacademyrwanda@gmail.com"
-                                class="text-slate-600 hover:text-emerald-600 transition-colors break-all">
-                                amazinggraceacademyrwanda@gmail.com
-                            </a>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-amber-600 mt-0.5">☎</span>
-                            <a href="tel:+250788261729" class="text-slate-600 hover:text-amber-600 transition-colors">
-                                0788 261 729 / 0780 330 325
-                            </a>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-blue-600 mt-0.5">📍</span>
-                            <p class="text-slate-600">ASA UR Nyarugenge SDA<br>Kigali Bilingual Church</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-sm font-semibold text-slate-900 mb-4">Stay Connected</h4>
-                    <p class="text-slate-600 text-xs mb-3">
-                        Get updates on events and new music
-                    </p>
-                    <div class="mb-4">
-                        <div class="flex gap-2">
-                            <input type="email" placeholder="Your email"
-                                class="flex-1 px-3 py-2 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm placeholder-slate-400">
-                            <button
-                                class="px-4 py-2 bg-emerald-600 text-white rounded-lg text-sm font-medium hover:bg-emerald-700 transition-colors">
-                                Join
-                            </button>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <a href="#" class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white transition" aria-label="Facebook">
-                            <i class="fa-brands fa-facebook-f text-sm"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white transition" aria-label="Instagram">
-                            <i class="fa-brands fa-instagram text-sm"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600 hover:bg-red-600 hover:text-white transition" aria-label="YouTube">
-                            <i class="fa-brands fa-youtube text-sm"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600 hover:bg-black hover:text-white transition" aria-label="TikTok">
-                            <i class="fa-brands fa-tiktok text-sm"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600 hover:bg-green-500 hover:text-white transition" aria-label="Spotify">
-                            <i class="fa-brands fa-spotify text-sm"></i>
-                        </a>
-                    </div>
+                {{-- Social: Font Awesome icons, visible and touch-friendly --}}
+                <div class="flex items-center gap-3">
+                    <span class="text-ink-500 text-xs sm:text-sm font-medium mr-1 sm:mr-0">Follow us</span>
+                    <a href="#"
+                        class="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-sage-100 text-sage-700 hover:bg-sage-600 hover:text-white transition-colors"
+                        aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f text-lg sm:text-xl" aria-hidden="true"></i>
+                    </a>
+                    <a href="#"
+                        class="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-sage-100 text-sage-700 hover:bg-sage-600 hover:text-white transition-colors"
+                        aria-label="Instagram">
+                        <i class="fa-brands fa-instagram text-lg sm:text-xl" aria-hidden="true"></i>
+                    </a>
+                    <a href="#"
+                        class="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-sage-100 text-sage-700 hover:bg-sage-600 hover:text-white transition-colors"
+                        aria-label="YouTube">
+                        <i class="fa-brands fa-youtube text-lg sm:text-xl" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
 
-            <div class="mt-8 pt-6 border-t border-slate-200">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p class="text-slate-600 text-xs text-center md:text-left">
-                        © {{ date('Y') }} <span class="text-emerald-600 font-semibold">Amazing Grace Academy</span> - ASA UR Nyarugenge SDA. All rights reserved.
-                    </p>
-                    <div class="flex items-center gap-4 text-xs text-slate-500">
-                        <a href="{{ route('privacy') }}" class="hover:text-emerald-600 transition">Privacy</a>
-                        <a href="{{ route('terms') }}" class="hover:text-emerald-600 transition">Terms</a>
-                        <a href="{{ route('contact') }}" class="hover:text-emerald-600 transition">Contact</a>
-                    </div>
-                </div>
+            {{-- Short links row --}}
+            <nav
+                class="mt-6 pt-6 border-t border-ink-100 flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2 text-sm">
+                <a href="{{ route('home') }}" class="text-ink-600 hover:text-sage-600 transition-colors">Home</a>
+                <a href="{{ route('about') }}" class="text-ink-600 hover:text-sage-600 transition-colors">About</a>
+                <a href="{{ route('programs') }}"
+                    class="text-ink-600 hover:text-sage-600 transition-colors">Programs</a>
+                <a href="{{ route('events') }}" class="text-ink-600 hover:text-sage-600 transition-colors">Events</a>
+                <a href="{{ route('songs') }}" class="text-ink-600 hover:text-sage-600 transition-colors">Shop</a>
+                <a href="{{ route('contact') }}"
+                    class="text-ink-600 hover:text-sage-600 transition-colors">Contact</a>
+                <a href="{{ route('privacy') }}"
+                    class="text-ink-500 hover:text-sage-600 transition-colors">Privacy</a>
+                <a href="{{ route('terms') }}" class="text-ink-500 hover:text-sage-600 transition-colors">Terms</a>
+            </nav>
 
-                <div class="mt-6 text-center">
-                    <div class="inline-block bg-gradient-to-r from-emerald-50 to-amber-50 rounded-lg px-6 py-3 border border-emerald-200">
-                        <p class="text-slate-700 italic text-xs">
-                            "Make a joyful noise to the Lord, all the earth!"
-                        </p>
-                        <p class="text-emerald-600 font-semibold text-xs mt-0.5">— Psalm 100:1</p>
-                    </div>
-                </div>
-            </div>
+            {{-- Copyright --}}
+            <p class="mt-6 pt-4 border-t border-ink-100 text-center text-ink-500 text-xs sm:text-sm">
+                © {{ date('Y') }} <span class="text-sage-600 font-semibold">Amazing Grace Academy</span> — ASA UR
+                Nyarugenge SDA
+            </p>
         </div>
     </footer>
 </body>
