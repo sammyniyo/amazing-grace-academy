@@ -17,21 +17,23 @@ use App\Http\Controllers\EventRegistrationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', [WebsiteController::class, 'home'])->name('home');
-Route::get('/about', [WebsiteController::class, 'about'])->name('about');
-Route::get('/programs', [WebsiteController::class, 'programs'])->name('programs');
-Route::get('/education', [WebsiteController::class, 'education'])->name('education');
-Route::get('/songs', [WebsiteController::class, 'songs'])->name('songs');
-Route::get('/events', [WebsiteController::class, 'events'])->name('events');
+Route::middleware('cache.public')->group(function () {
+    Route::get('/', [WebsiteController::class, 'home'])->name('home');
+    Route::get('/about', [WebsiteController::class, 'about'])->name('about');
+    Route::get('/programs', [WebsiteController::class, 'programs'])->name('programs');
+    Route::get('/education', [WebsiteController::class, 'education'])->name('education');
+    Route::get('/songs', [WebsiteController::class, 'songs'])->name('songs');
+    Route::get('/events', [WebsiteController::class, 'events'])->name('events');
+    Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
+    Route::get('/leaders', [WebsiteController::class, 'leaders'])->name('leaders');
+    Route::get('/register', [WebsiteController::class, 'register'])->name('register');
+    Route::get('/support', [WebsiteController::class, 'support'])->name('support');
+    Route::get('/privacy', [WebsiteController::class, 'privacy'])->name('privacy');
+    Route::get('/terms', [WebsiteController::class, 'terms'])->name('terms');
+});
 Route::get('/events/{event}/register', [EventRegistrationController::class, 'show'])->name('events.register');
 Route::post('/events/{event}/register', [EventRegistrationController::class, 'store'])->name('events.register.submit');
 Route::get('/events/{event}', [WebsiteController::class, 'eventShow'])->name('events.show');
-Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
-Route::get('/leaders', [WebsiteController::class, 'leaders'])->name('leaders');
-Route::get('/register', [WebsiteController::class, 'register'])->name('register');
-Route::get('/support', [WebsiteController::class, 'support'])->name('support');
-Route::get('/privacy', [WebsiteController::class, 'privacy'])->name('privacy');
-Route::get('/terms', [WebsiteController::class, 'terms'])->name('terms');
 
 // Auth routes
 Route::view('/login', 'auth.login')->name('login')->middleware('guest');

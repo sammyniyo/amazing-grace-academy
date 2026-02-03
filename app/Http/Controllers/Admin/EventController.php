@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class EventController extends Controller
 {
@@ -40,6 +41,8 @@ class EventController extends Controller
         $data['accepts_support'] = $request->boolean('accepts_support');
 
         Event::create($data);
+        Cache::forget('home.upcoming_events');
+        Cache::forget('website.events');
 
         return redirect()->route('admin.events.index')->with('success', 'Event saved.');
     }
@@ -60,6 +63,8 @@ class EventController extends Controller
         $data['accepts_support'] = $request->boolean('accepts_support');
 
         $event->update($data);
+        Cache::forget('home.upcoming_events');
+        Cache::forget('website.events');
 
         return redirect()->route('admin.events.index')->with('success', 'Event updated.');
     }
@@ -67,6 +72,8 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         $event->delete();
+        Cache::forget('home.upcoming_events');
+        Cache::forget('website.events');
         return redirect()->route('admin.events.index')->with('success', 'Event removed.');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cohort;
 use App\Models\Member;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,22 @@ class RegistrationController extends Controller
             'instrument_interest' => 'nullable|string|max:100',
             'message' => 'nullable|string',
         ]);
+
+        $registrationOpen = Cohort::acceptingRegistration()->exists();
+        if (! $registrationOpen) {
+            return back()
+                ->withInput($request->except('password'))
+                ->with('error', 'Registration is currently closed. Please check back for the next intake.');
+        }
+
+        if (! empty($data['cohort_id'])) {
+            $cohort = Cohort::find($data['cohort_id']);
+            if ($cohort && ! $cohort->isAcceptingRegistration()) {
+                return back()
+                    ->withInput($request->except('password'))
+                    ->with('error', 'That cohort is not accepting registrations. Please choose another or wait for the next intake.');
+            }
+        }
 
         Member::create([
             'name' => $data['name'],

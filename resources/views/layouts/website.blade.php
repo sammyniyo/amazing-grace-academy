@@ -15,9 +15,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
         rel="stylesheet">
+    {{-- Load Font Awesome async so it doesn't block first paint --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SzlrxWriC3XhY1Aw4p3p8Z3QYxkS2Q5u3zGqZ1rsSLjJ9tN5B+I5p4v6jF9CUG65p7qD1R6q5rI1w3y5x6Z5CQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            crossorigin="anonymous">
+    </noscript>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 

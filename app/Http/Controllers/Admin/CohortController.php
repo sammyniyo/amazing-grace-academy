@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Cohort;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class CohortController extends Controller
@@ -36,6 +37,7 @@ class CohortController extends Controller
         $data['code'] = $data['code'] ?: Str::upper(Str::slug($data['name'] . '-' . now()->format('ymd')));
 
         Cohort::create($data);
+        Cache::forget('website.register_cohorts');
 
         return redirect()->route('admin.cohorts.index')->with('success', 'Cohort created.');
     }
@@ -59,6 +61,7 @@ class CohortController extends Controller
         ]);
 
         $cohort->update($data);
+        Cache::forget('website.register_cohorts');
 
         return redirect()->route('admin.cohorts.index')->with('success', 'Cohort updated.');
     }
@@ -66,6 +69,7 @@ class CohortController extends Controller
     public function destroy(Cohort $cohort)
     {
         $cohort->delete();
+        Cache::forget('website.register_cohorts');
         return redirect()->route('admin.cohorts.index')->with('success', 'Cohort deleted.');
     }
 }

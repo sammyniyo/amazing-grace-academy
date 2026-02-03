@@ -5,33 +5,57 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Event;
 use App\Models\Cohort;
+use Illuminate\Support\Facades\Cache;
 
 class WebsiteController extends Controller
 {
+    /** Cache TTL for public list data (seconds). */
+    private const LIST_CACHE_TTL = 300;
+
     public function home()
     {
-        $upcomingEvents = Event::orderBy('event_date', 'desc')->take(6)->get();
+        $today = now()->startOfDay();
+        $upcomingEvents = Cache::remember('home.upcoming_events', self::LIST_CACHE_TTL, function () use ($today) {
+            return Event::where('event_date', '>=', $today)
+                ->orderBy('event_date')
+                ->take(6)
+                ->get();
+        });
         return view('website.home', compact('upcomingEvents'));
     }
+
     public function about()    { return view('website.about'); }
     public function programs() { return view('website.programs'); }
     public function education(){ return view('website.education'); }
+
     public function songs()
     {
-        $products = Product::where('is_active', true)->orderBy('type')->get();
+        $products = Cache::remember('website.products_active', self::LIST_CACHE_TTL, function () {
+            return Product::where('is_active', true)->orderBy('type')->get();
+        });
         return view('website.songs', compact('products'));
     }
 
     public function events()
     {
-        $all = Event::orderBy('event_date', 'desc')->get();
         $today = now()->startOfDay();
-        $upcoming = $all->filter(fn ($e) => $e->event_date && $e->event_date->gte($today))->values();
-        $past = $all->filter(fn ($e) => $e->event_date && $e->event_date->lt($today))->values();
+        $cacheKey = 'website.events';
+        $cached = Cache::get($cacheKey);
+        if ($cached && ($cached['date'] ?? null) === $today->format('Y-m-d')) {
+            $upcomingEvents = $cached['upcoming'];
+            $pastEvents = $cached['past'];
+        } else {
+            $upcomingEvents = Event::where('event_date', '>=', $today)->orderBy('event_date')->get();
+            $pastEvents = Event::where('event_date', '<', $today)->orderBy('event_date', 'desc')->get();
+            Cache::put($cacheKey, [
+                'date' => $today->format('Y-m-d'),
+                'upcoming' => $upcomingEvents,
+                'past' => $pastEvents,
+            ], self::LIST_CACHE_TTL);
+        }
         return view('website.events', [
-            'events' => $all,
-            'upcomingEvents' => $upcoming,
-            'pastEvents' => $past,
+            'upcomingEvents' => $upcomingEvents,
+            'pastEvents' => $pastEvents,
         ]);
     }
 
@@ -44,8 +68,11 @@ class WebsiteController extends Controller
     public function leaders()  { return view('website.leaders'); }
     public function register()
     {
-        $cohorts = Cohort::orderBy('start_date', 'desc')->get();
-        return view('website.register', compact('cohorts'));
+        $cohorts = Cache::remember('website.register_cohorts', self::LIST_CACHE_TTL, function () {
+            return Cohort::acceptingRegistration()->orderBy('start_date', 'desc')->get();
+        });
+        $registrationOpen = $cohorts->isNotEmpty();
+        return view('website.register', compact('cohorts', 'registrationOpen'));
     }
 
     public function support()

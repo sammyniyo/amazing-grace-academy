@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -41,6 +42,7 @@ class ProductController extends Controller
         $data['is_active'] = $request->boolean('is_active');
 
         Product::create($data);
+        Cache::forget('website.products_active');
 
         return redirect()->route('admin.products.index')->with('success', 'Product saved.');
     }
@@ -60,6 +62,7 @@ class ProductController extends Controller
         $data['is_active'] = $request->boolean('is_active');
 
         $product->update($data);
+        Cache::forget('website.products_active');
 
         return redirect()->route('admin.products.edit', $product)->with('success', 'Product updated.');
     }
@@ -67,6 +70,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+        Cache::forget('website.products_active');
         return redirect()->route('admin.products.index')->with('success', 'Product removed.');
     }
 }

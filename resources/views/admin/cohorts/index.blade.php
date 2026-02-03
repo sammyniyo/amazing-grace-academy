@@ -6,7 +6,9 @@
 @section('content')
     <div class="flex items-center justify-between gap-3">
         <h1 class="text-xl font-semibold text-slate-900">Cohorts</h1>
-        <a href="{{ route('admin.cohorts.create') }}" class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-emerald-700">New Cohort</a>
+        <a href="{{ route('admin.cohorts.create') }}"
+            class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-emerald-700">New
+            Cohort</a>
     </div>
 
     <div class="mt-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
@@ -29,18 +31,26 @@
                             <div class="text-xs text-slate-500">{{ $cohort->code }}</div>
                         </td>
                         <td class="px-4 py-3 text-slate-700">
-                            {{ $cohort->start_date?->format('M j, Y') }} @if($cohort->end_date) — {{ $cohort->end_date->format('M j, Y') }} @endif
+                            {{ $cohort->start_date?->format('M j, Y') }} @if ($cohort->end_date)
+                                — {{ $cohort->end_date->format('M j, Y') }}
+                            @endif
                         </td>
                         <td class="px-4 py-3 text-slate-700">{{ $cohort->location ?? '—' }}</td>
                         <td class="px-4 py-3 text-slate-700">{{ $cohort->capacity }}</td>
                         <td class="px-4 py-3">
-                            <span class="rounded-full border px-3 py-1 text-xs font-semibold {{ $cohort->status === 'active' ? 'border-emerald-200 text-emerald-700 bg-emerald-50' : 'border-slate-200 text-slate-700 bg-slate-50' }}">
+                            @php
+                                $accepting = in_array($cohort->status, ['open', 'progress'], true);
+                            @endphp
+                            <span
+                                class="rounded-full border px-3 py-1 text-xs font-semibold {{ $accepting ? 'border-emerald-200 text-emerald-700 bg-emerald-50' : ($cohort->status === 'active' ? 'border-sky-200 text-sky-700 bg-sky-50' : 'border-slate-200 text-slate-700 bg-slate-50') }}">
                                 {{ ucfirst($cohort->status) }}
                             </span>
                         </td>
                         <td class="px-4 py-3 text-right">
-                            <a href="{{ route('admin.cohorts.edit', $cohort) }}" class="text-sm font-semibold text-emerald-700 hover:underline">Edit</a>
-                            <form action="{{ route('admin.cohorts.destroy', $cohort) }}" method="POST" class="inline-block ml-2" onsubmit="return confirm('Delete this cohort?')">
+                            <a href="{{ route('admin.cohorts.edit', $cohort) }}"
+                                class="text-sm font-semibold text-emerald-700 hover:underline">Edit</a>
+                            <form action="{{ route('admin.cohorts.destroy', $cohort) }}" method="POST"
+                                class="inline-block ml-2" onsubmit="return confirm('Delete this cohort?')">
                                 @csrf
                                 @method('DELETE')
                                 <button class="text-sm font-semibold text-rose-600 hover:underline">Delete</button>
