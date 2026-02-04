@@ -23,7 +23,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
             crossorigin="anonymous">
     </noscript>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @if (file_exists(public_path('build/manifest.json')))
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @else
+        {{-- Production fallback when manifest is missing: use built assets if present --}}
+        <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
+        <script type="module" src="{{ asset('build/assets/app.js') }}" defer></script>
+    @endif
 </head>
 
 <body class="bg-cream-100 text-ink-900 antialiased font-sans">
@@ -58,7 +64,8 @@
                         <a href="{{ route('about') }}" class="{{ $pillLink(request()->routeIs('about')) }}">About</a>
                         <a href="{{ route('programs') }}"
                             class="{{ $pillLink(request()->routeIs('programs')) }}">Programs</a>
-                        <a href="{{ route('events') }}" class="{{ $pillLink(request()->routeIs('events')) }}">Events</a>
+                        <a href="{{ route('events') }}"
+                            class="{{ $pillLink(request()->routeIs('events')) }}">Events</a>
                         <a href="{{ route('songs') }}" class="{{ $pillLink(request()->routeIs('songs')) }}">Shop</a>
                         <a href="{{ route('contact') }}"
                             class="{{ $pillLink(request()->routeIs('contact')) }}">Contact</a>
