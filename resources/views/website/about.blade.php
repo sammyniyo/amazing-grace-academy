@@ -1,7 +1,8 @@
 @extends('layouts.website')
 
 @section('title', 'About — Amazing Grace Academy')
-@section('meta_description', 'The story of Amazing Grace Academy — from a choir asking "How do we read these hymns?" to
+@section('meta_description',
+    'The story of Amazing Grace Academy — from a choir asking "How do we read these hymns?" to
     a school for worship and excellence in Rwanda.')
 
 @section('content')
@@ -31,7 +32,7 @@
             <p class="mt-4 sm:mt-6 text-ink-600 text-base sm:text-lg leading-relaxed">
                 Today that path extends to Piano, Guitar, and Violin — each instrument woven into the same literacy-first
                 story. We are a music school within the <strong>Seventh-day Adventist Church</strong> (ASSA Kigali, ASA UR
-                Nyarugenge), at <strong>Kigali Bilingual Church</strong>. But at heart we are still that choir: learning,
+                Nyarugenge), at <strong>ASA UR Nyarugenge SDA</strong>. But at heart we are still that choir: learning,
                 then leading.
             </p>
         </div>
