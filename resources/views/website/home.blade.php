@@ -329,28 +329,27 @@
             </div>
             <x-ui.button href="{{ route('songs') }}" variant="outline" class="rounded-full w-fit hidden sm:inline-flex">Browse music</x-ui.button>
         </div>
-        <div class="mt-8 grid gap-4 sm:gap-6 md:grid-cols-3">
-            <div class="reveal shop-card p-6">
-                <span class="pill border border-sage-200 bg-sage-50/90 text-sage-800 text-xs">Album</span>
-                <h3 class="mt-4 font-display text-lg font-semibold text-ink-900">“Hymns Renewed</h3>
-                <p class="mt-2 text-sm text-ink-600">Recorded arrangements by the academy choir.</p>
-                <p class="mt-4 font-display text-xl font-bold text-ink-900">10,000 RWF</p>
-                <x-ui.button href="{{ route('songs') }}" variant="primary" class="mt-4 w-full rounded-xl text-sm">Buy album</x-ui.button>
-            </div>
-            <div class="reveal reveal-delay-1 shop-card p-6">
-                <span class="pill border border-sage-200 bg-sage-50/90 text-sage-800 text-xs">Hymnal</span>
-                <h3 class="mt-4 font-display text-lg font-semibold text-ink-900">Sol-Fa Hymnal (SATB)</h3>
-                <p class="mt-2 text-sm text-ink-600 leading-relaxed">Printed hymns with clear parts for choir practice.</p>
-                <p class="mt-4 font-display text-xl font-bold text-ink-900">8,000 RWF</p>
-                <x-ui.button href="{{ route('support') }}" variant="outline" class="mt-4 w-full rounded-xl text-sm">Order copy</x-ui.button>
-            </div>
-            <div class="reveal reveal-delay-2 shop-card p-6">
-                <span class="pill border border-gold-200 bg-gold-50/80 text-gold-800 text-xs">Workbook</span>
-                <h3 class="mt-4 font-display text-lg font-semibold text-ink-900">Sight-Reading Drills</h3>
-                <p class="mt-2 text-sm text-ink-600 leading-relaxed">Exercises for Sol-Fa and staff notation learners.</p>
-                <p class="mt-4 font-display text-xl font-bold text-ink-900">6,000 RWF</p>
-                <x-ui.button href="{{ route('programs') }}" variant="outline" class="mt-4 w-full rounded-xl text-sm">View details</x-ui.button>
-            </div>
+        <div class="mt-8 grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+            @forelse ($products as $index => $product)
+                <div class="reveal {{ $index > 0 ? 'reveal-delay-' . min($index, 2) : '' }} shop-card p-6">
+                    @if(strtolower($product->type ?? '') === 'album')
+                        <span class="pill border border-sage-200 bg-sage-50/90 text-sage-800 text-xs">Album</span>
+                    @elseif(strtolower($product->type ?? '') === 'hymnal')
+                        <span class="pill border border-sage-200 bg-sage-50/90 text-sage-800 text-xs">Hymnal</span>
+                    @else
+                        <span class="pill border border-gold-200 bg-gold-50/80 text-gold-800 text-xs">{{ ucfirst($product->type ?? 'Product') }}</span>
+                    @endif
+                    <h3 class="mt-4 font-display text-lg font-semibold text-ink-900">{{ $product->title }}</h3>
+                    <p class="mt-2 text-sm text-ink-600 leading-relaxed">{{ Str::limit($product->description ?? 'Support the choir and get materials for your church or group.', 80) }}</p>
+                    <p class="mt-4 font-display text-xl font-bold text-ink-900">{{ number_format($product->price) }} RWF</p>
+                    <x-ui.button href="{{ route('songs') }}?product={{ $product->id }}" variant="primary" class="mt-4 w-full rounded-xl text-sm">Buy now</x-ui.button>
+                </div>
+            @empty
+                <div class="reveal shop-card p-6 md:col-span-2 lg:col-span-3 text-center py-10">
+                    <p class="text-ink-600">No products in the shop yet. Check back soon.</p>
+                    <x-ui.button href="{{ route('songs') }}" variant="outline" class="mt-4 rounded-xl">Browse music</x-ui.button>
+                </div>
+            @endforelse
         </div>
     </section>
 

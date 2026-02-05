@@ -150,7 +150,8 @@
                         <div class="font-display text-lg font-semibold text-ink-900">Bank of Kigali</div>
                         <div class="text-sm text-sage-700 font-medium mt-0.5">US Dollars (USD)</div>
                         <p class="mt-2 font-mono text-base sm:text-lg font-semibold text-ink-900 tracking-wide break-all">100220541074</p>
-                        <p class="text-sm text-ink-500 mt-1">Account name: <span class="text-ink-700 font-medium">NIYITEGEKA THOMAS</span></p>
+                        <p class="text-sm text-ink-500 mt-1">Account: <span class="text-ink-700 font-medium">NIYITEGEKA THOMAS</span></p>
+                        <p class="text-sm text-ink-500 mt-0.5">SWIFT: <span class="font-mono font-medium text-ink-700">BKIGRWRW</span></p>
                     </div>
                 </div>
                 <button type="button" @click="navigator.clipboard.writeText('100220541074'); copied = true; setTimeout(() => copied = false, 2000)"
@@ -171,7 +172,8 @@
                         <div class="font-display text-lg font-semibold text-ink-900">Equity Bank</div>
                         <div class="text-sm text-sage-700 font-medium mt-0.5">Euro (EUR)</div>
                         <p class="mt-2 font-mono text-base sm:text-lg font-semibold text-ink-900 tracking-wide break-all">4002213130143</p>
-                        <p class="text-sm text-ink-500 mt-1">Account name: <span class="text-ink-700 font-medium">MIRIAM, SCHIMEI AND THOMAS</span></p>
+                        <p class="text-sm text-ink-500 mt-1">Account: <span class="text-ink-700 font-medium">MIRIAM, SCHIMEI AND THOMAS</span></p>
+                        <p class="text-sm text-ink-500 mt-0.5">SWIFT: <span class="font-mono font-medium text-ink-700">EQBLRWRW</span></p>
                     </div>
                 </div>
                 <button type="button" @click="navigator.clipboard.writeText('4002213130143'); copied = true; setTimeout(() => copied = false, 2000)"
@@ -192,7 +194,8 @@
                         <div class="font-display text-lg font-semibold text-ink-900">Equity Bank</div>
                         <div class="text-sm text-sage-700 font-medium mt-0.5">Rwandan Franc (RWF)</div>
                         <p class="mt-2 font-mono text-base sm:text-lg font-semibold text-ink-900 tracking-wide break-all">4002213130139</p>
-                        <p class="text-sm text-ink-500 mt-1">Account name: <span class="text-ink-700 font-medium">MIRIAM, SCHIMEI AND THOMAS</span></p>
+                        <p class="text-sm text-ink-500 mt-1">Account: <span class="text-ink-700 font-medium">MIRIAM, SCHIMEI AND THOMAS</span></p>
+                        <p class="text-sm text-ink-500 mt-0.5">SWIFT: <span class="font-mono font-medium text-ink-700">EQBLRWRW</span></p>
                     </div>
                 </div>
                 <button type="button" @click="navigator.clipboard.writeText('4002213130139'); copied = true; setTimeout(() => copied = false, 2000)"
@@ -211,11 +214,11 @@
                     </div>
                     <div class="min-w-0">
                         <div class="font-display text-lg font-semibold text-ink-900">Mobile Money (MOMO)</div>
-                        <p class="mt-2 font-mono text-base sm:text-lg font-semibold text-ink-900 tracking-wide">0784782454</p>
+                        <p class="mt-2 font-mono text-base sm:text-lg font-semibold text-ink-900 tracking-wide">+250 78 478 2454</p>
                         <p class="text-sm text-ink-500 mt-1">Name: <span class="text-ink-700 font-medium">UMUTONIWASE Irakiza Jeovanie</span></p>
                     </div>
                 </div>
-                <a href="tel:0784782454" class="shrink-0 rounded-xl bg-amber-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-amber-600 transition-colors inline-flex items-center justify-center">
+                <a href="tel:+250784782454" class="shrink-0 rounded-xl bg-amber-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-amber-600 transition-colors inline-flex items-center justify-center">
                     <i class="fas fa-phone-alt mr-1.5"></i> Call to pay
                 </a>
             </div>

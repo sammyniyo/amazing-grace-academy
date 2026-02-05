@@ -21,7 +21,10 @@ class WebsiteController extends Controller
                 ->take(6)
                 ->get();
         });
-        return view('website.home', compact('upcomingEvents'));
+        $products = Cache::remember('website.products_active', self::LIST_CACHE_TTL, function () {
+            return Product::where('is_active', true)->orderBy('type')->take(6)->get();
+        });
+        return view('website.home', compact('upcomingEvents', 'products'));
     }
 
     public function about()    { return view('website.about'); }
