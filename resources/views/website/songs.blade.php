@@ -145,36 +145,6 @@
         </div>
     </section>
 
-    {{-- BUNDLES CTA --}}
-    <section class="mx-auto max-w-7xl px-6 pb-20">
-        <div class="reveal flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-                <div class="section-label">Bundle offers</div>
-                <h2 class="mt-3 font-display text-2xl font-semibold text-ink-900">Equip choirs and churches</h2>
-                <p class="mt-2 text-ink-600 text-sm">Church packs, learner packs, and custom bundles. We’ll quote and
-                    deliver.</p>
-            </div>
-        </div>
-        <div class="mt-8 grid gap-6 md:grid-cols-2">
-            <div class="reveal soft-card p-8">
-                <div class="pill-green">Church Pack</div>
-                <h3 class="mt-3 font-display text-xl font-semibold text-ink-900">Hymns Renewed + Hymnal Set</h3>
-                <p class="mt-2 text-ink-600 text-sm">Album plus 5 Sol-Fa hymnals for choir leaders and sections.</p>
-                <div class="mt-4 font-display text-xl font-semibold text-sage-700">22,000 RWF</div>
-                <x-ui.button href="{{ route('contact') }}?topic=Church+Pack" variant="outline"
-                    class="mt-4 w-full rounded-xl">Request quote</x-ui.button>
-            </div>
-            <div class="reveal soft-card p-8">
-                <div class="pill bg-gold-50 text-gold-700 border border-gold-200">Learner Pack</div>
-                <h3 class="mt-3 font-display text-xl font-semibold text-ink-900">Workbook + Audio Drills</h3>
-                <p class="mt-2 text-ink-600 text-sm">Sight-reading drills with downloadable audio for practice.</p>
-                <div class="mt-4 font-display text-xl font-semibold text-sage-700">9,500 RWF</div>
-                <x-ui.button href="{{ route('contact') }}?topic=Learner+Pack" variant="outline"
-                    class="mt-4 w-full rounded-xl">Request quote</x-ui.button>
-            </div>
-        </div>
-    </section>
-
     {{-- CTA --}}
     <section class="mx-auto max-w-7xl px-6 pb-20">
         <div class="reveal soft-card p-10 text-center">

@@ -96,7 +96,6 @@
                     <div>
                         <div class="text-sm font-semibold text-slate-900">Location</div>
                         <div class="text-sm">
-                            Kigali Bilingual Church<br>
                             ASA UR Nyarugenge<br>
                             ASSA Kigali • Rwanda
                         </div>

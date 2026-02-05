@@ -128,51 +128,107 @@
         </div>
     </section>
 
-    {{-- GIVING OPTIONS --}}
+    {{-- PAYMENT MEANS (animated) --}}
     <section id="give" class="mx-auto max-w-7xl px-6 pb-20">
         <div class="reveal text-center">
             <div class="section-label inline-flex">Ways to give</div>
-            <h2 class="mt-3 font-display text-3xl font-semibold text-ink-900">Support channels</h2>
+            <h2 class="mt-3 font-display text-3xl font-semibold text-ink-900">Payment means</h2>
             <p class="mt-3 text-ink-600 max-w-2xl mx-auto leading-relaxed">
-                Choose how you want to help: finances, instruments, volunteering, or prayer and mentorship.
+                Send your support via bank transfer or mobile money. Each option appears as you scroll.
             </p>
         </div>
 
-        <div class="mt-10 grid gap-6 md:grid-cols-2">
-            <div class="reveal soft-card p-8">
-                <div class="pill-green">Financial support</div>
-                <p class="mt-4 text-ink-600 text-sm">Contributions can be sent to:</p>
-                <p class="mt-3 font-display text-lg font-semibold text-sage-700">Schimei IRATWUMVA</p>
-                <p class="text-ink-600 text-sm">Code: <strong>726096</strong></p>
-                <p class="mt-3 text-sm text-ink-600 leading-relaxed">
-                    Funds go to instruments, hymnals, rehearsal materials, and class logistics.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2 text-xs text-ink-500">
-                    <span class="pill bg-sage-50 text-sage-700 border border-sage-200">Mobile money</span>
-                    <span class="pill bg-sage-50 text-sage-700 border border-sage-200">Cash/Bank (contact us)</span>
+        <div class="mt-12 space-y-6 max-w-2xl mx-auto">
+            {{-- Bank of Kigali — USD --}}
+            <div class="reveal reveal-delay-1 soft-card p-6 sm:p-8 border border-sage-100/80 hover:border-sage-200 hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row sm:items-center gap-4"
+                x-data="{ copied: false }">
+                <div class="flex items-center gap-4 flex-1">
+                    <div class="h-14 w-14 rounded-2xl bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
+                        <i class="fas fa-university text-xl"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="font-display text-lg font-semibold text-ink-900">Bank of Kigali</div>
+                        <div class="text-sm text-sage-700 font-medium mt-0.5">US Dollars (USD)</div>
+                        <p class="mt-2 font-mono text-base sm:text-lg font-semibold text-ink-900 tracking-wide break-all">100220541074</p>
+                        <p class="text-sm text-ink-500 mt-1">Account name: <span class="text-ink-700 font-medium">NIYITEGEKA THOMAS</span></p>
+                    </div>
                 </div>
+                <button type="button" @click="navigator.clipboard.writeText('100220541074'); copied = true; setTimeout(() => copied = false, 2000)"
+                    class="shrink-0 rounded-xl border border-sage-200 bg-sage-50 px-4 py-2.5 text-sm font-medium text-sage-700 hover:bg-sage-100 transition-colors">
+                    <span x-show="!copied"><i class="far fa-copy mr-1.5"></i> Copy</span>
+                    <span x-show="copied" x-cloak x-transition class="text-emerald-600"><i class="fas fa-check mr-1.5"></i> Copied</span>
+                </button>
             </div>
 
-            <div class="reveal soft-card p-8">
-                <div class="pill bg-gold-50 text-gold-700 border border-gold-200 w-fit">Other support</div>
-                <p class="mt-4 text-ink-600 text-sm leading-relaxed">
-                    You can also support through prayers, advice, volunteering, or providing musical instruments (piano,
-                    guitar, violin).
-                </p>
-                <div class="mt-4 grid gap-3 sm:grid-cols-2 text-sm text-ink-700">
-                    <div class="rounded-2xl border border-sage-200 bg-sage-50/50 p-4">
-                        <div class="text-xs font-semibold text-sage-700">Volunteer</div>
-                        <p class="mt-1 text-ink-600 text-sm">Mentor musicians, help logistics, or media support.</p>
+            {{-- Equity Bank — Euro --}}
+            <div class="reveal reveal-delay-2 soft-card p-6 sm:p-8 border border-sage-100/80 hover:border-sage-200 hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row sm:items-center gap-4"
+                x-data="{ copied: false }">
+                <div class="flex items-center gap-4 flex-1">
+                    <div class="h-14 w-14 rounded-2xl bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
+                        <i class="fas fa-university text-xl"></i>
                     </div>
-                    <div class="rounded-2xl border border-sage-200 bg-sage-50/50 p-4">
-                        <div class="text-xs font-semibold text-sage-700">Instruments</div>
-                        <p class="mt-1 text-ink-600 text-sm">Donate or lend instruments to expand slots.</p>
+                    <div class="min-w-0">
+                        <div class="font-display text-lg font-semibold text-ink-900">Equity Bank</div>
+                        <div class="text-sm text-sage-700 font-medium mt-0.5">Euro (EUR)</div>
+                        <p class="mt-2 font-mono text-base sm:text-lg font-semibold text-ink-900 tracking-wide break-all">4002213130143</p>
+                        <p class="text-sm text-ink-500 mt-1">Account name: <span class="text-ink-700 font-medium">MIRIAM, SCHIMEI AND THOMAS</span></p>
                     </div>
                 </div>
-                <div class="mt-4">
-                    <x-ui.button href="{{ route('contact') }}?topic=Support" variant="primary"
-                        class="rounded-xl">Coordinate a donation</x-ui.button>
+                <button type="button" @click="navigator.clipboard.writeText('4002213130143'); copied = true; setTimeout(() => copied = false, 2000)"
+                    class="shrink-0 rounded-xl border border-sage-200 bg-sage-50 px-4 py-2.5 text-sm font-medium text-sage-700 hover:bg-sage-100 transition-colors">
+                    <span x-show="!copied"><i class="far fa-copy mr-1.5"></i> Copy</span>
+                    <span x-show="copied" x-cloak x-transition class="text-emerald-600"><i class="fas fa-check mr-1.5"></i> Copied</span>
+                </button>
+            </div>
+
+            {{-- Equity Bank — RWF --}}
+            <div class="reveal reveal-delay-3 soft-card p-6 sm:p-8 border border-sage-100/80 hover:border-sage-200 hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row sm:items-center gap-4"
+                x-data="{ copied: false }">
+                <div class="flex items-center gap-4 flex-1">
+                    <div class="h-14 w-14 rounded-2xl bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
+                        <i class="fas fa-university text-xl"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="font-display text-lg font-semibold text-ink-900">Equity Bank</div>
+                        <div class="text-sm text-sage-700 font-medium mt-0.5">Rwandan Franc (RWF)</div>
+                        <p class="mt-2 font-mono text-base sm:text-lg font-semibold text-ink-900 tracking-wide break-all">4002213130139</p>
+                        <p class="text-sm text-ink-500 mt-1">Account name: <span class="text-ink-700 font-medium">MIRIAM, SCHIMEI AND THOMAS</span></p>
+                    </div>
                 </div>
+                <button type="button" @click="navigator.clipboard.writeText('4002213130139'); copied = true; setTimeout(() => copied = false, 2000)"
+                    class="shrink-0 rounded-xl border border-sage-200 bg-sage-50 px-4 py-2.5 text-sm font-medium text-sage-700 hover:bg-sage-100 transition-colors">
+                    <span x-show="!copied"><i class="far fa-copy mr-1.5"></i> Copy</span>
+                    <span x-show="copied" x-cloak x-transition class="text-emerald-600"><i class="fas fa-check mr-1.5"></i> Copied</span>
+                </button>
+            </div>
+
+            {{-- MOMO --}}
+            <div class="reveal reveal-delay-4 soft-card p-6 sm:p-8 border border-gold-100/80 hover:border-gold-200 hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row sm:items-center gap-4 bg-gradient-to-br from-amber-50/50 to-white"
+                x-data="{ copied: false }">
+                <div class="flex items-center gap-4 flex-1">
+                    <div class="h-14 w-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+                        <i class="fas fa-mobile-alt text-xl"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="font-display text-lg font-semibold text-ink-900">Mobile Money (MOMO)</div>
+                        <p class="mt-2 font-mono text-base sm:text-lg font-semibold text-ink-900 tracking-wide">0784782454</p>
+                        <p class="text-sm text-ink-500 mt-1">Name: <span class="text-ink-700 font-medium">UMUTONIWASE Irakiza Jeovanie</span></p>
+                    </div>
+                </div>
+                <a href="tel:0784782454" class="shrink-0 rounded-xl bg-amber-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-amber-600 transition-colors inline-flex items-center justify-center">
+                    <i class="fas fa-phone-alt mr-1.5"></i> Call to pay
+                </a>
+            </div>
+        </div>
+
+        {{-- Other support (volunteer, instruments) --}}
+        <div class="mt-14 reveal reveal-delay-4 soft-card p-8 max-w-2xl mx-auto">
+            <div class="pill bg-gold-50 text-gold-700 border border-gold-200 w-fit">Other support</div>
+            <p class="mt-4 text-ink-600 text-sm leading-relaxed">
+                You can also support through prayers, volunteering, or providing musical instruments (piano, guitar, violin).
+            </p>
+            <div class="mt-4">
+                <x-ui.button href="{{ route('contact') }}?topic=Support" variant="primary" class="rounded-xl">Coordinate a donation</x-ui.button>
             </div>
         </div>
     </section>

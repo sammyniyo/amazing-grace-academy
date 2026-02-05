@@ -15,14 +15,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
         rel="stylesheet">
-    {{-- Load Font Awesome async so it doesn't block first paint --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SzlrxWriC3XhY1Aw4p3p8Z3QYxkS2Q5u3zGqZ1rsSLjJ9tN5B+I5p4v6jF9CUG65p7qD1R6q5rI1w3y5x6Z5CQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-            crossorigin="anonymous">
-    </noscript>
+    {{-- Font Awesome 5 (fab prefix) - same as your other site for consistent icons --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     @if (file_exists(public_path('build/manifest.json')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
@@ -161,23 +157,27 @@
                     </div>
                 </div>
 
-                {{-- Social: Font Awesome icons, visible and touch-friendly --}}
-                <div class="flex items-center gap-3">
-                    <span class="text-ink-500 text-xs sm:text-sm font-medium mr-1 sm:mr-0">Follow us</span>
-                    <a href="#"
-                        class="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-sage-100 text-sage-700 hover:bg-sage-600 hover:text-white transition-colors"
-                        aria-label="Facebook">
-                        <i class="fa-brands fa-facebook-f text-lg sm:text-xl" aria-hidden="true"></i>
+                {{-- Social: same style as your other site (fab + w-8 h-8) --}}
+                <div class="flex items-center gap-2">
+                    <a href="https://www.youtube.com/@amazinggraceacademy8971" target="_blank" rel="noopener noreferrer"
+                        class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors text-slate-700"
+                        title="YouTube" aria-label="YouTube">
+                        <i class="fab fa-youtube text-sm"></i>
                     </a>
-                    <a href="#"
-                        class="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-sage-100 text-sage-700 hover:bg-sage-600 hover:text-white transition-colors"
-                        aria-label="Instagram">
-                        <i class="fa-brands fa-instagram text-lg sm:text-xl" aria-hidden="true"></i>
+                    <a href="https://www.instagram.com/amazing_grace_academyrwanda/" target="_blank" rel="noopener noreferrer"
+                        class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white transition-colors text-slate-700"
+                        title="Instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram text-sm"></i>
                     </a>
-                    <a href="#"
-                        class="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-sage-100 text-sage-700 hover:bg-sage-600 hover:text-white transition-colors"
-                        aria-label="YouTube">
-                        <i class="fa-brands fa-youtube text-lg sm:text-xl" aria-hidden="true"></i>
+                    <a href="https://open.spotify.com/artist/219I9f7DIE2s558jWvqdv0?si=0H3oL_ubRv2HkNWHrCX9ag" target="_blank" rel="noopener noreferrer"
+                        class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-green-500 hover:text-white transition-colors text-slate-700"
+                        title="Spotify" aria-label="Spotify">
+                        <i class="fab fa-spotify text-sm"></i>
+                    </a>
+                    <a href="https://www.boomplay.com/artists/74967302" target="_blank" rel="noopener noreferrer"
+                        class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-sage-600 hover:text-white transition-colors text-slate-700"
+                        title="Boomplay" aria-label="Boomplay">
+                        <i class="fas fa-music text-sm"></i>
                     </a>
                 </div>
             </div>
