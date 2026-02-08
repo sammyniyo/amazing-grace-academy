@@ -18,13 +18,13 @@
             <h1 class="mt-4 font-display text-2xl sm:text-3xl font-semibold text-ink-900">{{ $event->title }}</h1>
             @if ($event->event_date)
                 <p class="mt-2 text-ink-600 flex items-center gap-2">
-                    <i class="fa-solid fa-calendar-day text-sage-600"></i>
+                    <i class="fas fa-calendar-alt text-sage-600"></i>
                     {{ $event->event_date->format('l, F j, Y') }}
                 </p>
             @endif
             @if ($event->location)
                 <p class="mt-1 text-ink-600 flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-sage-600"></i>
+                    <i class="fas fa-map-marker-alt text-sage-600"></i>
                     {{ $event->location }}
                 </p>
             @endif

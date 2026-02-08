@@ -19,11 +19,11 @@
                     <div
                         class="flex h-24 w-24 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sage-100 to-gold-100 text-sage-600">
                         @if (strtolower($product->type ?? '') === 'album')
-                            <i class="fa-solid fa-compact-disc text-3xl opacity-80"></i>
+                            <i class="fas fa-compact-disc text-3xl opacity-80"></i>
                         @elseif(strtolower($product->type ?? '') === 'hymnal')
-                            <i class="fa-solid fa-book-open text-3xl opacity-80"></i>
+                            <i class="fas fa-book-open text-3xl opacity-80"></i>
                         @else
-                            <i class="fa-solid fa-music text-3xl opacity-80"></i>
+                            <i class="fas fa-music text-3xl opacity-80"></i>
                         @endif
                     </div>
                     <div class="min-w-0 flex-1">
@@ -53,7 +53,7 @@
                     <div class="flex items-start gap-3">
                         <div
                             class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700">
-                            <i class="fa-solid fa-mobile-screen-button text-xl"></i>
+                            <i class="fas fa-mobile-alt text-xl"></i>
                         </div>
                         <div>
                             <h2 class="font-display text-lg font-semibold text-ink-900">Pay with MTN Mobile Money</h2>
@@ -123,7 +123,7 @@
                         @if (config('paypack.enabled'))
                             <button type="submit" form="checkout-form" formaction="{{ route('order.paypack') }}"
                                 class="order-2 sm:order-1 inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 px-6 py-3.5 text-base font-semibold text-white shadow-md hover:bg-amber-600 focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transition">
-                                <i class="fa-solid fa-mobile-screen-button"></i>
+                                <i class="fas fa-mobile-alt"></i>
                                 Pay {{ number_format($total) }} RWF with MTN
                             </button>
                             <button type="submit" form="checkout-form" formaction="{{ route('order.submit') }}"

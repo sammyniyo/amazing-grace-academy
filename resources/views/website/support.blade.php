@@ -26,7 +26,7 @@
                     </div>
                 </div>
 
-                <div class="reveal soft-card p-8 border-sage-100/80">
+                <div class="reveal soft-card p-8 border-sage-100/80 hidden md:block">
                     <div class="flex items-center gap-3">
                         <div
                             class="h-12 w-12 rounded-2xl bg-sage-100 text-sage-600 flex items-center justify-center font-display font-bold text-lg">

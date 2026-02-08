@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-                <div class="reveal relative">
+                <div class="reveal relative hidden lg:block">
                     <div
                         class="absolute -inset-6 rounded-[32px] bg-gradient-to-r from-emerald-200/35 via-teal-200/25 to-amber-200/35 blur-2xl">
                     </div>

@@ -30,7 +30,7 @@
                         class="relative rounded-[28px] overflow-hidden bg-white shadow-card-hover border border-sage-100/80">
                         <div
                             class="aspect-[4/5] bg-gradient-to-br from-sage-100 via-cream-50 to-gold-100 flex items-center justify-center">
-                            <i class="fa-solid fa-music text-6xl text-sage-400/80"></i>
+                            <i class="fas fa-music text-6xl text-sage-400/80"></i>
                         </div>
                         <div
                             class="absolute left-4 top-4 rounded-full bg-white/95 px-4 py-2 text-xs font-semibold text-sage-700 shadow-sm border border-sage-100/80">
@@ -87,11 +87,11 @@
                     <div
                         class="h-44 w-full bg-gradient-to-br from-sage-100 via-cream-50 to-gold-100 flex items-center justify-center text-sage-600">
                         @if (strtolower($product->type ?? '') === 'album')
-                            <i class="fa-solid fa-compact-disc text-5xl opacity-70"></i>
+                            <i class="fas fa-compact-disc text-5xl opacity-70"></i>
                         @elseif(strtolower($product->type ?? '') === 'hymnal')
-                            <i class="fa-solid fa-book-open text-5xl opacity-70"></i>
+                            <i class="fas fa-book-open text-5xl opacity-70"></i>
                         @else
-                            <i class="fa-solid fa-music text-5xl opacity-70"></i>
+                            <i class="fas fa-music text-5xl opacity-70"></i>
                         @endif
                     </div>
                     <div class="p-6 space-y-4">
@@ -124,7 +124,7 @@
                             </div>
                             @if (config('paypack.enabled'))
                                 <x-ui.button type="submit" variant="primary" class="w-full rounded-xl">
-                                    <i class="fa-solid fa-mobile-screen-button mr-2"></i> Checkout with MTN
+                                    <i class="fas fa-mobile-alt mr-2"></i> Checkout with MTN
                                 </x-ui.button>
                             @else
                                 <x-ui.button type="submit" variant="primary"
@@ -135,7 +135,7 @@
                 </div>
             @empty
                 <div class="col-span-full reveal soft-card p-12 text-center">
-                    <i class="fa-solid fa-box-open text-4xl text-ink-300 mb-4"></i>
+                    <i class="fas fa-box-open text-4xl text-ink-300 mb-4"></i>
                     <p class="text-ink-600 font-medium">No products available yet.</p>
                     <p class="text-sm text-ink-500 mt-1">Check back soon or contact us for bulk orders.</p>
                     <x-ui.button href="{{ route('contact') }}" variant="primary" class="mt-6 rounded-xl">Contact

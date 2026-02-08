@@ -90,7 +90,7 @@
                                     <span class="text-lg font-semibold mt-1">{{ $event->event_date->format('j') }}</span>
                                     <span class="text-xs text-ink-500">{{ $event->event_date->format('Y') }}</span>
                                 @else
-                                    <i class="fa-solid fa-calendar-days text-4xl opacity-60"></i>
+                                    <i class="fas fa-calendar-alt text-4xl opacity-60"></i>
                                 @endif
                             </div>
                             <div class="p-6 space-y-3">
@@ -107,12 +107,12 @@
                                 </p>
                                 @if ($event->location)
                                     <p class="text-xs text-ink-500 flex items-center gap-1">
-                                        <i class="fa-solid fa-location-dot text-sage-500"></i> {{ $event->location }}
+                                        <i class="fas fa-map-marker-alt text-sage-500"></i> {{ $event->location }}
                                     </p>
                                 @endif
                                 @if ($event->accepts_support)
                                     <p class="text-xs text-gold-700 flex items-center gap-1">
-                                        <i class="fa-solid fa-heart"></i> Optional support when you register
+                                        <i class="fas fa-heart"></i> Optional support when you register
                                     </p>
                                 @endif
                                 <div class="pt-2 flex flex-wrap gap-2">
@@ -133,7 +133,7 @@
                 </div>
             @else
                 <div class="reveal soft-card p-12 text-center">
-                    <i class="fa-solid fa-calendar-check text-4xl text-ink-300 mb-4"></i>
+                    <i class="fas fa-calendar-check text-4xl text-ink-300 mb-4"></i>
                     <p class="text-ink-600 font-medium">No upcoming events listed yet.</p>
                     <p class="text-sm text-ink-500 mt-1">Check back soon or register for the next class intake.</p>
                     <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
@@ -159,7 +159,7 @@
                                         class="font-display text-3xl font-semibold">{{ $event->event_date->format('M j') }}</span>
                                     <span class="text-xs">{{ $event->event_date->format('Y') }}</span>
                                 @else
-                                    <i class="fa-solid fa-calendar-minus text-3xl opacity-50"></i>
+                                    <i class="fas fa-calendar-minus text-3xl opacity-50"></i>
                                 @endif
                             </div>
                             <div class="p-6 space-y-2">

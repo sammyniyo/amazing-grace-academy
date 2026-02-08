@@ -86,17 +86,26 @@
                         </div>
 
                         <button type="button"
-                            class="inline-flex md:hidden items-center justify-center rounded-full border border-ink-100 bg-white/90 px-3 py-2 text-ink-600 hover:bg-sage-50 hover:text-sage-800 transition-colors"
-                            aria-label="Open menu" :aria-expanded="open.toString()" aria-controls="mobile-nav"
+                            class="inline-flex md:hidden items-center justify-center rounded-full border border-ink-100 bg-white/90 px-3 py-2 text-ink-600 hover:bg-sage-50 hover:text-sage-800 transition-colors w-10 h-10 focus:outline-none focus:ring-0"
+                            aria-label="Toggle menu" :aria-expanded="open.toString()" aria-controls="mobile-nav"
                             @click="open = !open">
-                            <x-ui.icon name="menu" class="h-5 w-5" />
+                            <i class="fas fa-bars text-lg" x-show="!open" aria-hidden="true"></i>
+                            <i class="fas fa-times text-lg" x-show="open" x-cloak aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
             </div>
 
             {{-- Mobile menu --}}
-            <div id="mobile-nav" x-cloak x-show="open" x-transition.opacity class="mt-3 md:hidden ui-pill-surface p-3">
+            <div id="mobile-nav" x-cloak x-show="open" x-transition.opacity class="mt-3 md:hidden rounded-2xl border border-ink-100/80 bg-white/95 backdrop-blur-md shadow-sm p-3 ring-0">
+                <div class="flex items-center justify-end mb-2 pb-2 border-b border-ink-100/80">
+                    <button type="button" @click="open = false"
+                        class="inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-medium text-ink-600 hover:bg-ink-100 hover:text-ink-900 transition-colors focus:outline-none focus:ring-0"
+                        aria-label="Close menu">
+                        <i class="fas fa-times text-sm" aria-hidden="true"></i>
+                        <span>Close</span>
+                    </button>
+                </div>
                 <nav class="flex flex-col gap-1">
                     <a href="{{ route('home') }}" @click="open = false"
                         class="{{ $pillLink(request()->routeIs('home')) }}">Home</a>
@@ -126,15 +135,19 @@
         @yield('content')
     </main>
 
-    {{-- Quick actions FAB --}}
+    {{-- Quick actions FAB (scroll up + contact) --}}
     <div class="fixed bottom-6 right-6 flex flex-col gap-2 z-40">
         <a href="#top" id="back-to-top"
-            class="hidden items-center gap-2 rounded-full bg-ink-900 text-white px-4 py-2.5 text-xs font-semibold shadow-elevated hover:bg-ink-800 transition-colors">
-            <i class="fa-solid fa-arrow-up text-[10px]"></i> Back to top
+            class="hidden inline-flex items-center justify-center gap-2 rounded-full bg-ink-900 text-white w-12 h-12 sm:w-auto sm:h-auto sm:px-4 sm:py-2.5 text-xs font-semibold shadow-elevated hover:bg-ink-800 transition-colors"
+            aria-label="Back to top">
+            <i class="fas fa-arrow-up text-sm sm:text-[10px]"></i>
+            <span class="hidden sm:inline">Back to top</span>
         </a>
         <a href="{{ route('contact') }}"
-            class="inline-flex items-center gap-2 rounded-full bg-sage-600 text-white px-4 py-2.5 text-xs font-semibold shadow-glow hover:bg-sage-500 transition-colors">
-            <i class="fa-regular fa-envelope"></i> Contact us
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-sage-600 text-white w-12 h-12 sm:w-auto sm:h-auto sm:px-4 sm:py-2.5 text-xs font-semibold shadow-glow hover:bg-sage-500 transition-colors"
+            aria-label="Contact us">
+            <i class="far fa-envelope text-sm sm:text-base"></i>
+            <span class="hidden sm:inline">Contact us</span>
         </a>
     </div>
 

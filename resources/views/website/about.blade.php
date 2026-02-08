@@ -47,7 +47,7 @@
             <div class="reveal soft-card rounded-2xl p-5 sm:p-6 border border-sage-100/80 text-center sm:text-left">
                 <div
                     class="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-sage-100 text-sage-700 mb-3 sm:mb-4">
-                    <i class="fa-solid fa-music text-lg sm:text-xl" aria-hidden="true"></i>
+                    <i class="fas fa-music text-lg sm:text-xl" aria-hidden="true"></i>
                 </div>
                 <h3 class="font-display text-lg sm:text-xl font-semibold text-ink-900">Sol-Fa</h3>
                 <p class="mt-2 text-sm sm:text-base text-ink-600 leading-relaxed">The language that started everything —
@@ -56,7 +56,7 @@
             <div class="reveal soft-card rounded-2xl p-5 sm:p-6 border border-sage-100/80 text-center sm:text-left">
                 <div
                     class="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gold-100 text-gold-700 mb-3 sm:mb-4">
-                    <i class="fa-solid fa-book-open text-lg sm:text-xl" aria-hidden="true"></i>
+                    <i class="fas fa-book-open text-lg sm:text-xl" aria-hidden="true"></i>
                 </div>
                 <h3 class="font-display text-lg sm:text-xl font-semibold text-ink-900">Staff notation</h3>
                 <p class="mt-2 text-sm sm:text-base text-ink-600 leading-relaxed">International notation (Muhundwanota),
@@ -65,7 +65,7 @@
             <div class="reveal soft-card rounded-2xl p-5 sm:p-6 border border-sage-100/80 text-center sm:text-left">
                 <div
                     class="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-sage-100 text-sage-700 mb-3 sm:mb-4">
-                    <i class="fa-solid fa-guitar text-lg sm:text-xl" aria-hidden="true"></i>
+                    <i class="fas fa-guitar text-lg sm:text-xl" aria-hidden="true"></i>
                 </div>
                 <h3 class="font-display text-lg sm:text-xl font-semibold text-ink-900">Instruments</h3>
                 <p class="mt-2 text-sm sm:text-base text-ink-600 leading-relaxed">Piano, Guitar, Violin — taught on the same
@@ -96,8 +96,8 @@
         </div>
     </section>
 
-    {{-- Impact — the story so far --}}
-    <section class="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
+    {{-- Impact — the story so far (hidden on mobile) --}}
+    <section class="hidden sm:block mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
         <h2 class="reveal font-display text-2xl sm:text-3xl font-semibold text-ink-900 text-center mb-8 sm:mb-10">
             The story so far
         </h2>

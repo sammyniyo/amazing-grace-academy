@@ -281,8 +281,8 @@
         </div>
     </section>
 
-    {{-- TESTIMONIALS --}}
-    <section class="bg-white/60 border-y border-ink-100 py-16 sm:py-20">
+    {{-- TESTIMONIALS (hidden on small screens to keep mobile focused) --}}
+    <section class="hidden md:block bg-white/60 border-y border-ink-100 py-16 sm:py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6">
             <div class="reveal text-center max-w-xl mx-auto">
                 <p class="section-label w-fit mx-auto">Voices from the choir</p>
@@ -353,8 +353,8 @@
         </div>
     </section>
 
-    {{-- GALLERY --}}
-    <section class="mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-20">
+    {{-- GALLERY (hidden on mobile to shorten scroll) --}}
+    <section class="hidden sm:block mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-20">
         <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
                 <p class="section-label w-fit">Gallery</p>
@@ -434,8 +434,8 @@
         </div>
     </section>
 
-    {{-- MINISTRY STRIP --}}
-    <section class="border-t border-ink-100 bg-sage-50/30 py-12 sm:py-14">
+    {{-- MINISTRY STRIP (hidden on mobile) --}}
+    <section class="hidden md:block border-t border-ink-100 bg-sage-50/30 py-12 sm:py-14">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
             <div class="reveal text-center md:text-left">
                 <p class="text-xs font-semibold uppercase tracking-widest text-sage-600">Voices united in praise</p>

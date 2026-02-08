@@ -24,7 +24,7 @@
                     <span class="text-sm text-ink-500">{{ $event->event_date->format('Y') }}</span>
                     <p class="mt-2 text-base text-ink-600">{{ $event->event_date->format('l') }}</p>
                 @else
-                    <i class="fa-solid fa-calendar-days text-5xl text-sage-600 opacity-70"></i>
+                    <i class="fas fa-calendar-alt text-5xl text-sage-600 opacity-70"></i>
                     <p class="mt-2 text-ink-600">Date to be announced</p>
                 @endif
             </div>
@@ -36,7 +36,7 @@
 
                 @if ($event->location)
                     <p class="mt-4 flex items-center gap-2 text-ink-700">
-                        <i class="fa-solid fa-location-dot text-sage-600 w-5"></i>
+                        <i class="fas fa-map-marker-alt text-sage-600 w-5"></i>
                         <span>{{ $event->location }}</span>
                     </p>
                 @endif
@@ -54,12 +54,12 @@
                     <div class="mt-6 flex flex-wrap gap-2">
                         @if ($event->requires_registration)
                             <span class="pill bg-sage-50 text-sage-700 border border-sage-200">
-                                <i class="fa-solid fa-user-plus mr-1"></i> Registration required
+                                <i class="fas fa-user-plus mr-1"></i> Registration required
                             </span>
                         @endif
                         @if ($event->accepts_support)
                             <span class="pill bg-gold-50 text-gold-700 border border-gold-200">
-                                <i class="fa-solid fa-heart mr-1"></i> Optional support when you register
+                                <i class="fas fa-heart mr-1"></i> Optional support when you register
                             </span>
                         @endif
                     </div>
@@ -80,7 +80,7 @@
                     @endif
                     <x-ui.button href="{{ route('contact') }}?topic={{ urlencode('Event: ' . $event->title) }}"
                         variant="outline" class="rounded-xl">
-                        <i class="fa-regular fa-envelope mr-2"></i> Inquire about this event
+                        <i class="far fa-envelope mr-2"></i> Inquire about this event
                     </x-ui.button>
                     <a href="{{ route('events') }}"
                         class="inline-flex items-center justify-center rounded-xl border border-ink-200 bg-white px-5 py-2.5 text-sm font-semibold text-ink-700 hover:bg-cream-50 transition">
