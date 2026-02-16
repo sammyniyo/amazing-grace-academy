@@ -9,11 +9,15 @@ use App\Http\Controllers\Admin\EventRegistrationController as AdminEventRegistra
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\OnlineClassController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\EventRegistrationController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,6 +41,11 @@ Route::get('/events/{event}', [WebsiteController::class, 'eventShow'])->name('ev
 
 // Auth routes
 Route::view('/login', 'auth.login')->name('login')->middleware('guest');
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request')->middleware('guest');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email')->middleware(['guest', 'throttle:5,1']);
+Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset')->middleware('guest');
+Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update')->middleware('guest');
+
 Route::post('/login', function (Request $request) {
     $credentials = $request->validate([
         'email' => ['required', 'email'],
@@ -77,11 +86,18 @@ Route::view('/order/thank-you', 'website.order-thank-you')->name('order.thankyou
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', DashboardController::class)->name('dashboard');
+    Route::get('users', [AdminUserController::class, 'index'])->name('users.index');
+    Route::get('users/create', [AdminUserController::class, 'create'])->name('users.create');
+    Route::post('users', [AdminUserController::class, 'store'])->name('users.store');
+    Route::get('users/{user}/edit', [AdminUserController::class, 'edit'])->name('users.edit');
+    Route::put('users/{user}', [AdminUserController::class, 'update'])->name('users.update');
+    Route::post('users/{user}/send-reset-link', [AdminUserController::class, 'sendResetLink'])->name('users.send-reset-link');
     Route::resource('cohorts', CohortController::class)->except(['show']);
     Route::resource('members', MemberController::class)->only(['index', 'update', 'destroy']);
     Route::resource('events', EventController::class)->except(['show']);
     Route::get('event-registrations', [AdminEventRegistrationController::class, 'index'])->name('event-registrations.index');
     Route::resource('products', ProductController::class)->except(['show']);
+    Route::resource('online-classes', OnlineClassController::class)->except(['show']);
     Route::resource('contacts', ContactMessageController::class)->only(['index', 'show', 'update', 'destroy']);
     Route::resource('orders', AdminOrderController::class)->only(['index', 'update', 'destroy']);
 });

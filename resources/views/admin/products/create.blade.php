@@ -5,9 +5,18 @@
 
 @section('content')
     <div class="max-w-3xl">
-        <form method="POST" action="{{ route('admin.products.store') }}"
+        <form method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data"
             class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
             @csrf
+            <div>
+                <label class="text-sm font-semibold text-slate-900">Cover image</label>
+                <input type="file" name="cover_image" accept="image/jpeg,image/png,image/jpg,image/webp"
+                    class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-emerald-50 file:px-3 file:py-1.5 file:text-sm file:font-semibold file:text-emerald-700 focus:border-emerald-300 focus:ring focus:ring-emerald-100">
+                <p class="mt-1 text-xs text-slate-500">JPEG, PNG or WebP, max 2MB. Optional.</p>
+                @error('cover_image')
+                    <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                @enderror
+            </div>
             <div>
                 <label class="text-sm font-semibold text-slate-900">Title</label>
                 <input name="title" value="{{ old('title') }}"

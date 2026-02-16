@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Order;
 use App\Models\ContactMessage;
 use App\Models\Event;
+use App\Models\OnlineClass;
 
 class DashboardController extends Controller
 {
@@ -21,6 +22,8 @@ class DashboardController extends Controller
             'orderCount' => Order::count(),
             'contactCount' => ContactMessage::where('status', 'new')->count(),
             'eventCount' => Event::count(),
+            'onlineClassCount' => OnlineClass::count(),
+            'onlineClassPublishedCount' => OnlineClass::published()->count(),
         ]);
     }
 }

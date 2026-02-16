@@ -15,6 +15,7 @@
             <table class="min-w-full text-sm">
                 <thead class="bg-slate-50 text-slate-700">
                     <tr>
+                        <th class="px-4 py-3 text-left w-20">Cover</th>
                         <th class="px-4 py-3 text-left">Title</th>
                         <th class="px-4 py-3 text-left">Date</th>
                         <th class="px-4 py-3 text-left">Location</th>
@@ -26,8 +27,15 @@
                     @forelse ($events as $event)
                         <tr>
                             <td class="px-4 py-3">
+                                @if ($event->cover_url)
+                                    <img src="{{ $event->cover_url }}" alt="" class="h-12 w-12 rounded-lg object-cover border border-slate-200" loading="lazy">
+                                @else
+                                    <div class="h-12 w-12 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400 text-xs">No</div>
+                                @endif
+                            </td>
+                            <td class="px-4 py-3">
                                 <div class="font-semibold text-slate-900">{{ $event->title }}</div>
-                                <div class="text-xs text-slate-500">{{ $event->description }}</div>
+                                <div class="text-xs text-slate-500 line-clamp-1">{{ Str::limit($event->description, 60) }}</div>
                             </td>
                             <td class="px-4 py-3 text-slate-700">{{ $event->event_date?->format('M j, Y') ?? 'TBD' }}</td>
                             <td class="px-4 py-3 text-slate-700">{{ $event->location ?? '—' }}</td>
@@ -38,6 +46,8 @@
                                 </span>
                             </td>
                             <td class="px-4 py-3 text-right">
+                                <a href="{{ route('admin.events.edit', $event) }}"
+                                    class="text-sm font-semibold text-emerald-700 hover:underline mr-2">Edit</a>
                                 <form action="{{ route('admin.events.update', $event) }}" method="POST"
                                     class="inline-flex items-center gap-2">
                                     @csrf
@@ -68,7 +78,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="px-4 py-6 text-center text-sm text-slate-500">No events yet.</td>
+                            <td colspan="6" class="px-4 py-6 text-center text-sm text-slate-500">No events yet.</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -77,8 +87,12 @@
 
         <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5">
             <h3 class="text-sm font-semibold text-slate-900 mb-3">Quick add</h3>
-            <form method="POST" action="{{ route('admin.events.store') }}" class="space-y-3">
+            <form method="POST" action="{{ route('admin.events.store') }}" enctype="multipart/form-data" class="space-y-3">
                 @csrf
+                <div>
+                    <label class="text-xs font-medium text-slate-600">Cover (optional)</label>
+                    <input type="file" name="cover_image" accept="image/jpeg,image/png,image/jpg,image/webp" class="mt-0.5 w-full text-xs text-slate-600 file:rounded file:border-0 file:bg-emerald-50 file:px-2 file:py-1 file:text-xs file:font-semibold file:text-emerald-700">
+                </div>
                 <input name="title"
                     class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:border-emerald-300 focus:ring focus:ring-emerald-100"
                     placeholder="Event title" required>

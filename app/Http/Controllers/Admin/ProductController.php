@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
@@ -57,9 +58,17 @@ class ProductController extends Controller
             'price' => 'required|integer|min:0',
             'is_active' => 'nullable|boolean',
             'description' => 'nullable|string',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
         $data['is_active'] = $request->boolean('is_active');
+
+        if ($request->hasFile('cover_image')) {
+            if ($product->cover_image) {
+                Storage::disk('public')->delete($product->cover_image);
+            }
+            $data['cover_image'] = $request->file('cover_image')->store('products/covers', 'public');
+        }
 
         $product->update($data);
         Cache::forget('website.products_active');
@@ -69,6 +78,9 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
+        if ($product->cover_image) {
+            Storage::disk('public')->delete($product->cover_image);
+        }
         $product->delete();
         Cache::forget('website.products_active');
         return redirect()->route('admin.products.index')->with('success', 'Product removed.');

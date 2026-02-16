@@ -29,6 +29,11 @@
             <div class="text-xs font-semibold text-slate-700">Orders</div>
             <div class="mt-2 text-3xl font-bold text-slate-900">{{ $orderCount }}</div>
         </div>
+        <div class="rounded-2xl border border-violet-100 bg-white p-4 shadow-sm">
+            <div class="text-xs font-semibold text-violet-700">Online classes</div>
+            <div class="mt-2 text-3xl font-bold text-slate-900">{{ $onlineClassCount }}</div>
+            <div class="mt-1 text-xs text-slate-500">{{ $onlineClassPublishedCount }} published</div>
+        </div>
     </div>
 
     <div class="mt-8 grid gap-6 lg:grid-cols-2">
@@ -43,12 +48,16 @@
                     href="{{ route('admin.members.index') }}">Members</a>
                 <a class="rounded-xl border border-sky-100 bg-sky-50 px-4 py-3 text-sm font-semibold text-sky-700 hover:bg-sky-100 transition"
                     href="{{ route('admin.events.index') }}">Events</a>
+                <a class="rounded-xl border border-violet-100 bg-violet-50 px-4 py-3 text-sm font-semibold text-violet-700 hover:bg-violet-100 transition"
+                    href="{{ route('admin.online-classes.index') }}">Online classes</a>
                 <a class="rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700 hover:bg-emerald-100 transition"
                     href="{{ route('admin.products.index') }}">Shop (Products)</a>
                 <a class="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100 transition"
                     href="{{ route('admin.orders.index') }}">Orders</a>
                 <a class="rounded-xl border border-amber-100 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-700 hover:bg-amber-100 transition"
                     href="{{ route('admin.contacts.index') }}">Contact inbox</a>
+                <a class="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100 transition"
+                    href="{{ route('admin.users.index') }}">Admin users</a>
             </div>
         </div>
         <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">

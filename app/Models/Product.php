@@ -17,6 +17,7 @@ class Product extends Model
         'price',
         'is_active',
         'description',
+        'cover_image',
     ];
 
     protected $casts = [
@@ -26,5 +27,10 @@ class Product extends Model
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function getCoverUrlAttribute(): ?string
+    {
+        return $this->cover_image ? asset('storage/' . $this->cover_image) : null;
     }
 }

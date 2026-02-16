@@ -5,7 +5,7 @@
 
 @php
     $base =
-        'inline-flex items-center justify-center font-semibold transition-all duration-200 select-none elevate disabled:opacity-50 disabled:cursor-not-allowed';
+        'inline-flex items-center justify-center font-semibold transition-all duration-200 select-none elevate disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage-400 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100';
     $shape = 'rounded-2xl px-6 py-3 text-sm';
     $variants = [
         'primary' => 'bg-ink-900 text-white shadow-sm hover:bg-ink-800 active:scale-[0.98]',

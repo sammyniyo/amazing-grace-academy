@@ -15,6 +15,7 @@
             <table class="min-w-full text-sm">
                 <thead class="bg-slate-50 text-slate-700">
                     <tr>
+                        <th class="px-4 py-3 text-left w-20">Cover</th>
                         <th class="px-4 py-3 text-left">Title</th>
                         <th class="px-4 py-3 text-left">Type</th>
                         <th class="px-4 py-3 text-left">Price</th>
@@ -25,6 +26,13 @@
                 <tbody class="divide-y divide-slate-100">
                     @forelse ($products as $product)
                         <tr>
+                            <td class="px-4 py-3">
+                                @if ($product->cover_url)
+                                    <img src="{{ $product->cover_url }}" alt="" class="h-12 w-12 rounded-lg object-cover border border-slate-200" loading="lazy">
+                                @else
+                                    <div class="h-12 w-12 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400 text-xs">No</div>
+                                @endif
+                            </td>
                             <td class="px-4 py-3">
                                 <a href="{{ route('admin.products.edit', $product) }}"
                                     class="font-semibold text-slate-900 hover:text-emerald-700">{{ $product->title }}</a>
@@ -55,7 +63,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="px-4 py-6 text-center text-sm text-slate-500">No products yet.</td>
+                            <td colspan="6" class="px-4 py-6 text-center text-sm text-slate-500">No products yet.</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -64,8 +72,12 @@
 
         <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5">
             <h3 class="text-sm font-semibold text-slate-900 mb-3">Quick add</h3>
-            <form method="POST" action="{{ route('admin.products.store') }}" class="space-y-3">
+            <form method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data" class="space-y-3">
                 @csrf
+                <div>
+                    <label class="text-xs font-medium text-slate-600">Cover (optional)</label>
+                    <input type="file" name="cover_image" accept="image/jpeg,image/png,image/jpg,image/webp" class="mt-0.5 w-full text-xs text-slate-600 file:rounded file:border-0 file:bg-emerald-50 file:px-2 file:py-1 file:text-xs file:font-semibold file:text-emerald-700">
+                </div>
                 <input name="title"
                     class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:border-emerald-300 focus:ring focus:ring-emerald-100"
                     placeholder="Title" required>

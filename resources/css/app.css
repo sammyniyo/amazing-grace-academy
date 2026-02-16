@@ -23,6 +23,22 @@
         background: #f9f7f4;
         color: #18181b;
     }
+
+    /* Refined focus for keyboard/screen readers; minimal for mouse */
+    a:focus-visible,
+    button:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px #f9f7f4, 0 0 0 4px rgba(47, 90, 68, 0.5);
+        border-radius: 9999px;
+    }
+
+    /* Skip to main content: off-screen until focused */
+    .skip-link {
+        @apply absolute left-[-9999px] top-4 z-[60] rounded-full bg-sage-600 px-4 py-2 text-sm font-semibold text-white shadow-lg;
+    }
+    .skip-link:focus {
+        left: 1rem;
+    }
 }
 
 @layer components {
@@ -85,7 +101,7 @@
         content: "♪ ♫ ♬ ♩";
         position: absolute;
         font-size: 0.85rem;
-        color: rgba(61, 115, 87, 0.12);
+        color: rgba(61, 115, 87, 0.08);
         animation: float-notes 18s var(--ease-soft) infinite;
         pointer-events: none;
         white-space: nowrap;
@@ -209,15 +225,15 @@
     }
 
     .ui-pill-surface {
-        @apply rounded-full border border-ink-100/80 bg-white/95 backdrop-blur-md shadow-sm;
+        @apply rounded-full border border-ink-100/80 bg-white/95 backdrop-blur-md shadow-sm transition-shadow duration-200 hover:shadow-card;
     }
 
     .ui-pill-link {
-        @apply inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-ink-600 transition-colors hover:bg-sage-50 hover:text-sage-800;
+        @apply inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-ink-600 transition-colors duration-200 hover:bg-sage-50 hover:text-sage-800;
     }
 
     .ui-pill-link-active {
-        @apply bg-sage-50 text-sage-800 font-semibold;
+        @apply bg-sage-100/90 text-sage-800 font-semibold shadow-[inset_0_0_0_1px_rgba(47,90,68,0.12)];
     }
 
     .ui-hero-panel {
@@ -254,4 +270,48 @@
     50% { transform: translate3d(15%, -25%, 0) rotate(5deg); opacity: 0.5; }
     85% { opacity: 0.6; }
     100% { transform: translate3d(30%, -50%, 0) rotate(-3deg); opacity: 0; }
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .hero-orb,
+    .floating-notes::before,
+    .floating-notes::after {
+        animation: none;
+    }
+    .reveal {
+        transition: none;
+    }
+    .reveal.show {
+        opacity: 1;
+        transform: none;
+    }
+    .logo-note {
+        transition: none;
+    }
+    .elevate:hover {
+        transform: none;
+    }
+}
+
+/* Print: hide nav chrome, show content and contact */
+@media print {
+    .skip-link,
+    header,
+    .fixed.z-40,
+    .fixed.bottom-5,
+    .fixed.bottom-6,
+    #scroll-progress {
+        display: none !important;
+    }
+    body {
+        background: #fff;
+        color: #000;
+    }
+    a[href]::after {
+        content: none;
+    }
+    main {
+        padding-top: 0;
+    }
 }

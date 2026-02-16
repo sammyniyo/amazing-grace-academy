@@ -28,6 +28,11 @@
                 <p class="text-sm text-slate-600">Welcome back. Access the choir admin portal.</p>
             </div>
 
+            @if (session('status'))
+                <div class="mt-4 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+                    {{ session('status') }}
+                </div>
+            @endif
             @if ($errors->any())
                 <div class="mt-4 rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-700">
                     {{ $errors->first() }}
@@ -46,7 +51,7 @@
                 <div class="space-y-2">
                     <div class="flex items-center justify-between text-sm font-semibold text-slate-800">
                         <label for="password">Password</label>
-                        <a href="#" class="text-slate-500 hover:text-slate-700 text-xs">Forgot password?</a>
+                        <a href="{{ route('password.request') }}" class="text-slate-500 hover:text-slate-700 text-xs">Forgot password?</a>
                     </div>
                     <input id="password" name="password" type="password"
                         class="w-full rounded-xl border border-emerald-200 bg-white px-3 py-3 text-sm focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-100"

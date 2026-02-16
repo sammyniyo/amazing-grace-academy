@@ -15,6 +15,7 @@ class Event extends Model
         'location',
         'status',
         'description',
+        'cover_image',
         'requires_registration',
         'accepts_support',
     ];
@@ -28,5 +29,10 @@ class Event extends Model
     public function registrations()
     {
         return $this->hasMany(EventRegistration::class);
+    }
+
+    public function getCoverUrlAttribute(): ?string
+    {
+        return $this->cover_image ? asset('storage/' . $this->cover_image) : null;
     }
 }

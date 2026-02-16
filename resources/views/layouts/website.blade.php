@@ -29,6 +29,8 @@
 </head>
 
 <body class="bg-cream-100 text-ink-900 antialiased font-sans">
+    {{-- Skip to main content (visible on focus for keyboard/screen reader) --}}
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <div id="top"></div>
     {{-- Ambient background orbs --}}
     <div class="pointer-events-none fixed inset-0 -z-20 overflow-hidden">
@@ -43,7 +45,7 @@
     {{-- Scroll progress bar --}}
     <div class="fixed top-0 left-0 right-0 h-[2px] bg-transparent z-50">
         <div id="scroll-progress"
-            class="h-full w-0 bg-gradient-to-r from-sage-500 to-gold-500 transition-all duration-300 ease-out"></div>
+            class="h-full w-0 bg-gradient-to-r from-sage-500 to-gold-500 transition-[width] duration-150 ease-out"></div>
     </div>
 
     {{-- Navbar (pill style like reference) --}}
@@ -52,24 +54,21 @@
     @endphp
 
     <header x-data="{ open: false }" class="sticky top-0 z-40">
-        <div class="mx-auto max-w-7xl px-6 pt-5">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 pt-4 sm:pt-5">
             <div class="ui-pill-surface px-3 py-2">
                 <div class="flex items-center justify-between gap-3">
-                    <nav class="hidden md:flex items-center gap-1 ui-pill-nav">
-                        <a href="{{ route('home') }}" class="{{ $pillLink(request()->routeIs('home')) }}">Home</a>
+                    <nav class="hidden md:flex items-center gap-1 ui-pill-nav" id="main-nav">
+                        <a href="{{ route('home') }}" class="{{ $pillLink(request()->routeIs('home')) }}" data-section="home">Home</a>
                         <a href="{{ route('about') }}" class="{{ $pillLink(request()->routeIs('about')) }}">About</a>
-                        <a href="{{ route('programs') }}"
-                            class="{{ $pillLink(request()->routeIs('programs')) }}">Programs</a>
-                        <a href="{{ route('events') }}"
-                            class="{{ $pillLink(request()->routeIs('events')) }}">Events</a>
-                        <a href="{{ route('songs') }}" class="{{ $pillLink(request()->routeIs('songs')) }}">Shop</a>
-                        <a href="{{ route('contact') }}"
-                            class="{{ $pillLink(request()->routeIs('contact')) }}">Contact</a>
+                        <a href="{{ route('programs') }}" class="{{ $pillLink(request()->routeIs('programs')) }}" data-section="programs">Programs</a>
+                        <a href="{{ route('events') }}" class="{{ $pillLink(request()->routeIs('events')) }}" data-section="events">Events</a>
+                        <a href="{{ route('songs') }}" class="{{ $pillLink(request()->routeIs('songs')) }}" data-section="music-shop">Shop</a>
+                        <a href="{{ route('contact') }}" class="{{ $pillLink(request()->routeIs('contact')) }}">Contact</a>
                     </nav>
 
                     <a href="{{ route('home') }}"
-                        class="flex items-center gap-2 px-2 font-display text-ink-900 font-semibold">
-                        <span class="text-xl tracking-tight">A<span class="mx-0.5 text-sage-600">𝄞</span>A</span>
+                        class="flex items-center gap-2 px-2 font-display text-ink-900 font-semibold group/logo">
+                        <span class="text-xl tracking-tight">A<span class="logo-note mx-0.5 inline-block text-sage-600 transition-transform duration-300 group-hover/logo:scale-110 group-hover/logo:rotate-6">𝄞</span>A</span>
                         <span class="hidden sm:inline text-sm text-ink-500 font-sans">Amazing Grace Academy</span>
                     </a>
 
@@ -86,7 +85,7 @@
                         </div>
 
                         <button type="button"
-                            class="inline-flex md:hidden items-center justify-center rounded-full border border-ink-100 bg-white/90 px-3 py-2 text-ink-600 hover:bg-sage-50 hover:text-sage-800 transition-colors w-10 h-10 focus:outline-none focus:ring-0"
+                            class="inline-flex md:hidden items-center justify-center rounded-full border border-ink-100 bg-white/90 px-3 py-2 text-ink-600 hover:bg-sage-50 hover:text-sage-800 transition-colors duration-200 w-10 h-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-sage-400 focus-visible:ring-offset-2"
                             aria-label="Toggle menu" :aria-expanded="open.toString()" aria-controls="mobile-nav"
                             @click="open = !open">
                             <i class="fas fa-bars text-lg" x-show="!open" aria-hidden="true"></i>
@@ -97,7 +96,14 @@
             </div>
 
             {{-- Mobile menu --}}
-            <div id="mobile-nav" x-cloak x-show="open" x-transition.opacity class="mt-3 md:hidden rounded-2xl border border-ink-100/80 bg-white/95 backdrop-blur-md shadow-sm p-3 ring-0">
+            <div id="mobile-nav" x-cloak x-show="open"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 -translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 -translate-y-2"
+                class="mt-3 md:hidden rounded-2xl border border-ink-100/80 bg-white/95 backdrop-blur-md shadow-card p-3">
                 <div class="flex items-center justify-end mb-2 pb-2 border-b border-ink-100/80">
                     <button type="button" @click="open = false"
                         class="inline-flex items-center gap-2 rounded-full px-3 py-2 text-xs font-medium text-ink-600 hover:bg-ink-100 hover:text-ink-900 transition-colors focus:outline-none focus:ring-0"
@@ -131,20 +137,20 @@
         </div>
     </header>
 
-    <main class="floating-notes pt-6">
+    <main id="main-content" class="floating-notes pt-4 sm:pt-6" tabindex="-1">
         @yield('content')
     </main>
 
     {{-- Quick actions FAB (scroll up + contact) --}}
-    <div class="fixed bottom-6 right-6 flex flex-col gap-2 z-40">
+    <div class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 flex flex-col gap-2.5 z-40">
         <a href="#top" id="back-to-top"
-            class="hidden inline-flex items-center justify-center gap-2 rounded-full bg-ink-900 text-white w-12 h-12 sm:w-auto sm:h-auto sm:px-4 sm:py-2.5 text-xs font-semibold shadow-elevated hover:bg-ink-800 transition-colors"
+            class="hidden items-center justify-center gap-2 rounded-full bg-ink-900 text-white w-11 h-11 sm:w-auto sm:h-auto sm:px-4 sm:py-2.5 text-xs font-semibold shadow-elevated hover:bg-ink-800 hover:scale-105 active:scale-100 transition-all duration-200"
             aria-label="Back to top">
             <i class="fas fa-arrow-up text-sm sm:text-[10px]"></i>
             <span class="hidden sm:inline">Back to top</span>
         </a>
         <a href="{{ route('contact') }}"
-            class="inline-flex items-center justify-center gap-2 rounded-full bg-sage-600 text-white w-12 h-12 sm:w-auto sm:h-auto sm:px-4 sm:py-2.5 text-xs font-semibold shadow-glow hover:bg-sage-500 transition-colors"
+            class="inline-flex items-center justify-center gap-2 rounded-full bg-sage-600 text-white w-11 h-11 sm:w-auto sm:h-auto sm:px-4 sm:py-2.5 text-xs font-semibold shadow-glow hover:bg-sage-500 hover:scale-105 active:scale-100 transition-all duration-200"
             aria-label="Contact us">
             <i class="far fa-envelope text-sm sm:text-base"></i>
             <span class="hidden sm:inline">Contact us</span>
@@ -152,7 +158,7 @@
     </div>
 
     <footer class="relative bg-gradient-to-b from-cream-50 to-white text-ink-600 border-t border-ink-100/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-14">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
                 {{-- Brand + tagline --}}
                 <div class="flex flex-col sm:flex-row sm:items-center gap-4">
@@ -170,25 +176,25 @@
                     </div>
                 </div>
 
-                {{-- Social: same style as your other site (fab + w-8 h-8) --}}
+                {{-- Social: sage palette with brand hover colors --}}
                 <div class="flex items-center gap-2">
                     <a href="https://www.youtube.com/@amazinggraceacademy8971" target="_blank" rel="noopener noreferrer"
-                        class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors text-slate-700"
+                        class="w-9 h-9 bg-sage-100 rounded-xl flex items-center justify-center hover:bg-red-600 hover:text-white transition-all duration-200 text-sage-700 hover:scale-105"
                         title="YouTube" aria-label="YouTube">
                         <i class="fab fa-youtube text-sm"></i>
                     </a>
                     <a href="https://www.instagram.com/amazing_grace_academyrwanda/" target="_blank" rel="noopener noreferrer"
-                        class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white transition-colors text-slate-700"
+                        class="w-9 h-9 bg-sage-100 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white transition-all duration-200 text-sage-700 hover:scale-105"
                         title="Instagram" aria-label="Instagram">
                         <i class="fab fa-instagram text-sm"></i>
                     </a>
                     <a href="https://open.spotify.com/artist/219I9f7DIE2s558jWvqdv0?si=0H3oL_ubRv2HkNWHrCX9ag" target="_blank" rel="noopener noreferrer"
-                        class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-green-500 hover:text-white transition-colors text-slate-700"
+                        class="w-9 h-9 bg-sage-100 rounded-xl flex items-center justify-center hover:bg-green-500 hover:text-white transition-all duration-200 text-sage-700 hover:scale-105"
                         title="Spotify" aria-label="Spotify">
                         <i class="fab fa-spotify text-sm"></i>
                     </a>
                     <a href="https://www.boomplay.com/artists/74967302" target="_blank" rel="noopener noreferrer"
-                        class="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center hover:bg-sage-600 hover:text-white transition-colors text-slate-700"
+                        class="w-9 h-9 bg-sage-100 rounded-xl flex items-center justify-center hover:bg-sage-600 hover:text-white transition-all duration-200 text-sage-700 hover:scale-105"
                         title="Boomplay" aria-label="Boomplay">
                         <i class="fas fa-music text-sm"></i>
                     </a>

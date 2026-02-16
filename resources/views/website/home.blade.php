@@ -119,7 +119,7 @@
     </section>
 
     {{-- PROGRAMS SNAPSHOT --}}
-    <section class="mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-20">
+    <section id="programs" class="mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-20">
         <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
                 <p class="section-label w-fit">Gentle training for worshippers</p>
@@ -229,7 +229,7 @@
     </section>
 
     {{-- EVENTS / COHORTS --}}
-    <section class="mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-20">
+    <section id="events" class="mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-20">
         <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
                 <p class="section-label w-fit">Upcoming</p>
@@ -320,7 +320,7 @@
     </section>
 
     {{-- MUSIC SHOP --}}
-    <section class="mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-20">
+    <section id="music-shop" class="mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-20">
         <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
                 <p class="section-label w-fit">Music shop</p>
