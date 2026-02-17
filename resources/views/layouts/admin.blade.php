@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin — Amazing Grace Academy')</title>
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @php $viteAssets = vite_built_assets(); @endphp
+    @if ($viteAssets)
+        <link rel="stylesheet" href="{{ $viteAssets['css'] }}">
+        <script type="module" src="{{ $viteAssets['js'] }}" defer></script>
+    @else
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endif
 </head>
 
 <body class="min-h-screen bg-slate-100 text-slate-900 antialiased">

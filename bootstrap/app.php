@@ -17,5 +17,12 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        // On CSRF token mismatch (419), redirect back with a clear message instead of "Page expired"
+        $exceptions->renderable(function (\Illuminate\Session\TokenMismatchException $e, $request) {
+            if ($request->isMethod('POST') && ($request->routeIs('login.attempt') || $request->routeIs('password.email') || $request->routeIs('password.update'))) {
+                return redirect()->back()->withInput($request->except('password', '_token'))
+                    ->withErrors(['email' => 'Your session expired. Please try again.']);
+            }
+            return null;
+        });
     })->create();

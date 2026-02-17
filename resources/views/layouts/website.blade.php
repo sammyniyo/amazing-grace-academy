@@ -19,12 +19,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
-    @if (file_exists(public_path('build/manifest.json')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @php $viteAssets = vite_built_assets(); @endphp
+    @if ($viteAssets)
+        <link rel="stylesheet" href="{{ $viteAssets['css'] }}">
+        <script type="module" src="{{ $viteAssets['js'] }}" defer></script>
     @else
-        {{-- Production fallback when manifest is missing: use built assets if present --}}
-        <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
-        <script type="module" src="{{ asset('build/assets/app.js') }}" defer></script>
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
 </head>
 

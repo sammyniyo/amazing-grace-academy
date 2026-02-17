@@ -18,8 +18,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\EventRegistrationController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\LoginController;
 
 Route::middleware('cache.public')->group(function () {
     Route::get('/', [WebsiteController::class, 'home'])->name('home');
@@ -39,43 +38,14 @@ Route::get('/events/{event}/register', [EventRegistrationController::class, 'sho
 Route::post('/events/{event}/register', [EventRegistrationController::class, 'store'])->name('events.register.submit');
 Route::get('/events/{event}', [WebsiteController::class, 'eventShow'])->name('events.show');
 
-// Auth routes
-Route::view('/login', 'auth.login')->name('login')->middleware('guest');
+// Auth routes (controller-based so route:cache works on deploy)
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'attempt'])->name('login.attempt');
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
 Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request')->middleware('guest');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email')->middleware(['guest', 'throttle:5,1']);
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset')->middleware('guest');
 Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update')->middleware('guest');
-
-Route::post('/login', function (Request $request) {
-    $credentials = $request->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required'],
-    ]);
-
-    if (Auth::attempt($credentials, $request->boolean('remember'))) {
-        $request->session()->regenerate();
-
-        if (!Auth::user()?->is_admin) {
-            Auth::logout();
-            return back()->withErrors([
-                'email' => 'You do not have admin access.',
-            ])->onlyInput('email');
-        }
-
-        return redirect()->intended(route('admin.dashboard'));
-    }
-
-    return back()->withErrors([
-        'email' => 'Invalid credentials.',
-    ])->onlyInput('email');
-})->name('login.attempt');
-
-Route::post('/logout', function (Request $request) {
-    Auth::logout();
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
-    return redirect()->route('login');
-})->middleware('auth')->name('logout');
 
 Route::post('/contact', [ContactFormController::class, 'store'])->name('contact.submit');
 Route::post('/register', [RegistrationController::class, 'store'])->name('register.submit');

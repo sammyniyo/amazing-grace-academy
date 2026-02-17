@@ -32,7 +32,7 @@ class OrderController extends Controller
             'status' => 'pending',
         ]);
 
-        return back()->with('success', 'Order received! We will contact you to deliver.');
+        return redirect()->route('order.thankyou')->with('success', 'Your order has been received. We will contact you to confirm delivery.');
     }
 
     public function payWithPaypack(Request $request)
