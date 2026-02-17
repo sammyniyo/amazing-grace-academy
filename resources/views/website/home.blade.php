@@ -327,7 +327,7 @@
                 <h2 class="mt-3 font-display text-2xl sm:text-3xl font-semibold text-ink-900">Albums, hymnals & resources</h2>
                 <p class="mt-2 text-ink-600 max-w-xl text-sm sm:text-base">Support the choir and get materials for your church or group.</p>
             </div>
-            <x-ui.button href="{{ route('songs') }}" variant="outline" class="rounded-full w-fit hidden sm:inline-flex">Browse music</x-ui.button>
+            <x-ui.button href="{{ route('songs') }}" variant="outline" class="rounded-full w-fit hidden sm:inline-flex px-4 py-2 text-xs">Browse music</x-ui.button>
         </div>
         <div class="mt-8 grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             @forelse ($products as $index => $product)
@@ -347,7 +347,7 @@
             @empty
                 <div class="reveal shop-card p-6 md:col-span-2 lg:col-span-3 text-center py-10">
                     <p class="text-ink-600">No products in the shop yet. Check back soon.</p>
-                    <x-ui.button href="{{ route('songs') }}" variant="outline" class="mt-4 rounded-xl">Browse music</x-ui.button>
+                    <x-ui.button href="{{ route('songs') }}" variant="outline" class="mt-4 rounded-xl px-4 py-2 text-sm">Browse music</x-ui.button>
                 </div>
             @endforelse
         </div>

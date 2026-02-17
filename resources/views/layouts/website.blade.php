@@ -176,25 +176,25 @@
                     </div>
                 </div>
 
-                {{-- Social: sage palette with brand hover colors --}}
+                {{-- Social: fixed-size square icons --}}
                 <div class="flex items-center gap-2">
                     <a href="https://www.youtube.com/@amazinggraceacademy8971" target="_blank" rel="noopener noreferrer"
-                        class="w-9 h-9 bg-sage-100 rounded-xl flex items-center justify-center hover:bg-red-600 hover:text-white transition-all duration-200 text-sage-700 hover:scale-105"
+                        class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sage-100 text-sage-700 transition-colors duration-200 hover:bg-red-600 hover:text-white"
                         title="YouTube" aria-label="YouTube">
                         <i class="fab fa-youtube text-sm"></i>
                     </a>
                     <a href="https://www.instagram.com/amazing_grace_academyrwanda/" target="_blank" rel="noopener noreferrer"
-                        class="w-9 h-9 bg-sage-100 rounded-xl flex items-center justify-center hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 hover:text-white transition-all duration-200 text-sage-700 hover:scale-105"
+                        class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sage-100 text-sage-700 transition-colors duration-200 hover:bg-[#E4405F] hover:text-white"
                         title="Instagram" aria-label="Instagram">
                         <i class="fab fa-instagram text-sm"></i>
                     </a>
                     <a href="https://open.spotify.com/artist/219I9f7DIE2s558jWvqdv0?si=0H3oL_ubRv2HkNWHrCX9ag" target="_blank" rel="noopener noreferrer"
-                        class="w-9 h-9 bg-sage-100 rounded-xl flex items-center justify-center hover:bg-green-500 hover:text-white transition-all duration-200 text-sage-700 hover:scale-105"
+                        class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sage-100 text-sage-700 transition-colors duration-200 hover:bg-[#1DB954] hover:text-white"
                         title="Spotify" aria-label="Spotify">
                         <i class="fab fa-spotify text-sm"></i>
                     </a>
                     <a href="https://www.boomplay.com/artists/74967302" target="_blank" rel="noopener noreferrer"
-                        class="w-9 h-9 bg-sage-100 rounded-xl flex items-center justify-center hover:bg-sage-600 hover:text-white transition-all duration-200 text-sage-700 hover:scale-105"
+                        class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sage-100 text-sage-700 transition-colors duration-200 hover:bg-sage-600 hover:text-white"
                         title="Boomplay" aria-label="Boomplay">
                         <i class="fas fa-music text-sm"></i>
                     </a>
