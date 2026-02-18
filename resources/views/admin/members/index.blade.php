@@ -30,7 +30,15 @@
                         <td class="px-4 py-3 text-slate-700">{{ $member->instrument_interest ?? '—' }}</td>
                         <td class="px-4 py-3 text-slate-700">{{ $member->cohort?->name ?? 'Unassigned' }}</td>
                         <td class="px-4 py-3">
-                            <span class="rounded-full border px-3 py-1 text-xs font-semibold {{ $member->status === 'active' ? 'border-emerald-200 text-emerald-700 bg-emerald-50' : 'border-slate-200 text-slate-700 bg-slate-50' }}">
+                            @php
+                                $statusClass = match($member->status) {
+                                    'active' => 'border-emerald-200 text-emerald-700 bg-emerald-50',
+                                    'waitlist' => 'border-amber-200 text-amber-700 bg-amber-50',
+                                    'alumni' => 'border-sky-200 text-sky-700 bg-sky-50',
+                                    default => 'border-slate-200 text-slate-700 bg-slate-50',
+                                };
+                            @endphp
+                            <span class="rounded-full border px-3 py-1 text-xs font-semibold {{ $statusClass }}">
                                 {{ ucfirst($member->status) }}
                             </span>
                         </td>
@@ -39,7 +47,7 @@
                                 @csrf
                                 @method('PUT')
                                 <select name="status" class="rounded-lg border border-slate-200 text-xs px-2 py-1">
-                                    @foreach (['applied','active','alumni'] as $status)
+                                    @foreach (['applied','waitlist','active','alumni'] as $status)
                                         <option value="{{ $status }}" @selected($member->status === $status)>{{ ucfirst($status) }}</option>
                                     @endforeach
                                 </select>

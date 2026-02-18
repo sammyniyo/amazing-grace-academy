@@ -42,4 +42,18 @@ class Cohort extends Model
     {
         return $query->whereIn('status', self::ACCEPTING_REGISTRATION_STATUSES);
     }
+
+    /** Number of spots still available (capacity minus current members). */
+    public function spotsLeft(): int
+    {
+        $capacity = (int) ($this->capacity ?? 0);
+        $count = $this->members_count ?? $this->members()->count();
+        return max(0, $capacity - $count);
+    }
+
+    /** Whether this cohort still has space for new registrations. */
+    public function hasSpots(): bool
+    {
+        return $this->spotsLeft() > 0;
+    }
 }

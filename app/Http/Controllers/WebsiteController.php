@@ -72,10 +72,18 @@ class WebsiteController extends Controller
     public function register()
     {
         $cohorts = Cache::remember('website.register_cohorts', self::LIST_CACHE_TTL, function () {
-            return Cohort::acceptingRegistration()->orderBy('start_date', 'desc')->get();
+            return Cohort::acceptingRegistration()
+                ->withCount('members')
+                ->orderBy('start_date', 'desc')
+                ->get();
         });
         $registrationOpen = $cohorts->isNotEmpty();
         return view('website.register', compact('cohorts', 'registrationOpen'));
+    }
+
+    public function registerThankYou()
+    {
+        return view('website.register-thank-you');
     }
 
     public function support()
