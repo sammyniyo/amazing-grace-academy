@@ -26,43 +26,43 @@
     </section>
 
     {{-- PAGE HEADER --}}
-    <section class="mx-auto max-w-7xl px-6 pt-12 pb-8">
-        <div class="ui-hero-panel px-8 py-10 sm:px-12 lg:px-14">
-            <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-                <div class="reveal space-y-4">
+    <section class="mx-auto max-w-7xl px-6 pt-14 pb-12">
+        <div class="ui-hero-panel px-8 py-12 sm:px-12 lg:px-14">
+            <div class="grid items-start gap-10 lg:gap-14 lg:grid-cols-[1.1fr_0.9fr]">
+                <div class="reveal space-y-6">
                     <div class="flex flex-wrap items-center gap-2">
                         <span class="section-label">Class Registration</span>
                         <span class="pill bg-gold-50 text-gold-700 border border-gold-200">Limited spots</span>
                     </div>
-                    <h1 class="font-display text-3xl sm:text-4xl font-semibold tracking-tight text-ink-900 leading-tight">
+                    <h1 class="font-display text-3xl sm:text-4xl font-semibold tracking-tight text-ink-900 leading-tight pt-0.5">
                         Join the next cohort
                     </h1>
                     <p class="text-base leading-relaxed text-ink-600 max-w-xl">
                         Three short steps: your details, your course choice, then we confirm your place. Free training, Saturdays at Kigali Bilingual Church.
                     </p>
-                    <div class="flex flex-wrap gap-2 text-sm text-ink-600">
+                    <div class="flex flex-wrap gap-2 text-sm text-ink-600 pt-1">
                         <span class="pill bg-white/80 border border-sage-200 text-sage-700">Sol-Fa → Staff → Instrument</span>
                         <span class="pill bg-white/80 border border-sage-200 text-sage-700">Choir & instruments</span>
                     </div>
                 </div>
 
-                <div class="reveal soft-card p-6 border-sage-100/80 hidden lg:block">
-                    <div class="flex items-center gap-3">
-                        <div class="h-12 w-12 rounded-2xl bg-sage-100 text-sage-600 flex items-center justify-center font-display font-bold text-lg">AG</div>
-                        <div>
+                <div class="reveal soft-card p-6 sm:p-8 border-sage-100/80 hidden lg:block">
+                    <div class="flex items-center gap-4">
+                        <div class="h-12 w-12 rounded-2xl bg-sage-100 text-sage-600 flex items-center justify-center font-display font-bold text-lg shrink-0">AG</div>
+                        <div class="min-w-0">
                             <div class="text-sm font-semibold text-sage-700">Weekly rhythm</div>
                             <div class="font-display text-lg font-semibold text-ink-900">Sat 2:00–5:00 PM</div>
-                            <p class="text-xs text-ink-500">Kigali Bilingual Church</p>
+                            <p class="text-xs text-ink-500 mt-0.5">Kigali Bilingual Church</p>
                         </div>
                     </div>
-                    <div class="mt-4 grid gap-2 text-sm text-ink-700">
-                        <div class="rounded-xl border border-sage-200 bg-sage-50/70 p-3">
+                    <div class="mt-8 grid gap-4 text-sm text-ink-700">
+                        <div class="rounded-xl border border-sage-200 bg-sage-50/70 p-4">
                             <span class="font-display font-semibold text-ink-900">Foundation</span> — Sol-Fa (required start)
                         </div>
-                        <div class="rounded-xl border border-sage-200 bg-sage-50/70 p-3">
+                        <div class="rounded-xl border border-sage-200 bg-sage-50/70 p-4">
                             <span class="font-display font-semibold text-ink-900">Advancement</span> — Staff notation
                         </div>
-                        <div class="rounded-xl border border-gold-200 bg-gold-50/70 p-3">
+                        <div class="rounded-xl border border-gold-200 bg-gold-50/70 p-4">
                             <span class="font-display font-semibold text-ink-900">Specialization</span> — Instrument (slots by availability)
                         </div>
                     </div>
