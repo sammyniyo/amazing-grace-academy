@@ -28,8 +28,8 @@
     {{-- PAGE HEADER --}}
     <section class="mx-auto max-w-7xl px-6 pt-14 pb-12">
         <div class="ui-hero-panel px-8 py-12 sm:px-12 lg:px-14">
-            <div class="grid items-start gap-10 lg:gap-14 lg:grid-cols-[1.1fr_0.9fr]">
-                <div class="reveal space-y-6">
+            <div class="grid items-start gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20 xl:gap-24">
+                <div class="reveal space-y-6 lg:pr-4">
                     <div class="flex flex-wrap items-center gap-2">
                         <span class="section-label">Class Registration</span>
                         <span class="pill bg-gold-50 text-gold-700 border border-gold-200">Limited spots</span>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
 
-                <div class="reveal soft-card p-6 sm:p-8 border-sage-100/80 hidden lg:block">
+                <div class="reveal soft-card p-6 sm:p-8 border-sage-100/80 hidden lg:block lg:border-l lg:border-sage-200/60 lg:pl-10 lg:ml-2">
                     <div class="flex items-center gap-4">
                         <div class="h-12 w-12 rounded-2xl bg-sage-100 text-sage-600 flex items-center justify-center font-display font-bold text-lg shrink-0">AG</div>
                         <div class="min-w-0">
