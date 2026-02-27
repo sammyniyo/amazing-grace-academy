@@ -82,16 +82,23 @@
                     @foreach ($upcomingEvents as $event)
                         <div
                             class="reveal soft-card overflow-hidden group hover:shadow-card-hover transition-all duration-300">
-                            <div
-                                class="h-40 w-full bg-gradient-to-br from-sage-100 via-cream-50 to-gold-100 flex flex-col items-center justify-center text-sage-700 p-4">
-                                @if ($event->event_date)
-                                    <span
-                                        class="font-display text-4xl font-semibold leading-none">{{ $event->event_date->format('M') }}</span>
-                                    <span class="text-lg font-semibold mt-1">{{ $event->event_date->format('j') }}</span>
-                                    <span class="text-xs text-ink-500">{{ $event->event_date->format('Y') }}</span>
-                                @else
-                                    <i class="fas fa-calendar-alt text-4xl opacity-60"></i>
+                            <div class="h-40 w-full relative overflow-hidden bg-gradient-to-br from-sage-100 via-cream-50 to-gold-100">
+                                @if ($event->cover_url)
+                                    <img src="{{ $event->cover_url }}" alt="{{ $event->title }}"
+                                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                        loading="lazy">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent"></div>
                                 @endif
+                                <div class="absolute left-4 top-4 rounded-lg bg-white/90 px-3 py-2 text-center shadow-sm">
+                                    @if ($event->event_date)
+                                        <span
+                                            class="block font-display text-lg font-semibold leading-none text-ink-900">{{ $event->event_date->format('M') }}</span>
+                                        <span class="block text-sm font-semibold text-ink-700 mt-0.5">{{ $event->event_date->format('j') }}</span>
+                                        <span class="block text-[11px] text-ink-500">{{ $event->event_date->format('Y') }}</span>
+                                    @else
+                                        <i class="fas fa-calendar-alt text-lg text-ink-600"></i>
+                                    @endif
+                                </div>
                             </div>
                             <div class="p-6 space-y-3">
                                 <div class="flex items-center justify-between gap-2 flex-wrap">
@@ -152,15 +159,21 @@
                 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     @foreach ($pastEvents as $event)
                         <div class="reveal soft-card overflow-hidden opacity-90">
-                            <div
-                                class="h-32 w-full bg-gradient-to-br from-ink-100 via-ink-50 to-ink-100 flex flex-col items-center justify-center text-ink-500 p-4">
-                                @if ($event->event_date)
-                                    <span
-                                        class="font-display text-3xl font-semibold">{{ $event->event_date->format('M j') }}</span>
-                                    <span class="text-xs">{{ $event->event_date->format('Y') }}</span>
-                                @else
-                                    <i class="fas fa-calendar-minus text-3xl opacity-50"></i>
+                            <div class="h-32 w-full relative overflow-hidden bg-gradient-to-br from-ink-100 via-ink-50 to-ink-100">
+                                @if ($event->cover_url)
+                                    <img src="{{ $event->cover_url }}" alt="{{ $event->title }}"
+                                        class="h-full w-full object-cover" loading="lazy">
+                                    <div class="absolute inset-0 bg-black/35"></div>
                                 @endif
+                                <div class="absolute left-4 top-4 rounded-lg bg-white/90 px-3 py-1.5 text-center shadow-sm">
+                                    @if ($event->event_date)
+                                        <span
+                                            class="block font-display text-sm font-semibold text-ink-900">{{ $event->event_date->format('M j') }}</span>
+                                        <span class="block text-[11px] text-ink-500">{{ $event->event_date->format('Y') }}</span>
+                                    @else
+                                        <i class="fas fa-calendar-minus text-base text-ink-600"></i>
+                                    @endif
+                                </div>
                             </div>
                             <div class="p-6 space-y-2">
                                 <span class="pill bg-ink-100 text-ink-600 border border-ink-200 text-xs">Past</span>

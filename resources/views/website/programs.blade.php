@@ -49,7 +49,7 @@
                     <div
                         class="relative rounded-[28px] overflow-hidden bg-white shadow-[0_20px_60px_rgba(15,23,42,0.18)] border border-emerald-100">
                         <div class="aspect-[4/5] relative">
-                            <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=80"
+                            <img src="{{ asset('images/aga-choir-group.png') }}"
                                 alt="Choir rehearsal" class="h-full w-full object-cover">
                             <div
                                 class="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-teal-700 shadow">

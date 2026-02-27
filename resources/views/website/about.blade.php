@@ -21,6 +21,20 @@
         </div>
     </section>
 
+    {{-- Story gallery --}}
+    <section class="mx-auto max-w-5xl px-4 sm:px-6 pb-8 sm:pb-12">
+        <div class="grid gap-4 sm:grid-cols-3">
+            <div class="reveal soft-card overflow-hidden sm:col-span-2">
+                <img src="{{ asset('images/aga-choir-group.png') }}" alt="Amazing Grace Academy choir group"
+                    class="h-64 sm:h-80 w-full object-cover" loading="lazy">
+            </div>
+            <div class="reveal soft-card overflow-hidden">
+                <img src="{{ asset('images/aga-conductor.png') }}" alt="Choir conductor leading worship"
+                    class="h-64 sm:h-80 w-full object-cover" loading="lazy">
+            </div>
+        </div>
+    </section>
+
     {{-- Chapter 1: The beginning --}}
     <section class="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-14">
         <div class="reveal soft-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-sage-100/80">

@@ -14,19 +14,27 @@
         </nav>
 
         <div class="reveal soft-card rounded-2xl sm:rounded-3xl overflow-hidden border border-sage-100/80">
-            {{-- Date block --}}
-            <div class="bg-gradient-to-br from-sage-100 via-cream-50 to-gold-100 px-6 sm:px-8 py-8 sm:py-10 text-center">
-                @if ($event->event_date)
-                    <span
-                        class="font-display text-5xl sm:text-6xl font-semibold leading-none text-sage-700">{{ $event->event_date->format('M') }}</span>
-                    <span
-                        class="block text-2xl sm:text-3xl font-semibold text-ink-800 mt-1">{{ $event->event_date->format('j') }}</span>
-                    <span class="text-sm text-ink-500">{{ $event->event_date->format('Y') }}</span>
-                    <p class="mt-2 text-base text-ink-600">{{ $event->event_date->format('l') }}</p>
-                @else
-                    <i class="fas fa-calendar-alt text-5xl text-sage-600 opacity-70"></i>
-                    <p class="mt-2 text-ink-600">Date to be announced</p>
+            {{-- Cover/date block --}}
+            <div class="relative h-64 sm:h-72 overflow-hidden bg-gradient-to-br from-sage-100 via-cream-50 to-gold-100">
+                @if ($event->cover_url)
+                    <img src="{{ $event->cover_url }}" alt="{{ $event->title }}" class="h-full w-full object-cover">
+                    <div class="absolute inset-0 bg-black/35"></div>
                 @endif
+                <div class="absolute inset-x-0 bottom-0 px-6 sm:px-8 pb-6 sm:pb-8">
+                    <div class="inline-block rounded-2xl bg-white/95 px-5 py-4 shadow-md border border-white/80">
+                        @if ($event->event_date)
+                            <span
+                                class="font-display text-3xl sm:text-4xl font-semibold leading-none text-sage-700">{{ $event->event_date->format('M') }}</span>
+                            <span
+                                class="block text-xl sm:text-2xl font-semibold text-ink-800 mt-0.5">{{ $event->event_date->format('j') }}</span>
+                            <span class="text-xs text-ink-500">{{ $event->event_date->format('Y') }}</span>
+                            <p class="mt-1 text-sm text-ink-600">{{ $event->event_date->format('l') }}</p>
+                        @else
+                            <i class="fas fa-calendar-alt text-3xl text-sage-600 opacity-70"></i>
+                            <p class="mt-1 text-sm text-ink-600">Date to be announced</p>
+                        @endif
+                    </div>
+                </div>
             </div>
 
             <div class="p-6 sm:p-8 md:p-10">

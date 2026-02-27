@@ -133,7 +133,7 @@
         <div class="mt-8 sm:mt-10 grid gap-4 sm:gap-6 md:grid-cols-3">
             <a href="{{ route('programs') }}#sol-fa" class="reveal soft-card overflow-hidden group block">
                 <div class="aspect-[4/3] overflow-hidden">
-                    <img src="{{ asset('images/aga-girls.jpg') }}" alt="Sol-Fa class"
+                    <img src="{{ asset('images/aga-ladies-choir.png') }}" alt="Sol-Fa class"
                         class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy" width="400" height="300">
                 </div>
@@ -149,7 +149,7 @@
             </a>
             <a href="{{ route('programs') }}#staff" class="reveal reveal-delay-1 soft-card overflow-hidden group block">
                 <div class="aspect-[4/3] overflow-hidden">
-                    <img src="{{ asset('images/aga-boys1.jpg') }}" alt="Staff notation"
+                    <img src="{{ asset('images/aga-men-choir.png') }}" alt="Staff notation"
                         class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy" width="400" height="300">
                 </div>
@@ -165,7 +165,7 @@
             </a>
             <a href="{{ route('programs') }}#instruments" class="reveal reveal-delay-2 soft-card overflow-hidden group block">
                 <div class="aspect-[4/3] overflow-hidden">
-                    <img src="{{ asset('images/aga-boys2.jpg') }}" alt="Instruments"
+                    <img src="{{ asset('images/aga-conductor.png') }}" alt="Instruments"
                         class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy" width="400" height="300">
                 </div>
@@ -331,7 +331,19 @@
         </div>
         <div class="mt-8 grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             @forelse ($products as $index => $product)
-                <div class="reveal {{ $index > 0 ? 'reveal-delay-' . min($index, 2) : '' }} shop-card p-6">
+                <div class="reveal {{ $index > 0 ? 'reveal-delay-' . min($index, 2) : '' }} shop-card overflow-hidden">
+                    <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-sage-100 via-cream-50 to-gold-100">
+                        @if ($product->cover_url)
+                            <img src="{{ $product->cover_url }}" alt="{{ $product->title }}"
+                                class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                                loading="lazy">
+                        @else
+                            <div class="h-full w-full flex items-center justify-center text-sage-400">
+                                <i class="fas fa-compact-disc text-4xl"></i>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="p-6">
                     @if(strtolower($product->type ?? '') === 'album')
                         <span class="pill border border-sage-200 bg-sage-50/90 text-sage-800 text-xs">Album</span>
                     @elseif(strtolower($product->type ?? '') === 'hymnal')
@@ -343,6 +355,7 @@
                     <p class="mt-2 text-sm text-ink-600 leading-relaxed">{{ Str::limit($product->description ?? 'Support the choir and get materials for your church or group.', 80) }}</p>
                     <p class="mt-4 font-display text-xl font-bold text-ink-900">{{ number_format($product->price) }} RWF</p>
                     <x-ui.button href="{{ route('songs') }}?product={{ $product->id }}" variant="primary" class="mt-4 w-full rounded-xl text-sm">Buy now</x-ui.button>
+                    </div>
                 </div>
             @empty
                 <div class="reveal shop-card p-6 md:col-span-2 lg:col-span-3 text-center py-10">
@@ -366,7 +379,7 @@
         <div class="mt-8 sm:mt-10 grid gap-4 sm:gap-6 lg:grid-cols-3">
             <div class="reveal soft-card overflow-hidden group">
                 <div class="overflow-hidden">
-                    <img src="{{ asset('images/aga_girls1.jpg') }}"
+                    <img src="{{ asset('images/aga-full-choir.png') }}"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                         alt="Choir concert" loading="lazy" width="400" height="256">
                 </div>
@@ -377,7 +390,7 @@
             </div>
             <div class="reveal reveal-delay-1 soft-card overflow-hidden group">
                 <div class="overflow-hidden">
-                    <img src="{{ asset('images/aga-boys1.jpg') }}"
+                    <img src="{{ asset('images/aga-men-choir.png') }}"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                         alt="Choir rehearsal" loading="lazy" width="400" height="256">
                 </div>
@@ -388,7 +401,7 @@
             </div>
             <div class="reveal reveal-delay-2 soft-card overflow-hidden group">
                 <div class="overflow-hidden">
-                    <img src="{{ asset('images/aga-boys2.jpg') }}"
+                    <img src="{{ asset('images/aga-ladies-choir.png') }}"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                         alt="Instrument class" loading="lazy" width="400" height="256">
                 </div>

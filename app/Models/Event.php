@@ -33,6 +33,17 @@ class Event extends Model
 
     public function getCoverUrlAttribute(): ?string
     {
-        return $this->cover_image ? asset('storage/' . $this->cover_image) : null;
+        if (! $this->cover_image) {
+            return null;
+        }
+
+        $path = ltrim((string) $this->cover_image, '/');
+        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            return $path;
+        }
+
+        return str_starts_with($path, 'storage/')
+            ? asset($path)
+            : asset('storage/' . $path);
     }
 }
