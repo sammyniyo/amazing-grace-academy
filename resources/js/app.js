@@ -5,13 +5,8 @@ window.Alpine = Alpine;
 Alpine.start();
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Defer reveal so it doesn't block first paint
-    const runReveal = () => initReveal();
-    if (typeof requestIdleCallback !== "undefined") {
-        requestIdleCallback(runReveal, { timeout: 200 });
-    } else {
-        setTimeout(runReveal, 0);
-    }
+    // Initialize reveal immediately so content-heavy pages don't appear blank/glitchy.
+    initReveal();
 
     const progress = document.getElementById("scroll-progress");
     const backTop = document.getElementById("back-to-top");

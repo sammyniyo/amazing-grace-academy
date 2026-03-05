@@ -366,53 +366,6 @@
         </div>
     </section>
 
-    {{-- GALLERY (hidden on mobile to shorten scroll) --}}
-    <section class="hidden sm:block mx-auto max-w-7xl px-4 sm:px-6 pb-16 sm:pb-20">
-        <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <div>
-                <p class="section-label w-fit">Gallery</p>
-                <h2 class="mt-3 font-display text-2xl sm:text-3xl font-semibold text-ink-900">Choir moments</h2>
-                <p class="mt-2 text-ink-600 leading-relaxed text-sm sm:text-base">Rehearsals, concerts, and worship services.</p>
-            </div>
-            <x-ui.button href="{{ route('songs') }}" variant="outline" class="rounded-full w-fit hidden sm:inline-flex">See performances</x-ui.button>
-        </div>
-        <div class="mt-8 sm:mt-10 grid gap-4 sm:gap-6 lg:grid-cols-3">
-            <div class="reveal soft-card overflow-hidden group">
-                <div class="overflow-hidden">
-                    <img src="{{ asset('images/aga-full-choir.png') }}"
-                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-                        alt="Choir concert" loading="lazy" width="400" height="256">
-                </div>
-                <div class="p-5">
-                    <div class="font-display text-base font-semibold text-ink-900">Annual Concert</div>
-                    <div class="text-xs text-ink-500 mt-0.5">Kigali Bilingual Church</div>
-                </div>
-            </div>
-            <div class="reveal reveal-delay-1 soft-card overflow-hidden group">
-                <div class="overflow-hidden">
-                    <img src="{{ asset('images/aga-men-choir.png') }}"
-                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-                        alt="Choir rehearsal" loading="lazy" width="400" height="256">
-                </div>
-                <div class="p-5">
-                    <div class="font-display text-base font-semibold text-ink-900">Sectional Rehearsal</div>
-                    <div class="text-xs text-ink-500 mt-0.5">Sabbath afternoon</div>
-                </div>
-            </div>
-            <div class="reveal reveal-delay-2 soft-card overflow-hidden group">
-                <div class="overflow-hidden">
-                    <img src="{{ asset('images/aga-ladies-choir.png') }}"
-                        class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-                        alt="Instrument class" loading="lazy" width="400" height="256">
-                </div>
-                <div class="p-5">
-                    <div class="font-display text-base font-semibold text-ink-900">Instrumental Studio</div>
-                    <div class="text-xs text-ink-500 mt-0.5">Piano • Guitar • Violin</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     {{-- FAQ + SUPPORT CTA --}}
     <section class="mx-auto max-w-7xl px-4 sm:px-6 pb-20 sm:pb-24">
         <div class="grid gap-6 lg:grid-cols-3 lg:gap-8">
