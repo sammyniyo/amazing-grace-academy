@@ -46,7 +46,8 @@
     {{-- Scroll progress bar --}}
     <div class="fixed top-0 left-0 right-0 h-[2px] bg-transparent z-50">
         <div id="scroll-progress"
-            class="h-full w-0 bg-gradient-to-r from-sage-500 to-gold-500 transition-[width] duration-150 ease-out"></div>
+            class="h-full w-full origin-left bg-gradient-to-r from-sage-500 to-gold-500 transition-transform duration-150 ease-out"
+            style="transform: scaleX(0); will-change: transform;"></div>
     </div>
 
     {{-- Navbar (pill style like reference) --}}

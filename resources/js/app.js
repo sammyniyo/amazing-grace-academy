@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.documentElement.scrollHeight -
             document.documentElement.clientHeight;
         const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        if (progress) progress.style.width = `${percent}%`;
+        if (progress) progress.style.transform = `scaleX(${percent / 100})`;
         if (backTop)
             backTop.style.display = scrollTop > 240 ? "inline-flex" : "none";
     };

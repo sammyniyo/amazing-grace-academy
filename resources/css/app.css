@@ -341,3 +341,52 @@
         padding-top: 0;
     }
 }
+
+/* About page polish: prevent animation jitter and overflow clipping artifacts */
+.about-page {
+    overflow-x: clip;
+}
+
+.about-hero::before {
+    content: "";
+    position: absolute;
+    inset: -35% auto auto -22%;
+    height: 340px;
+    width: 340px;
+    background: radial-gradient(circle, rgba(61, 115, 87, 0.2) 0%, transparent 65%);
+    filter: blur(24px);
+    pointer-events: none;
+}
+
+.about-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -16% -44% auto;
+    height: 320px;
+    width: 320px;
+    background: radial-gradient(circle, rgba(214, 140, 42, 0.2) 0%, transparent 65%);
+    filter: blur(24px);
+    pointer-events: none;
+}
+
+.about-page .soft-card,
+.about-page .timeline-item {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.js .about-page .reveal {
+    transform: translate3d(0, 16px, 0);
+    will-change: transform, opacity;
+}
+
+.js .about-page .reveal.show {
+    transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-page .reveal,
+    .about-page .reveal.show {
+        transform: none;
+    }
+}
