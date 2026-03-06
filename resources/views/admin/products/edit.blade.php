@@ -19,7 +19,7 @@
                 @endif
                 <input type="file" name="cover_image" accept="image/jpeg,image/png,image/jpg,image/webp"
                     class="mt-2 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-emerald-50 file:px-3 file:py-1.5 file:text-sm file:font-semibold file:text-emerald-700 focus:border-emerald-300 focus:ring focus:ring-emerald-100">
-                <p class="mt-1 text-xs text-slate-500">JPEG, PNG or WebP, max 2MB. Optional.</p>
+                <p class="mt-1 text-xs text-slate-500">JPEG, PNG or WebP, max 5MB. Optional.</p>
                 @error('cover_image')
                     <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
                 @enderror
@@ -86,14 +86,16 @@
                     <a href="{{ route('admin.products.index') }}" class="text-sm text-slate-600 hover:underline">Back to
                         list</a>
                 </div>
-                <form method="POST" action="{{ route('admin.products.destroy', $product) }}"
-                    onsubmit="return confirm('Delete this product?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="text-sm font-semibold text-rose-600 hover:underline">Delete
-                        product</button>
-                </form>
+                <button type="submit" form="delete-product-form"
+                    class="text-sm font-semibold text-rose-600 hover:underline"
+                    onclick="return confirm('Delete this product?');">
+                    Delete product
+                </button>
             </div>
+        </form>
+        <form id="delete-product-form" method="POST" action="{{ route('admin.products.destroy', $product) }}" class="hidden">
+            @csrf
+            @method('DELETE')
         </form>
     </div>
 @endsection

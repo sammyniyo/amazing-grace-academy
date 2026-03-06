@@ -16,10 +16,11 @@
         <div class="reveal soft-card rounded-2xl sm:rounded-3xl overflow-hidden border border-sage-100/80">
             {{-- Cover/date block --}}
             <div class="relative h-64 sm:h-72 overflow-hidden bg-gradient-to-br from-sage-100 via-cream-50 to-gold-100">
-                @if ($event->cover_url)
-                    <img src="{{ $event->cover_url }}" alt="{{ $event->title }}" class="h-full w-full object-cover">
-                    <div class="absolute inset-0 bg-black/35"></div>
-                @endif
+                @php($eventCover = $event->cover_url ?: asset('images/aga-choir-group.png'))
+                <img src="{{ $eventCover }}" alt="{{ $event->title }}"
+                    onerror="this.onerror=null;this.src='{{ asset('images/aga-choir-group.png') }}';"
+                    class="h-full w-full object-cover">
+                <div class="absolute inset-0 bg-black/35"></div>
                 <div class="absolute inset-x-0 bottom-0 px-6 sm:px-8 pb-6 sm:pb-8">
                     <div class="inline-block rounded-2xl bg-white/95 px-5 py-4 shadow-md border border-white/80">
                         @if ($event->event_date)

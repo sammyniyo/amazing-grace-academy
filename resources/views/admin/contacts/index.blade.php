@@ -4,30 +4,36 @@
 @section('page', 'Contact Inbox')
 
 @section('content')
-    <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-        <table class="min-w-full text-sm">
-            <thead class="bg-slate-50 text-slate-700">
+    <div class="mb-6">
+        <h1 class="text-xl font-semibold text-slate-900">Contact inbox</h1>
+        <p class="mt-1 text-sm text-slate-500">{{ $messages->total() }} message(s)</p>
+    </div>
+
+    <div class="admin-table-wrap">
+        <div class="admin-table-scroll">
+        <table class="admin-table">
+            <thead>
                 <tr>
-                    <th class="px-4 py-3 text-left">From</th>
-                    <th class="px-4 py-3 text-left">Topic</th>
-                    <th class="px-4 py-3 text-left">Message</th>
-                    <th class="px-4 py-3 text-left">Status</th>
-                    <th class="px-4 py-3 text-right"></th>
+                    <th>From</th>
+                    <th>Topic</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                    <th class="text-right">Actions</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-slate-100">
+            <tbody>
                 @forelse ($messages as $message)
                     <tr>
-                        <td class="px-4 py-3">
+                        <td>
                             <a href="{{ route('admin.contacts.show', $message) }}"
                                 class="font-semibold text-slate-900 hover:text-emerald-700">{{ $message->name }}</a>
                             <div class="text-xs text-slate-500">{{ $message->email ?? '—' }} • {{ $message->phone ?? '—' }}
                             </div>
                         </td>
-                        <td class="px-4 py-3 text-slate-700">{{ $message->topic ?? '—' }}</td>
-                        <td class="px-4 py-3 text-slate-700">{{ \Illuminate\Support\Str::limit($message->message, 120) }}
+                        <td class="text-slate-700">{{ $message->topic ?? '—' }}</td>
+                        <td class="text-slate-700">{{ \Illuminate\Support\Str::limit($message->message, 120) }}
                         </td>
-                        <td class="px-4 py-3">
+                        <td>
                             <form action="{{ route('admin.contacts.update', $message) }}" method="POST"
                                 class="inline-flex items-center gap-2">
                                 @csrf
@@ -40,10 +46,10 @@
                                 </select>
                                 <input type="hidden" name="admin_notes" value="{{ $message->admin_notes }}">
                                 <button
-                                    class="rounded-lg bg-emerald-600 px-3 py-1 text-xs font-semibold text-white">Save</button>
+                                    class="admin-btn-primary px-3 py-1.5 text-xs">Save</button>
                             </form>
                         </td>
-                        <td class="px-4 py-3 text-right">
+                        <td class="text-right">
                             <form action="{{ route('admin.contacts.destroy', $message) }}" method="POST"
                                 onsubmit="return confirm('Delete this message?')" class="inline-block">
                                 @csrf
@@ -54,11 +60,12 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="5" class="px-4 py-6 text-center text-sm text-slate-500">No messages yet.</td>
+                        <td colspan="5" class="py-10 text-center text-sm text-slate-500">No messages yet.</td>
                     </tr>
                 @endforelse
             </tbody>
         </table>
+        </div>
     </div>
 
     <div class="mt-4">

@@ -4,53 +4,57 @@
 @section('page', 'Albums & Shop')
 
 @section('content')
-    <div class="mb-6 flex items-center justify-between">
-        <h1 class="text-xl font-semibold text-slate-900">Shop (Products)</h1>
-        <a href="{{ route('admin.products.create') }}"
-            class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-emerald-700">New
-            product</a>
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <div>
+            <h1 class="text-xl font-semibold text-slate-900">Shop products</h1>
+            <p class="mt-1 text-sm text-slate-500">{{ $products->total() }} item(s) in catalog</p>
+        </div>
+        <a href="{{ route('admin.products.create') }}" class="admin-btn-primary">New product</a>
     </div>
+
     <div class="grid gap-6 lg:grid-cols-[2fr_1fr]">
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-            <table class="min-w-full text-sm">
-                <thead class="bg-slate-50 text-slate-700">
+        <div class="admin-table-wrap">
+            <div class="admin-table-scroll">
+            <table class="admin-table">
+                <thead>
                     <tr>
-                        <th class="px-4 py-3 text-left w-20">Cover</th>
-                        <th class="px-4 py-3 text-left">Title</th>
-                        <th class="px-4 py-3 text-left">Type</th>
-                        <th class="px-4 py-3 text-left">Price</th>
-                        <th class="px-4 py-3 text-left">Active</th>
-                        <th class="px-4 py-3 text-right"></th>
+                        <th class="w-20">Cover</th>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th class="text-right">Actions</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-slate-100">
+                <tbody>
                     @forelse ($products as $product)
                         <tr>
-                            <td class="px-4 py-3">
+                            <td>
                                 @if ($product->cover_url)
-                                    <img src="{{ $product->cover_url }}" alt="" class="h-12 w-12 rounded-lg object-cover border border-slate-200" loading="lazy">
+                                    <img src="{{ $product->cover_url }}" alt=""
+                                        class="h-12 w-12 rounded-lg object-cover border border-slate-200" loading="lazy">
                                 @else
-                                    <div class="h-12 w-12 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400 text-xs">No</div>
+                                    <div
+                                        class="h-12 w-12 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400 text-xs">
+                                        No
+                                    </div>
                                 @endif
                             </td>
-                            <td class="px-4 py-3">
+                            <td>
                                 <a href="{{ route('admin.products.edit', $product) }}"
                                     class="font-semibold text-slate-900 hover:text-emerald-700">{{ $product->title }}</a>
                                 <div class="text-xs text-slate-500">{{ $product->slug }}</div>
                             </td>
-                            <td class="px-4 py-3 text-slate-700">{{ ucfirst($product->type) }} •
-                                {{ $product->format ?? 'n/a' }}</td>
-                            <td class="px-4 py-3 text-slate-700">{{ number_format($product->price) }} RWF</td>
-                            <td class="px-4 py-3">
+                            <td class="text-slate-700">{{ ucfirst($product->type) }} • {{ $product->format ?? 'n/a' }}</td>
+                            <td class="text-slate-700">{{ number_format($product->price) }} RWF</td>
+                            <td>
                                 @if ($product->is_active)
-                                    <span
-                                        class="rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1 text-xs font-semibold">Active</span>
+                                    <span class="admin-pill border-emerald-200 bg-emerald-50 text-emerald-700">Active</span>
                                 @else
-                                    <span
-                                        class="rounded-full bg-slate-50 text-slate-600 border border-slate-200 px-3 py-1 text-xs font-semibold">Hidden</span>
+                                    <span class="admin-pill border-slate-200 bg-slate-50 text-slate-600">Hidden</span>
                                 @endif
                             </td>
-                            <td class="px-4 py-3 text-right">
+                            <td class="text-right">
                                 <a href="{{ route('admin.products.edit', $product) }}"
                                     class="text-sm font-semibold text-emerald-700 hover:underline">Edit</a>
                                 <form action="{{ route('admin.products.destroy', $product) }}" method="POST"
@@ -63,15 +67,16 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="px-4 py-6 text-center text-sm text-slate-500">No products yet.</td>
+                            <td colspan="6" class="py-10 text-center text-sm text-slate-500">No products yet.</td>
                         </tr>
                     @endforelse
                 </tbody>
             </table>
+            </div>
         </div>
 
-        <div class="rounded-2xl border border-slate-200 bg-white shadow-sm p-5">
-            <h3 class="text-sm font-semibold text-slate-900 mb-3">Quick add</h3>
+        <div class="admin-card p-5">
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-700 mb-3">Quick add</h3>
             <form method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data" class="space-y-3">
                 @csrf
                 <div>
@@ -102,9 +107,7 @@
                 <textarea name="description" rows="3"
                     class="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:border-emerald-300 focus:ring focus:ring-emerald-100"
                     placeholder="Description"></textarea>
-                <button
-                    class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700">Add
-                    product</button>
+                <button class="admin-btn-primary">Add product</button>
             </form>
             <p class="mt-3 text-xs text-slate-500">Or <a href="{{ route('admin.products.create') }}"
                     class="text-emerald-600 hover:underline">create with full form</a>.</p>

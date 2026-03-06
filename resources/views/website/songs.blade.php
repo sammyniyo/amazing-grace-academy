@@ -65,17 +65,10 @@
                     <a href="{{ route('checkout.show', ['product_id' => $product->id, 'quantity' => 1]) }}"
                         class="block rounded-2xl border border-ink-100 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-card-hover hover:border-sage-200">
                         <div class="aspect-[4/3] bg-gradient-to-br from-sage-100 via-cream-50 to-gold-100 flex items-center justify-center overflow-hidden">
-                            @if ($product->cover_url ?? null)
-                                <img src="{{ $product->cover_url }}" alt="" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            @else
-                                @if (strtolower($product->type ?? '') === 'album')
-                                    <i class="fas fa-compact-disc text-5xl text-sage-400/80"></i>
-                                @elseif(strtolower($product->type ?? '') === 'hymnal')
-                                    <i class="fas fa-book-open text-5xl text-sage-400/80"></i>
-                                @else
-                                    <i class="fas fa-music text-5xl text-sage-400/80"></i>
-                                @endif
-                            @endif
+                            @php($productCover = $product->cover_url ?: asset('images/aga-full-choir.png'))
+                            <img src="{{ $productCover }}" alt="{{ $product->title }}"
+                                onerror="this.onerror=null;this.src='{{ asset('images/aga-full-choir.png') }}';"
+                                class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="p-5 sm:p-6">
                             <span class="text-xs font-semibold uppercase tracking-wider text-sage-600">{{ ucfirst($product->type ?? 'Product') }}</span>

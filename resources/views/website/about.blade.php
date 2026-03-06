@@ -99,43 +99,6 @@
         </section>
 
         <section class="mx-auto max-w-7xl px-4 sm:px-6 pt-12 sm:pt-16">
-            <div class="reveal mb-6 sm:mb-8 text-center">
-                <span class="section-label">Our people</span>
-                <h2 class="mt-3 font-display text-2xl sm:text-3xl font-semibold text-ink-900">The team behind the sound</h2>
-                <p class="mt-2 text-ink-600 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-                    Trainers, choristers, and mentors serving one musical vision for church and community.
-                </p>
-            </div>
-
-            <div class="grid gap-4 sm:gap-5 md:grid-cols-3">
-                <figure class="reveal soft-card overflow-hidden">
-                    <img src="{{ asset('images/aga-girls.jpg') }}" alt="Women mentors at Amazing Grace Academy"
-                        class="h-72 w-full object-cover" loading="lazy" decoding="async">
-                    <figcaption class="p-4 text-center">
-                        <p class="font-semibold text-ink-900">Women mentors</p>
-                        <p class="text-xs text-ink-500 mt-1">Learner support and choir formation</p>
-                    </figcaption>
-                </figure>
-                <figure class="reveal reveal-delay-1 soft-card overflow-hidden">
-                    <img src="{{ asset('images/aga-boys1.jpg') }}" alt="Men mentors at Amazing Grace Academy"
-                        class="h-72 w-full object-cover" loading="lazy" decoding="async">
-                    <figcaption class="p-4 text-center">
-                        <p class="font-semibold text-ink-900">Men mentors</p>
-                        <p class="text-xs text-ink-500 mt-1">Rehearsal leadership and voice training</p>
-                    </figcaption>
-                </figure>
-                <figure class="reveal reveal-delay-2 soft-card overflow-hidden">
-                    <img src="{{ asset('images/aga-boys2.jpg') }}" alt="Amazing Grace Academy leadership team"
-                        class="h-72 w-full object-cover" loading="lazy" decoding="async">
-                    <figcaption class="p-4 text-center">
-                        <p class="font-semibold text-ink-900">Leadership team</p>
-                        <p class="text-xs text-ink-500 mt-1">Coordination, mentoring, and ministry direction</p>
-                    </figcaption>
-                </figure>
-            </div>
-        </section>
-
-        <section class="mx-auto max-w-7xl px-4 sm:px-6 pt-12 sm:pt-16">
             <div class="grid lg:grid-cols-12 gap-4 sm:gap-6">
                 <article class="reveal lg:col-span-6 soft-card p-6 sm:p-8 border border-sage-100/80">
                     <span class="pill bg-sage-50 text-sage-700 border border-sage-200">Mission</span>

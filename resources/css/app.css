@@ -390,3 +390,99 @@
         transform: none;
     }
 }
+
+/* Admin UI polish */
+.admin-ui {
+    background:
+        radial-gradient(1000px 500px at 100% -10%, rgba(16, 185, 129, 0.08), transparent 60%),
+        radial-gradient(900px 500px at -10% 100%, rgba(251, 191, 36, 0.06), transparent 62%),
+        #f8fafc;
+}
+
+.admin-shell {
+    position: relative;
+}
+
+.admin-card {
+    @apply rounded-2xl border border-slate-200/90 bg-white shadow-sm;
+}
+
+.admin-kpi {
+    @apply admin-card p-5;
+}
+
+.admin-kpi-label {
+    @apply text-xs font-semibold uppercase tracking-wide text-slate-500;
+}
+
+.admin-kpi-value {
+    @apply mt-2 text-3xl font-semibold text-slate-900;
+}
+
+.admin-btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700;
+}
+
+.admin-btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50;
+}
+
+.admin-btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-100;
+}
+
+.admin-sidebar-link {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors duration-200 hover:bg-emerald-50 hover:text-emerald-700;
+}
+
+.admin-sidebar-link-active {
+    @apply bg-emerald-50 text-emerald-800 shadow-[inset_0_0_0_1px_rgba(16,185,129,0.16)];
+}
+
+.admin-sidebar-dot {
+    @apply inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-[10px] font-semibold tracking-wide text-slate-500;
+}
+
+.admin-sidebar-dot-active {
+    @apply border-emerald-200 bg-emerald-100 text-emerald-800;
+}
+
+.admin-alert-success {
+    @apply rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800;
+}
+
+.admin-alert-error {
+    @apply rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800;
+}
+
+.admin-table-wrap {
+    @apply overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm;
+}
+
+.admin-table-scroll {
+    @apply overflow-x-auto;
+}
+
+.admin-table {
+    @apply min-w-full text-sm;
+}
+
+.admin-table thead {
+    @apply bg-slate-50 text-slate-700;
+}
+
+.admin-table th {
+    @apply px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide;
+}
+
+.admin-table tbody {
+    @apply divide-y divide-slate-100;
+}
+
+.admin-table td {
+    @apply px-4 py-3 align-top;
+}
+
+.admin-pill {
+    @apply inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold;
+}

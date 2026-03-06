@@ -36,11 +36,10 @@
                 <div class="rounded-2xl border border-ink-100 bg-white p-5 sm:p-6">
                     <div class="flex gap-4">
                         <div class="h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-sage-100 flex items-center justify-center">
-                            @if ($product->cover_url ?? null)
-                                <img src="{{ $product->cover_url }}" alt="" class="h-full w-full object-cover">
-                            @else
-                                <i class="fas fa-music text-2xl text-sage-500"></i>
-                            @endif
+                            @php($productCover = $product->cover_url ?: asset('images/aga-full-choir.png'))
+                            <img src="{{ $productCover }}" alt="{{ $product->title }}"
+                                onerror="this.onerror=null;this.src='{{ asset('images/aga-full-choir.png') }}';"
+                                class="h-full w-full object-cover">
                         </div>
                         <div class="min-w-0 flex-1">
                             <p class="text-xs font-semibold text-sage-600 uppercase tracking-wider">{{ ucfirst($product->type ?? 'Product') }}</p>

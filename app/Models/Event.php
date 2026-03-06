@@ -37,13 +37,31 @@ class Event extends Model
             return null;
         }
 
-        $path = ltrim((string) $this->cover_image, '/');
+        $path = ltrim(trim((string) $this->cover_image), '/');
+        if ($path === '') {
+            return null;
+        }
+
         if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
             return $path;
         }
 
-        return str_starts_with($path, 'storage/')
-            ? asset($path)
-            : asset('storage/' . $path);
+        if (str_starts_with($path, 'public/')) {
+            $path = substr($path, 7);
+        }
+        if (str_starts_with($path, 'storage/')) {
+            $path = substr($path, 8);
+        }
+        if (str_starts_with($path, 'images/')) {
+            return asset($path);
+        }
+        if (
+            ! str_contains($path, '/')
+            && preg_match('/\.(jpg|jpeg|png|webp|gif|svg)$/i', $path)
+        ) {
+            return asset('images/' . $path);
+        }
+
+        return asset('storage/' . $path);
     }
 }

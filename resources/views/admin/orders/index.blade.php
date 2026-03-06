@@ -5,6 +5,7 @@
 
 @section('content')
     <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <h1 class="text-xl font-semibold text-slate-900">Orders</h1>
         <form method="GET" action="{{ route('admin.orders.index') }}" class="flex flex-wrap items-center gap-2">
             <label class="text-sm font-medium text-slate-600">Status</label>
             <select name="status" onchange="this.form.submit()"
@@ -17,45 +18,45 @@
         </form>
     </div>
 
-    <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <div class="overflow-x-auto">
-            <table class="min-w-full text-sm">
-                <thead class="bg-slate-50 text-slate-700">
+    <div class="admin-table-wrap">
+        <div class="admin-table-scroll">
+            <table class="admin-table">
+                <thead>
                     <tr>
-                        <th class="px-4 py-3 text-left">Order</th>
-                        <th class="px-4 py-3 text-left">Customer</th>
-                        <th class="px-4 py-3 text-left">Product</th>
-                        <th class="px-4 py-3 text-left">Qty</th>
-                        <th class="px-4 py-3 text-left">Total</th>
-                        <th class="px-4 py-3 text-left">Payment</th>
-                        <th class="px-4 py-3 text-left">Status</th>
-                        <th class="px-4 py-3 text-right">Actions</th>
+                        <th>Order</th>
+                        <th>Customer</th>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                        <th class="text-right">Actions</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-slate-100">
+                <tbody>
                     @forelse ($orders as $order)
                         <tr>
-                            <td class="px-4 py-3">
+                            <td>
                                 <span class="font-mono text-xs text-slate-500">#{{ $order->id }}</span>
                                 <div class="text-xs text-slate-500">{{ $order->created_at->format('M j, Y H:i') }}</div>
                             </td>
-                            <td class="px-4 py-3">
+                            <td>
                                 <div class="font-semibold text-slate-900">{{ $order->name }}</div>
                                 <div class="text-xs text-slate-500">{{ $order->phone ?? '—' }}</div>
                                 @if ($order->email)
                                     <div class="text-xs text-slate-500">{{ $order->email }}</div>
                                 @endif
                             </td>
-                            <td class="px-4 py-3">
+                            <td>
                                 <div class="font-medium text-slate-900">{{ $order->product?->title ?? '—' }}</div>
                             </td>
-                            <td class="px-4 py-3 text-slate-700">{{ $order->quantity }}</td>
-                            <td class="px-4 py-3 font-medium text-slate-900">{{ number_format($order->total_price) }} RWF
+                            <td class="text-slate-700">{{ $order->quantity }}</td>
+                            <td class="font-medium text-slate-900">{{ number_format($order->total_price) }} RWF
                             </td>
-                            <td class="px-4 py-3">
+                            <td>
                                 @if ($order->payment_provider)
                                     <span
-                                        class="rounded-full bg-amber-50 text-amber-700 border border-amber-200 px-2 py-1 text-xs font-semibold">{{ ucfirst($order->payment_provider) }}</span>
+                                        class="admin-pill border-amber-200 bg-amber-50 text-amber-700">{{ ucfirst($order->payment_provider) }}</span>
                                     @if ($order->payment_reference)
                                         <div class="text-xs text-slate-500 mt-1">
                                             {{ \Illuminate\Support\Str::limit($order->payment_reference, 12) }}</div>
@@ -64,7 +65,7 @@
                                     <span class="text-slate-400">—</span>
                                 @endif
                             </td>
-                            <td class="px-4 py-3">
+                            <td>
                                 <form action="{{ route('admin.orders.update', $order) }}" method="POST" class="inline">
                                     @csrf
                                     @method('PUT')
@@ -78,7 +79,7 @@
                                     <input type="hidden" name="notes" value="{{ $order->notes }}">
                                 </form>
                             </td>
-                            <td class="px-4 py-3 text-right">
+                            <td class="text-right">
                                 <form action="{{ route('admin.orders.destroy', $order) }}" method="POST" class="inline"
                                     onsubmit="return confirm('Delete this order?');">
                                     @csrf
@@ -90,7 +91,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="8" class="px-4 py-8 text-center text-slate-500">No orders yet.</td>
+                            <td colspan="8" class="py-10 text-center text-slate-500">No orders yet.</td>
                         </tr>
                     @endforelse
                 </tbody>

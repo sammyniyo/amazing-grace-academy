@@ -37,7 +37,7 @@ class ProductController extends Controller
             'price' => 'required|integer|min:0',
             'is_active' => 'nullable|boolean',
             'description' => 'nullable|string',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
         ]);
 
         $data['slug'] = $data['slug'] ?: Str::slug($data['title']);
@@ -62,16 +62,19 @@ class ProductController extends Controller
             'price' => 'required|integer|min:0',
             'is_active' => 'nullable|boolean',
             'description' => 'nullable|string',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
         ]);
 
         $data['is_active'] = $request->boolean('is_active');
 
         if ($request->hasFile('cover_image')) {
-            if ($product->cover_image) {
-                Storage::disk('public')->delete($product->cover_image);
+            $oldCover = $product->cover_image;
+            $newCover = $request->file('cover_image')->store('products/covers', 'public');
+            $data['cover_image'] = $newCover;
+
+            if ($oldCover && $oldCover !== $newCover) {
+                Storage::disk('public')->delete($oldCover);
             }
-            $data['cover_image'] = $request->file('cover_image')->store('products/covers', 'public');
         }
 
         $product->update($data);

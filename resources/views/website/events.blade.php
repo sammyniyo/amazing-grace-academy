@@ -83,12 +83,12 @@
                         <div
                             class="reveal soft-card overflow-hidden group hover:shadow-card-hover transition-all duration-300">
                             <div class="h-40 w-full relative overflow-hidden bg-gradient-to-br from-sage-100 via-cream-50 to-gold-100">
-                                @if ($event->cover_url)
-                                    <img src="{{ $event->cover_url }}" alt="{{ $event->title }}"
-                                        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                        loading="lazy">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent"></div>
-                                @endif
+                                @php($eventCover = $event->cover_url ?: asset('images/aga-choir-group.png'))
+                                <img src="{{ $eventCover }}" alt="{{ $event->title }}"
+                                    onerror="this.onerror=null;this.src='{{ asset('images/aga-choir-group.png') }}';"
+                                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    loading="lazy">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent"></div>
                                 <div class="absolute left-4 top-4 rounded-lg bg-white/90 px-3 py-2 text-center shadow-sm">
                                     @if ($event->event_date)
                                         <span
@@ -160,11 +160,11 @@
                     @foreach ($pastEvents as $event)
                         <div class="reveal soft-card overflow-hidden opacity-90">
                             <div class="h-32 w-full relative overflow-hidden bg-gradient-to-br from-ink-100 via-ink-50 to-ink-100">
-                                @if ($event->cover_url)
-                                    <img src="{{ $event->cover_url }}" alt="{{ $event->title }}"
-                                        class="h-full w-full object-cover" loading="lazy">
-                                    <div class="absolute inset-0 bg-black/35"></div>
-                                @endif
+                                @php($eventCover = $event->cover_url ?: asset('images/aga-choir-group.png'))
+                                <img src="{{ $eventCover }}" alt="{{ $event->title }}"
+                                    onerror="this.onerror=null;this.src='{{ asset('images/aga-choir-group.png') }}';"
+                                    class="h-full w-full object-cover" loading="lazy">
+                                <div class="absolute inset-0 bg-black/35"></div>
                                 <div class="absolute left-4 top-4 rounded-lg bg-white/90 px-3 py-1.5 text-center shadow-sm">
                                     @if ($event->event_date)
                                         <span
