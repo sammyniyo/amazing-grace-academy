@@ -29,6 +29,7 @@ Route::middleware('cache.public')->group(function () {
     Route::get('/events', [WebsiteController::class, 'events'])->name('events');
     Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
     Route::get('/leaders', [WebsiteController::class, 'leaders'])->name('leaders');
+    Route::get('/team', [WebsiteController::class, 'team'])->name('team');
     Route::get('/register', [WebsiteController::class, 'register'])->name('register');
     Route::get('/register/thank-you', [WebsiteController::class, 'registerThankYou'])->name('register.thankyou');
     Route::get('/support', [WebsiteController::class, 'support'])->name('support');

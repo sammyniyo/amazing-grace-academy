@@ -69,6 +69,7 @@ class WebsiteController extends Controller
 
     public function contact()  { return view('website.contact'); }
     public function leaders()  { return view('website.leaders'); }
+    public function team()     { return view('website.team'); }
     public function register()
     {
         $cohorts = Cache::remember('website.register_cohorts', self::LIST_CACHE_TTL, function () {

@@ -62,6 +62,7 @@
                     <nav class="hidden md:flex items-center gap-1 ui-pill-nav" id="main-nav">
                         <a href="{{ route('home') }}" class="{{ $pillLink(request()->routeIs('home')) }}" data-section="home">Home</a>
                         <a href="{{ route('about') }}" class="{{ $pillLink(request()->routeIs('about')) }}">About</a>
+                        <a href="{{ route('team') }}" class="{{ $pillLink(request()->routeIs('team')) }}">Team</a>
                         <a href="{{ route('programs') }}" class="{{ $pillLink(request()->routeIs('programs')) }}" data-section="programs">Programs</a>
                         <a href="{{ route('events') }}" class="{{ $pillLink(request()->routeIs('events')) }}" data-section="events">Events</a>
                         <a href="{{ route('songs') }}" class="{{ $pillLink(request()->routeIs('songs')) }}" data-section="music-shop">Shop</a>
@@ -119,6 +120,8 @@
                         class="{{ $pillLink(request()->routeIs('home')) }}">Home</a>
                     <a href="{{ route('about') }}" @click="open = false"
                         class="{{ $pillLink(request()->routeIs('about')) }}">About</a>
+                    <a href="{{ route('team') }}" @click="open = false"
+                        class="{{ $pillLink(request()->routeIs('team')) }}">Team</a>
                     <a href="{{ route('programs') }}" @click="open = false"
                         class="{{ $pillLink(request()->routeIs('programs')) }}">Programs</a>
                     <a href="{{ route('events') }}" @click="open = false"
@@ -208,6 +211,7 @@
                 class="mt-6 pt-6 border-t border-ink-100 flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2 text-sm">
                 <a href="{{ route('home') }}" class="text-ink-600 hover:text-sage-600 transition-colors">Home</a>
                 <a href="{{ route('about') }}" class="text-ink-600 hover:text-sage-600 transition-colors">About</a>
+                <a href="{{ route('team') }}" class="text-ink-600 hover:text-sage-600 transition-colors">Team</a>
                 <a href="{{ route('programs') }}"
                     class="text-ink-600 hover:text-sage-600 transition-colors">Programs</a>
                 <a href="{{ route('events') }}" class="text-ink-600 hover:text-sage-600 transition-colors">Events</a>
