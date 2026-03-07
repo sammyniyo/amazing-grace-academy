@@ -11,9 +11,7 @@
                 'teams' => [
                     [
                         'name' => 'Chairman',
-                        'members' => [
-                            ['role' => 'Chairman', 'name' => 'Ephrem TUGANIMANA'],
-                        ],
+                        'members' => [['role' => 'Chairman', 'name' => 'Ephrem TUGANIMANA']],
                     ],
                     [
                         'name' => 'AGA Head',
@@ -52,37 +50,39 @@
                     [
                         'name' => 'Coach',
                         'members' => [
-                            ['role' => 'Coach', 'name' => 'Muhayimana Gerald'],
+                            ['role' => 'Coach', 'name' => 'Enoch NDAYISHIMYE'],
+                            ['role' => 'Assistant Coach', 'name' => 'Peace Robert ISHIMWE'],
+                            ['role' => 'Assistant Coach', 'name' => 'Schimei IRATWUMVA'],
                         ],
                     ],
                     [
                         'name' => 'AGA Development',
                         'members' => [
                             ['role' => 'Leader', 'name' => 'NDATIMANA Emmanuel'],
-                            ['role' => 'Leader', 'name' => 'Simeon NIYOYITA'],
+                            ['role' => 'Assistant Leader', 'name' => 'Simeon NIYOYITA'],
                         ],
                     ],
                     [
                         'name' => 'Discipline & Spiritualism',
                         'members' => [
                             ['role' => 'Leader', 'name' => 'Isaac HITIMANA'],
-                            ['role' => 'Leader', 'name' => 'Francine UWIMBABAZI'],
-                            ['role' => 'Leader', 'name' => 'Telesphore UWABERA'],
+                            ['role' => 'Assistant Leader', 'name' => 'Francine UWIMBABAZI'],
+                            ['role' => 'Assistant Leader', 'name' => 'Telesphore UWABERA'],
                         ],
                     ],
                     [
                         'name' => 'Fellowship',
                         'members' => [
                             ['role' => 'Leader', 'name' => 'UWUMUTIMA DM Heureuse'],
-                            ['role' => 'Leader', 'name' => 'MWONGEREZA Bernice'],
-                            ['role' => 'Leader', 'name' => 'Keren ISHIMWE'],
+                            ['role' => 'Assistant Leader', 'name' => 'MWONGEREZA Bernice'],
+                            ['role' => 'Assistant Leader', 'name' => 'Keren ISHIMWE'],
                         ],
                     ],
                     [
                         'name' => 'Communication',
                         'members' => [
                             ['role' => 'Leader', 'name' => 'NDANYUZWE CYIZA Alexandre'],
-                            ['role' => 'Leader', 'name' => 'Dewelly Daniella MUTIMUTUJE'],
+                            ['role' => 'Assistant Leader', 'name' => 'Dewelly Daniella MUTIMUTUJE'],
                         ],
                     ],
                     [
@@ -108,15 +108,11 @@
                     ],
                     [
                         'name' => 'AGA Teaching Department',
-                        'members' => [
-                            ['role' => 'Director', 'name' => 'Enock UWIRINGIYIMANA'],
-                        ],
+                        'members' => [['role' => 'Director', 'name' => 'Enock UWIRINGIYIMANA']],
                     ],
                     [
                         'name' => 'AGA Chief Instrumentalist',
-                        'members' => [
-                            ['role' => 'Chief', 'name' => 'Schimei IRATWUMVA'],
-                        ],
+                        'members' => [['role' => 'Chief', 'name' => 'Schimei IRATWUMVA']],
                     ],
                     [
                         'name' => 'Kits Management',
@@ -146,18 +142,16 @@
             ],
         ];
 
-        $teamsCount = collect($teamSections)
-            ->flatMap(fn ($section) => $section['teams'])
-            ->count();
+        $teamsCount = collect($teamSections)->flatMap(fn($section) => $section['teams'])->count();
 
         $membersCount = collect($teamSections)
-            ->flatMap(fn ($section) => $section['teams'])
-            ->flatMap(fn ($team) => $team['members'])
+            ->flatMap(fn($section) => $section['teams'])
+            ->flatMap(fn($team) => $team['members'])
             ->count();
 
         $uniquePeopleCount = collect($teamSections)
-            ->flatMap(fn ($section) => $section['teams'])
-            ->flatMap(fn ($team) => $team['members'])
+            ->flatMap(fn($section) => $section['teams'])
+            ->flatMap(fn($team) => $team['members'])
             ->pluck('name')
             ->unique()
             ->count();
@@ -172,7 +166,8 @@
                         <span class="pill bg-white border border-gold-200 text-amber-700">Nominating Committee</span>
                     </div>
 
-                    <h1 class="mt-4 text-3xl sm:text-4xl lg:text-[2.7rem] font-semibold tracking-tight text-slate-900 leading-tight">
+                    <h1
+                        class="mt-4 text-3xl sm:text-4xl lg:text-[2.7rem] font-semibold tracking-tight text-slate-900 leading-tight">
                         Leadership and department teams in one place
                     </h1>
 
@@ -240,7 +235,8 @@
                                             ->implode('');
                                         $initials = $initials !== '' ? $initials : 'NA';
                                     @endphp
-                                    <div class="flex items-center gap-3 rounded-xl border border-slate-100 bg-slate-50/70 px-3 py-2">
+                                    <div
+                                        class="flex items-center gap-3 rounded-xl border border-slate-100 bg-slate-50/70 px-3 py-2">
                                         <div
                                             class="h-9 w-9 shrink-0 rounded-full border border-sage-200 bg-white text-[11px] font-semibold text-sage-700 grid place-items-center">
                                             {{ $initials }}
